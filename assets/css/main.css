@@ -1,0 +1,23 @@
+@import "tailwindcss";
+@source "../**/*.php";
+
+@font-face {
+  font-family: AntonSC;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/AntonSC-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: PlusJakartaSans;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/PlusJakartaSans-Regular.ttf") format("truetype");
+}
+
+@theme {
+    --font-anton: "AntonSC", sans-serif;
+    --font-jakarta: "PlusJakartaSans", sans-serif; 
+}

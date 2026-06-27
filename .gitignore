@@ -1,0 +1,8 @@
+# SO generates files
+.DS_Store
+
+# Node modules
+/node_modules/
+
+# Builded files
+/assets/dist/

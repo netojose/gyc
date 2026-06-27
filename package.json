@@ -1,0 +1,25 @@
+{
+  "name": "gyc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "js:watch": "npx esbuild ./assets/js/main.js --bundle --outfile=./assets/dist/main.js --platform=browser --format=iife --watch",
+    "css:watch": "npx @tailwindcss/cli -i ./assets/css/main.css -o ./assets/dist/main.css --watch",
+    "build": "npx esbuild ./assets/js/main.js --bundle --outfile=./assets/dist/main.js --platform=browser --format=iife --minify && npx @tailwindcss/cli -i ./assets/css/main.css -o ./assets/dist/main.css --minify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.1",
+    "autoprefixer": "^10.5.2",
+    "esbuild": "^0.28.1",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^4.3.1"
+  },
+  "dependencies": {
+    "alpinejs": "^3.15.12"
+  }
+}
