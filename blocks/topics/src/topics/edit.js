@@ -1,3 +1,8 @@
+import { TextControl, Button } from '@wordpress/components';
+import { Text } from '@wordpress/ui';
+
+// import '@wordpress/components/build-style/style.css';
+
 /**
  * Retrieves the translation of text.
  *
@@ -29,13 +34,24 @@ import './editor.scss';
  *
  * @return {Element} Element to render.
  */
-export default function Edit() {
+export default function Edit({ attributes, setAttributes }) {
+	const { title } = attributes;
+
 	return (
-		<p { ...useBlockProps() }>
-			{ __(
-				'Topics – hello from the editor!',
-				'topics'
-			) }
-		</p>
+		<div { ...useBlockProps() }>
+			<Text variant="heading-xl" render={ <h1 /> }>
+			Topics
+			</Text>
+
+			<Button className="is-primary">
+				Button
+			</Button>
+
+			<TextControl
+                label="Title"
+                value={ title || '' }
+                onChange={ ( newValue ) => setAttributes( { title: newValue } ) }
+            />
+		</div>
 	);
 }

@@ -9,9 +9,6 @@ class GycEvent
     public function __construct()
     {
         add_action('init', array($this, 'setup_post_type'), 0);
-        add_action('init', array($this, 'register_blocks'));
-
-        add_filter('allowed_block_types_all', array($this, 'allowed_block_types'), 10, 2);
     }
 
     public function setup_post_type()
@@ -68,30 +65,5 @@ class GycEvent
         );
 
         register_post_type('event', $args);
-    }
-
-    public function register_blocks()
-    {
-        register_block_type(get_template_directory() . '/blocks/topics/build/topics/block.json', array('icon' => 'editor-ul'));
-        register_block_type(get_template_directory() . '/blocks/agenda/build/agenda/block.json', array('icon' => 'calendar'));
-        register_block_type(get_template_directory() . '/blocks/people/build/people/block.json', array('icon' => 'admin-users'));
-        register_block_type(get_template_directory() . '/blocks/pricing-table/build/pricing-table/block.json', array('icon' => 'tickets'));
-    }
-
-    public function allowed_block_types($allowed_blocks, $editor_context)
-    {
-        if (
-            ! empty($editor_context->post) &&
-            $editor_context->post->post_type === 'event'
-        ) {
-            return [
-                'gyc/topics',
-                'gyc/agenda',
-                'gyc/people',
-                'gyc/pricing-table',
-            ];
-        }
-
-        return $allowed_blocks;
     }
 }
