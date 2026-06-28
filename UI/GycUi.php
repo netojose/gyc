@@ -11,6 +11,7 @@ class GycUi
         $this->remove_emojis();
 
         add_action('wp_enqueue_scripts', array($this, 'enqueue_assets'));
+        add_action('current_screen', array($this, 'editor_setup_ui'));
     }
 
     public function remove_emojis()
@@ -48,5 +49,17 @@ class GycUi
             '1.0.0',
             true
         );
+    }
+
+    public function editor_setup_ui()
+    {
+        $screen = get_current_screen();
+
+        if (! $screen || $screen->post_type !== 'event' || $screen->base !== 'post') {
+            return;
+        }
+
+        add_theme_support('editor-styles');
+        add_editor_style('assets/css/editor-style.css');
     }
 }
