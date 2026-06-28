@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/agenda",
+	"version": "0.1.0",
+	"title": "Agenda",
+	"category": "widgets",
+	"icon": "calendar",
+	"description": "Example block scaffolded with Create Block tool.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false,
+		"color": {
+			"background": true
+		}
+	},
+	"textdomain": "gyc/agenda",
+	"editorScript": "file:../../build/agenda.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

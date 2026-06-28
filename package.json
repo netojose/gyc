@@ -1,25 +1,36 @@
 {
-  "name": "gyc",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "js:watch": "npx esbuild ./assets/js/main.js --bundle --outfile=./assets/dist/main.js --platform=browser --format=iife --watch",
-    "css:watch": "npx @tailwindcss/cli -i ./assets/css/main.css -o ./assets/dist/main.css --watch",
-    "build": "npx esbuild ./assets/js/main.js --bundle --outfile=./assets/dist/main.js --platform=browser --format=iife --minify && npx @tailwindcss/cli -i ./assets/css/main.css -o ./assets/dist/main.css --minify"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "devDependencies": {
-    "@tailwindcss/cli": "^4.3.1",
-    "autoprefixer": "^10.5.2",
-    "esbuild": "^0.28.1",
-    "postcss": "^8.5.15",
-    "tailwindcss": "^4.3.1"
-  },
-  "dependencies": {
-    "alpinejs": "^3.15.12"
-  }
+	"name": "gyc2",
+	"version": "1.0.0",
+	"description": "GYC WordPress Theme",
+	"author": "José Neto",
+	"license": "GPL-2.0-or-later",
+	"keywords": [
+		"WordPress",
+		"Theme"
+	],
+	"bugs": {
+		"url": "https://github.com/joseneto/gyc2/issues"
+	},
+	"homepage": "https://github.com/joseneto/gyc2",
+	"engines": {
+		"node": ">=20.10.0",
+		"npm": ">=10.2.3"
+	},
+	"devDependencies": {
+		"@wordpress/browserslist-config": "^6.34.0",
+		"@wordpress/scripts": "^32.5.0",
+		"cssnano": "^7.1.2",
+		"postcss": "^8.5.6",
+		"postcss-cli": "^11.0.1",
+		"vite": "^8.1.0"
+	},
+	"browserslist": [
+		"extends @wordpress/browserslist-config"
+	],
+	"scripts": {
+		"build:blocks": "wp-scripts build blocks/*",
+		"start:blocks": "wp-scripts start blocks/*",
+		"build": "postcss style.css --use cssnano -o style.min.css --no-map",
+		"watch": "postcss style.css --use cssnano -o style.min.css --no-map --watch"
+	}
 }

@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/pricing-table",
+	"version": "0.1.0",
+	"title": "Pricing Table",
+	"category": "widgets",
+	"icon": "tickets",
+	"description": "Example block scaffolded with Create Block tool.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false,
+		"color": {
+			"background": true
+		}
+	},
+	"textdomain": "gyc/pricing-table",
+	"editorScript": "file:../../build/pricing-table.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

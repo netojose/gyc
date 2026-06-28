@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/people",
+	"version": "0.1.0",
+	"title": "People",
+	"category": "widgets",
+	"icon": "admin-users",
+	"description": "Example block scaffolded with Create Block tool.",
+	"example": {},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false,
+		"color": {
+			"background": true
+		}
+	},
+	"textdomain": "gyc/people",
+	"editorScript": "file:../../build/people.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}
