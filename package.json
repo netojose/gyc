@@ -1,5 +1,5 @@
 {
-	"name": "gyc2",
+	"name": "gyc",
 	"version": "1.0.0",
 	"description": "GYC WordPress Theme",
 	"author": "José Neto",
@@ -9,9 +9,9 @@
 		"Theme"
 	],
 	"bugs": {
-		"url": "https://github.com/joseneto/gyc2/issues"
+		"url": "https://github.com/joseneto/gyc/issues"
 	},
-	"homepage": "https://github.com/joseneto/gyc2",
+	"homepage": "https://github.com/joseneto/gyc",
 	"engines": {
 		"node": ">=20.10.0",
 		"npm": ">=10.2.3"
