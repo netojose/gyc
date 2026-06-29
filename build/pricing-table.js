@@ -2,10 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./blocks/pricing-table/edit.jsx"
-/*!***************************************!*\
-  !*** ./blocks/pricing-table/edit.jsx ***!
-  \***************************************/
+/***/ "./blocks/pricing-table/edit.js"
+/*!**************************************!*\
+  !*** ./blocks/pricing-table/edit.js ***!
+  \**************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -72,18 +72,18 @@ function Edit({
 
 /***/ },
 
-/***/ "./blocks/pricing-table/index.jsx"
-/*!****************************************!*\
-  !*** ./blocks/pricing-table/index.jsx ***!
-  \****************************************/
+/***/ "./blocks/pricing-table/index.js"
+/*!***************************************!*\
+  !*** ./blocks/pricing-table/index.js ***!
+  \***************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./blocks/pricing-table/style.scss");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./blocks/pricing-table/edit.jsx");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./blocks/pricing-table/save.jsx");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./blocks/pricing-table/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./blocks/pricing-table/save.js");
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./blocks/pricing-table/block.json");
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
@@ -126,10 +126,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ },
 
-/***/ "./blocks/pricing-table/save.jsx"
-/*!***************************************!*\
-  !*** ./blocks/pricing-table/save.jsx ***!
-  \***************************************/
+/***/ "./blocks/pricing-table/save.js"
+/*!**************************************!*\
+  !*** ./blocks/pricing-table/save.js ***!
+  \**************************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -1404,7 +1404,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	let __webpack_exports__ = __webpack_require__.O(undefined, ["./style-pricing-table"], () => (__webpack_require__("./blocks/pricing-table/index.jsx")))
+/******/ 	let __webpack_exports__ = __webpack_require__.O(undefined, ["./style-pricing-table"], () => (__webpack_require__("./blocks/pricing-table/index.js")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

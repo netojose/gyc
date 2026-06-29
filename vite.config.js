@@ -8,6 +8,9 @@ export default defineConfig({
                 agenda: 'blocks/agenda/index.js',
                 people: 'blocks/people/index.js',
                 pricingTable: 'blocks/pricing-table/index.js',
+            },
+            output: {
+                dir: 'build'
             }
         }
     }

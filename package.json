@@ -9,18 +9,22 @@
 		"Theme"
 	],
 	"bugs": {
-		"url": "https://github.com/joseneto/gyc/issues"
+		"url": "https://github.com/netojose/gyc/issues"
 	},
-	"homepage": "https://github.com/joseneto/gyc",
+	"homepage": "https://github.com/netojose/gyc",
 	"engines": {
 		"node": ">=20.10.0",
 		"npm": ">=10.2.3"
 	},
+	"dependencies": {
+		"@tailwindcss/cli": "^4.3.1",
+		"alpinejs": "^3.15.12",
+		"tailwindcss": "^4.3.1"
+	},
 	"devDependencies": {
 		"@wordpress/browserslist-config": "^6.34.0",
 		"@wordpress/scripts": "^32.5.0",
-		"cssnano": "^7.1.2",
-		"postcss": "^8.5.6",
+		"@wordpress/ui": "^0.16.0",
 		"postcss-cli": "^11.0.1",
 		"vite": "^8.1.0"
 	},
@@ -28,9 +32,11 @@
 		"extends @wordpress/browserslist-config"
 	],
 	"scripts": {
-		"build:blocks": "wp-scripts build blocks/*",
 		"start:blocks": "wp-scripts start blocks/*",
-		"build": "postcss style.css --use cssnano -o style.min.css --no-map",
-		"watch": "postcss style.css --use cssnano -o style.min.css --no-map --watch"
+		"build:blocks": "wp-scripts build blocks/*",
+		"start:theme": "npx @tailwindcss/cli -i ./assets/css/app.css -o ./build/styles.css --watch",
+		"build:theme": "npx @tailwindcss/cli -i ./assets/css/app.css -o ./build/styles.css --minify",
+		"start:js": "npx esbuild assets/js/app.js --bundle --outfile=build-site/app.js --format=esm --watch",
+		"build:js": "npx esbuild assets/js/app.js --bundle --outfile=build-site/app.js --format=esm --minify"
 	}
 }

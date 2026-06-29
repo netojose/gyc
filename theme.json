@@ -104,32 +104,32 @@
 			],
 			"fontFamilies": [
 				{
-					"name": "Manrope",
-					"slug": "manrope",
-					"fontFamily": "Manrope, sans-serif",
+					"name": "AntonSC",
+					"slug": "anton-sc",
+					"fontFamily": "AntonSC, sans-serif",
 					"fontFace": [
 						{
 							"src": [
-								"file:./assets/fonts/manrope/Manrope-VariableFont_wght.woff2"
+								"file:./assets/fonts/anton-sc/AntonSC-Regular.ttf"
 							],
-							"fontWeight": "200 800",
+							"fontWeight": "400",
 							"fontStyle": "normal",
-							"fontFamily": "Manrope"
+							"fontFamily": "AntonSC, sans-serif"
 						}
 					]
 				},
 				{
-					"name": "Fira Code",
-					"slug": "fira-code",
-					"fontFamily": "\"Fira Code\", monospace",
+					"name": "PlusJakartaSans",
+					"slug": "plus-jakarta-sans",
+					"fontFamily": "PlusJakartaSans, sans-serif",
 					"fontFace": [
 						{
 							"src": [
-								"file:./assets/fonts/fira-code/FiraCode-VariableFont_wght.woff2"
+								"file:./assets/fonts/plus-jakarta-sans/PlusJakartaSans-Regular.ttf"
 							],
-							"fontWeight": "300 700",
+							"fontWeight": "400",
 							"fontStyle": "normal",
-							"fontFamily": "\"Fira Code\""
+							"fontFamily": "PlusJakartaSans, sans-serif"
 						}
 					]
 				}

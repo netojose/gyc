@@ -2,10 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./blocks/people/edit.jsx"
-/*!********************************!*\
-  !*** ./blocks/people/edit.jsx ***!
-  \********************************/
+/***/ "./blocks/people/edit.js"
+/*!*******************************!*\
+  !*** ./blocks/people/edit.js ***!
+  \*******************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -72,18 +72,18 @@ function Edit({
 
 /***/ },
 
-/***/ "./blocks/people/index.jsx"
-/*!*********************************!*\
-  !*** ./blocks/people/index.jsx ***!
-  \*********************************/
+/***/ "./blocks/people/index.js"
+/*!********************************!*\
+  !*** ./blocks/people/index.js ***!
+  \********************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _style_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./style.scss */ "./blocks/people/style.scss");
-/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./blocks/people/edit.jsx");
-/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./blocks/people/save.jsx");
+/* harmony import */ var _edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./edit */ "./blocks/people/edit.js");
+/* harmony import */ var _save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./save */ "./blocks/people/save.js");
 /* harmony import */ var _block_json__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./block.json */ "./blocks/people/block.json");
 /**
  * Registers a new block provided a unique name and an object defining its behavior.
@@ -126,10 +126,10 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ },
 
-/***/ "./blocks/people/save.jsx"
-/*!********************************!*\
-  !*** ./blocks/people/save.jsx ***!
-  \********************************/
+/***/ "./blocks/people/save.js"
+/*!*******************************!*\
+  !*** ./blocks/people/save.js ***!
+  \*******************************/
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 __webpack_require__.r(__webpack_exports__);
@@ -1404,7 +1404,7 @@ module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/tru
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	let __webpack_exports__ = __webpack_require__.O(undefined, ["./style-people"], () => (__webpack_require__("./blocks/people/index.jsx")))
+/******/ 	let __webpack_exports__ = __webpack_require__.O(undefined, ["./style-people"], () => (__webpack_require__("./blocks/people/index.js")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
