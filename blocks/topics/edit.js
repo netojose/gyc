@@ -1,4 +1,15 @@
-import { TextControl, Button } from '@wordpress/components';
+import {
+    TextControl,
+    TextareaControl,
+    Card,
+    CardBody,
+	CardHeader,
+    Panel,
+    PanelBody,
+    PanelHeader,
+    PanelRow,
+    Button
+} from '@wordpress/components';
 import { Text } from '@wordpress/ui';
 
 /**
@@ -33,23 +44,89 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-    const { title } = attributes;
+    const { title, headline, text, items } = attributes;
 
     return (
         <div { ...useBlockProps() }>
-            <Text render={ <h2 /> }>
-            Topics
-            </Text>
+            <Card>
+                <CardHeader>
+                    Topics
+                </CardHeader>
+                <CardBody>
+                    <div className="gyc-topics-fields-wrapper">
+                        <TextControl
+                            label="Title"
+                            value={ title || '' }
+                            onChange={ ( newValue ) => setAttributes( { title: newValue } ) }
+                        />
+                        <TextControl
+                            label="Headline"
+                            value={ headline || '' }
+                            onChange={ ( newValue ) => setAttributes( { headline: newValue } ) }
+                        />
+                        <TextareaControl
+                            label="Text"
+                            rows={8}
+                            value={ text || '' }
+                            onChange={ ( newValue ) => setAttributes( { text: newValue } ) }
+                        />
 
-            <Button className="is-primary">
-                Button
-            </Button>
-
-            <TextControl
-                label="Title"
-                value={ title || '' }
-                onChange={ ( newValue ) => setAttributes( { title: newValue } ) }
-            />
+                        <Panel>
+                            <PanelHeader>
+                                Items
+                            </PanelHeader>
+                            <PanelBody>
+                                {items.map(item => (
+                                    <PanelRow key={item.id}>
+                                        <div className="gyc-topics-fields-wrapper">
+                                            <TextControl
+                                                label="Title"
+                                                value={ item.title || '' }
+                                                onChange={ ( newValue ) => {
+                                                    const newItems = items.map(i => i.id === item.id ? { ...i, title: newValue } : i);
+                                                    setAttributes({ items: newItems });
+                                                } }
+                                            />
+                                            <TextareaControl
+                                                label="Text"
+                                                rows={3}
+                                                value={ item.text || '' }
+                                                onChange={ ( newValue ) => {
+                                                    const newItems = items.map(i => i.id === item.id ? { ...i, text: newValue } : i);
+                                                    setAttributes({ items: newItems });
+                                                } }
+                                            />
+                                            <div>
+                                                <Button
+                                                    size="small"
+                                                    variant="outline"
+                                                    className="is-secondary is-destructive"
+                                                    onClick={ () => {
+                                                        const newItems = items.filter(i => i.id !== item.id);
+                                                        setAttributes({ items: newItems });
+                                                    } }
+                                                >
+                                                    Remove Topic
+                                                </Button>
+                                            </div>
+                                            <hr className="gyc-topics-separator" />
+                                        </div>
+                                    </PanelRow>
+                                ))}
+                                <Button
+                                    isPrimary
+                                    onClick={ () => {
+                                        const newItem = { id: Date.now(), title: '', text: '' };
+                                        setAttributes({ items: [...items, newItem] });
+                                    } }
+                                >
+                                    Add Topic
+                                </Button>
+                            </PanelBody>
+                        </Panel>
+                    </div>
+                </CardBody>
+            </Card>
         </div>
     );
 }

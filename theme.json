@@ -9,6 +9,36 @@
 			"defaultPalette": false,
 			"palette": [
 				{
+					"color": "#2d1b33",
+					"name": "Primary",
+					"slug": "primary"
+				},
+				{
+					"color": "#fffdf0",
+					"name": "Secondary",
+					"slug": "secondary"
+				},
+				{
+					"color": "oklch(70.7% 0.022 261.325)",
+					"name": "Tertiary",
+					"slug": "tertiary"
+				},
+				{
+					"color": "#3C2D3D",
+					"name": "Accent",
+					"slug": "accent"
+				},
+				{
+					"color": "#F4F1E6",
+					"name": "Accent 2",
+					"slug": "accent-2"
+				},
+				{
+					"color": "#5ce1ca",
+					"name": "Inverse",
+					"slug": "inverse"
+				},
+				{
 					"color": "#FFFFFF",
 					"name": "Base",
 					"slug": "base"
@@ -51,7 +81,7 @@
 			]
 		},
 		"layout": {
-			"contentSize": "645px",
+			"contentSize": "845px",
 			"wideSize": "1340px"
 		},
 		"typography": {

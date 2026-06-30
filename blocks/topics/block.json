@@ -6,16 +6,45 @@
 	"title": "Topics",
 	"category": "widgets",
 	"icon": "editor-ul",
-	"description": "Example block scaffolded with Create Block tool.",
+	"description": "Topics block",
 	"example": {},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": ""
+		},
+		"headline": {
+			"type": "string",
+			"default": ""
+		},
+		"text": {
+			"type": "string",
+			"default": ""
+		},
+		"items": {
+            "type": "array",
+            "default": [],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"title": {
+						"type": "string"
+					},
+					"text": {
+						"type": "string"
+					}
+				}
+			}
+        }
+	},
 	"supports": {
 		"html": false,
 		"anchor": false,
 		"customClassName": false,
-		"customCSS": false,
-		"color": {
-			"background": true
-		}
+		"customCSS": false
 	},
 	"textdomain": "gyc/topics",
 	"editorScript": "file:../../build/topics.js",
