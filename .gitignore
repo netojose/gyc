@@ -1,5 +1,9 @@
 # SO generates files
 .DS_Store
 
+# Build
+/build/
+/build-site/
+
 # Node modules
 /node_modules/

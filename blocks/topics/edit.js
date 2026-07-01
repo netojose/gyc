@@ -1,9 +1,6 @@
 import {
     TextControl,
     TextareaControl,
-    Card,
-    CardBody,
-	CardHeader,
     Panel,
     PanelBody,
     PanelHeader,
@@ -48,11 +45,8 @@ export default function Edit({ attributes, setAttributes }) {
 
     return (
         <div { ...useBlockProps() }>
-            <Card>
-                <CardHeader>
-                    Topics
-                </CardHeader>
-                <CardBody>
+            <Panel>
+                <PanelBody initialOpen={false} title="Topics">
                     <div className="gyc-topics-fields-wrapper">
                         <TextControl
                             label="Title"
@@ -125,8 +119,8 @@ export default function Edit({ attributes, setAttributes }) {
                             </PanelBody>
                         </Panel>
                     </div>
-                </CardBody>
-            </Card>
+                </PanelBody>
+            </Panel>
         </div>
     );
 }
