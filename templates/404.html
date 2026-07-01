@@ -1,7 +1,44 @@
-<!-- wp:template-part {"slug":"header"} /-->
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 
-<main class="wp-block-group" style="padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">
-	Page not found. Please check the URL or return to the <a href="/">homepage</a>.
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}}},"layout":{"type":"constrained","contentSize":"900px"}} -->
+<main class="wp-block-group" style="padding-top:var(--wp--preset--spacing--80);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--80);padding-left:var(--wp--preset--spacing--50)">
+	<!-- wp:group {"align":"wide","style":{"border":{"radius":"24px"},"spacing":{"padding":{"top":"48px","right":"32px","bottom":"48px","left":"32px"},"blockGap":"20px"},"color":{"background":"#fff9ec"}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignwide has-background" style="border-radius:24px;background-color:#fff9ec;padding-top:48px;padding-right:32px;padding-bottom:48px;padding-left:32px">
+		<!-- wp:html -->
+		<div style="display:flex;justify-content:center;">
+			<svg width="260" height="180" viewBox="0 0 260 180" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fun lost in space illustration">
+				<rect x="20" y="18" width="220" height="144" rx="22" fill="#2d1b33"/>
+				<circle cx="62" cy="58" r="6" fill="#85F6D7"/>
+				<circle cx="196" cy="48" r="5" fill="#ffd166"/>
+				<circle cx="208" cy="84" r="3" fill="#ef476f"/>
+				<path d="M78 122C78 101.013 95.0132 84 116 84H144C164.987 84 182 101.013 182 122V130H78V122Z" fill="#fffdf0"/>
+				<circle cx="116" cy="78" r="16" fill="#fffdf0"/>
+				<circle cx="144" cy="78" r="16" fill="#fffdf0"/>
+				<circle cx="111" cy="76" r="3" fill="#2d1b33"/>
+				<circle cx="149" cy="76" r="3" fill="#2d1b33"/>
+				<path d="M122 93C126.5 96.5 133.5 96.5 138 93" stroke="#2d1b33" stroke-width="3" stroke-linecap="round"/>
+				<text x="130" y="154" text-anchor="middle" fill="#85F6D7" font-size="32" font-weight="700">404</text>
+			</svg>
+		</div>
+		<!-- /wp:html -->
+
+		<!-- wp:heading {"textAlign":"center","level":1,"style":{"typography":{"fontSize":"clamp(2.2rem,4vw,3.2rem)","fontWeight":"800","letterSpacing":"0.04em","textTransform":"uppercase"},"color":{"text":"#2d1b33"}}} -->
+		<h1 class="wp-block-heading has-text-align-center" style="color:#2d1b33;font-size:clamp(2.2rem,4vw,3.2rem);font-style:normal;font-weight:800;letter-spacing:0.04em;text-transform:uppercase">Oops. This Page Took A Detour.</h1>
+		<!-- /wp:heading -->
+
+		<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"1.1rem","lineHeight":"1.6"},"color":{"text":"#40284a"}}} -->
+		<p class="has-text-align-center" style="color:#40284a;font-size:1.1rem;line-height:1.6">The link you followed is missing, moved, or floating somewhere in another galaxy. Let us get you back to familiar ground.</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+		<div class="wp-block-buttons"><!-- wp:button {"style":{"border":{"radius":"999px"},"spacing":{"padding":{"top":"14px","bottom":"14px","left":"28px","right":"28px"}},"color":{"background":"#85F6D7","text":"#2d1b33"},"typography":{"fontWeight":"700","letterSpacing":"0.03em","textTransform":"uppercase"}}} -->
+			<div class="wp-block-button"><a class="wp-block-button__link has-text-color has-background wp-element-button" href="/" style="border-radius:999px;color:#2d1b33;background-color:#85F6D7;padding-top:14px;padding-right:28px;padding-bottom:14px;padding-left:28px;font-style:normal;font-weight:700;letter-spacing:0.03em;text-transform:uppercase">Back To Home</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
+	</div>
+	<!-- /wp:group -->
 </main>
+<!-- /wp:group -->
 
-<!-- wp:template-part {"slug":"footer"} /-->
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

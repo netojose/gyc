@@ -1,7 +1,45 @@
-<!-- wp:template-part {"slug":"header"} /-->
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
 
-<main>
-	Home page
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80","left":"var:preset|spacing|50","right":"var:preset|spacing|50"}}},"layout":{"type":"constrained","contentSize":"920px"}} -->
+<main class="wp-block-group" style="padding-top:var(--wp--preset--spacing--80);padding-right:var(--wp--preset--spacing--50);padding-bottom:var(--wp--preset--spacing--80);padding-left:var(--wp--preset--spacing--50)">
+	<!-- wp:group {"align":"wide","style":{"border":{"radius":"24px"},"spacing":{"padding":{"top":"52px","right":"32px","bottom":"52px","left":"32px"},"blockGap":"22px"},"color":{"background":"#f6fff4"}},"layout":{"type":"constrained"}} -->
+	<div class="wp-block-group alignwide has-background" style="border-radius:24px;background-color:#f6fff4;padding-top:52px;padding-right:32px;padding-bottom:52px;padding-left:32px">
+		<!-- wp:html -->
+		<div style="display:flex;justify-content:center;">
+			<svg width="290" height="190" viewBox="0 0 290 190" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Fun rocket launch coming soon illustration">
+				<rect x="16" y="18" width="258" height="154" rx="24" fill="#2d1b33"/>
+				<circle cx="54" cy="52" r="4" fill="#85F6D7"/>
+				<circle cx="228" cy="48" r="5" fill="#ffd166"/>
+				<circle cx="238" cy="86" r="3" fill="#ef476f"/>
+				<path d="M141 48C128 67 126 92 126 104C126 116 134 128 145 128C156 128 164 116 164 104C164 92 162 67 149 48H141Z" fill="#fffdf0"/>
+				<circle cx="145" cy="84" r="10" fill="#85F6D7"/>
+				<path d="M126 106L112 116L120 96L126 106Z" fill="#ffd166"/>
+				<path d="M164 106L178 116L170 96L164 106Z" fill="#ffd166"/>
+				<path d="M137 128C137 128 132 138 132 146C132 152 137 158 145 158C153 158 158 152 158 146C158 138 153 128 153 128H137Z" fill="#ef476f"/>
+				<path d="M100 148C103 143 110 141 115 144" stroke="#85F6D7" stroke-width="3" stroke-linecap="round"/>
+				<path d="M175 144C180 141 187 143 190 148" stroke="#85F6D7" stroke-width="3" stroke-linecap="round"/>
+				<text x="145" y="42" text-anchor="middle" fill="#85F6D7" font-size="16" font-weight="700">COMING SOON</text>
+			</svg>
+		</div>
+		<!-- /wp:html -->
+
+		<!-- wp:heading {"textAlign":"center","level":1,"style":{"typography":{"fontSize":"clamp(2.1rem,4vw,3rem)","fontWeight":"800","letterSpacing":"0.04em","textTransform":"uppercase"},"color":{"text":"#2d1b33"}}} -->
+		<h1 class="wp-block-heading has-text-align-center" style="color:#2d1b33;font-size:clamp(2.1rem,4vw,3rem);font-style:normal;font-weight:800;letter-spacing:0.04em;text-transform:uppercase">Something Exciting Is Launching Soon</h1>
+		<!-- /wp:heading -->
+
+		<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"1.1rem","lineHeight":"1.65"},"color":{"text":"#3f2a49"}}} -->
+		<p class="has-text-align-center" style="color:#3f2a49;font-size:1.1rem;line-height:1.65">We are putting the final touches on this page. Check back shortly for fresh content, special updates, and a brand-new experience.</p>
+		<!-- /wp:paragraph -->
+
+		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
+		<div class="wp-block-buttons"><!-- wp:button {"style":{"border":{"radius":"999px"},"spacing":{"padding":{"top":"14px","bottom":"14px","left":"28px","right":"28px"}},"color":{"background":"#85F6D7","text":"#2d1b33"},"typography":{"fontWeight":"700","letterSpacing":"0.03em","textTransform":"uppercase"}}} -->
+			<div class="wp-block-button"><a class="wp-block-button__link has-text-color has-background wp-element-button" href="/" style="border-radius:999px;color:#2d1b33;background-color:#85F6D7;padding-top:14px;padding-right:28px;padding-bottom:14px;padding-left:28px;font-style:normal;font-weight:700;letter-spacing:0.03em;text-transform:uppercase">Return Home</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
+	</div>
+	<!-- /wp:group -->
 </main>
+<!-- /wp:group -->
 
-<!-- wp:template-part {"slug":"footer"} /-->
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
