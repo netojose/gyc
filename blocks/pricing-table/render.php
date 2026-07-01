@@ -25,7 +25,7 @@ $items = empty($attributes['items']) ? array() : $attributes['items'];
                 $hasBadge = !empty($item['badge']);
                 $class = $hasBadge ? 'relative border-2 border-[#5ce1ca] shadow-2xl scale-[1.02]' : 'border border-white/10 shadow-lg hover:shadow-2xl';
                 ?>
-                <div class="text-white rounded-2xl p-8 flex flex-col justify-between bg-[#2d1b33] transition-transform hover:scale-[1.05] <?php echo $class; ?>">
+                <div class="text-white rounded-2xl p-8 flex flex-col justify-between bg-[#2d1b33] transition-transform duration-300 hover:scale-[1.05] hover:rotate-1 <?php echo $class; ?>">
                     <?php if ($hasBadge): ?>
                         <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#fffdf0] text-[#2d1b33] text-[11px] font-bold uppercase tracking-widest px-4 py-1 rounded-full">
                             <?php echo esc_html($item['badge']); ?>
