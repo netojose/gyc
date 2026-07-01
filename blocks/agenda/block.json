@@ -8,6 +8,58 @@
 	"icon": "calendar",
 	"description": "Example block scaffolded with Create Block tool.",
 	"example": {},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": ""
+		},
+		"headline": {
+			"type": "string",
+			"default": ""
+		},
+		"items": {
+            "type": "array",
+            "default": [],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"date": {
+						"type": "string"
+					},
+					"items": {
+						"type": "array",
+						"default": [],
+						"items": {
+							"type": "object",
+							"properties": {
+								"id": {
+									"type": "number"
+								},
+								"time": {
+									"type": "string"
+								},
+								"title": {
+									"type": "string"
+								},
+								"description": {
+									"type": "string"
+								},
+								"responsible": {
+									"type": "string"
+								},
+								"tags": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				}
+			}
+        }
+	},
 	"supports": {
 		"html": false,
 		"anchor": false,
