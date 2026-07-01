@@ -1,4 +1,7 @@
-import { Text } from '@wordpress/ui';
+import {
+    Panel,
+    PanelBody,
+} from '@wordpress/components';
 
 /**
  * Retrieves the translation of text.
@@ -36,7 +39,11 @@ export default function Edit({ attributes, setAttributes }) {
 
     return (
         <div { ...useBlockProps() }>
-            <Text render={ <h2 /> }>People</Text>
+            <Panel>
+                <PanelBody initialOpen={false} title="People">
+                    People block settings
+                </PanelBody>
+            </Panel>
         </div>
     );
 }
