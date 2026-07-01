@@ -8,6 +8,43 @@
 	"icon": "tickets",
 	"description": "Example block scaffolded with Create Block tool.",
 	"example": {},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": ""
+		},
+		"headline": {
+			"type": "string",
+			"default": ""
+		},
+		"items": {
+            "type": "array",
+            "default": [],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"title": {
+						"type": "string"
+					},
+					"badge": {
+						"type": "string"
+					},
+					"price": {
+						"type": "number"
+					},
+					"date": {
+						"type": "string"
+					},
+					"link": {
+						"type": "string"
+					}
+				}
+			}
+        }
+	},
 	"supports": {
 		"html": false,
 		"anchor": false,

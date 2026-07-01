@@ -41,7 +41,7 @@ export default function Edit({ attributes, setAttributes }) {
         <div { ...useBlockProps() }>
             <Panel>
                 <PanelBody initialOpen={false} title="People">
-                    People block settings
+                    Todo
                 </PanelBody>
             </Panel>
         </div>

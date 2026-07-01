@@ -3,7 +3,6 @@ import {
     TextareaControl,
     Panel,
     PanelBody,
-    PanelHeader,
     PanelRow,
     Button
 } from '@wordpress/components';
@@ -66,10 +65,7 @@ export default function Edit({ attributes, setAttributes }) {
                         />
 
                         <Panel>
-                            <PanelHeader>
-                                Items
-                            </PanelHeader>
-                            <PanelBody>
+                            <PanelBody initialOpen={false} title="Items">
                                 {items.map(item => (
                                     <PanelRow key={item.id}>
                                         <div className="gyc-topics-fields-wrapper">
@@ -100,7 +96,7 @@ export default function Edit({ attributes, setAttributes }) {
                                                         setAttributes({ items: newItems });
                                                     } }
                                                 >
-                                                    Remove Topic
+                                                    Remove topic
                                                 </Button>
                                             </div>
                                             <hr className="gyc-topics-separator" />
@@ -114,7 +110,7 @@ export default function Edit({ attributes, setAttributes }) {
                                         setAttributes({ items: [...items, newItem] });
                                     } }
                                 >
-                                    Add Topic
+                                    Add topic
                                 </Button>
                             </PanelBody>
                         </Panel>

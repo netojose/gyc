@@ -1,6 +1,10 @@
 import {
+    TextControl,
+    TextareaControl,
     Panel,
     PanelBody,
+    PanelRow,
+    Button
 } from '@wordpress/components';
 
 /**
@@ -35,13 +39,99 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-    const { title } = attributes;
+    const { title, headline, items } = attributes;
 
     return (
         <div { ...useBlockProps() }>
             <Panel>
                 <PanelBody initialOpen={false} title="Pricing table">
-                    Pricing table block settings
+                    <div className="gyc-pricing-table-fields-wrapper">
+                        <TextControl
+                            label="Title"
+                            value={ title || '' }
+                            onChange={ ( newValue ) => setAttributes( { title: newValue } ) }
+                        />
+                        <TextareaControl
+                            label="Headline"
+                            rows={4}
+                            value={ headline || '' }
+                            onChange={ ( newValue ) => setAttributes( { headline: newValue } ) }
+                        />
+
+                        <Panel>
+                            <PanelBody initialOpen={false} title={"Items"}>
+                                {items.map(item => (
+                                    <PanelRow key={item.id}>
+                                        <div className="gyc-pricing-table-fields-wrapper">
+                                            <TextControl
+                                                label="Title"
+                                                value={ item.title || '' }
+                                                onChange={ ( newValue ) => {
+                                                    const newItems = items.map(i => i.id === item.id ? { ...i, title: newValue } : i);
+                                                    setAttributes({ items: newItems });
+                                                } }
+                                            />
+                                            <TextControl
+                                                label="Badge"
+                                                value={ item.badge || '' }
+                                                onChange={ ( newValue ) => {
+                                                    const newItems = items.map(i => i.id === item.id ? { ...i, badge: newValue } : i);
+                                                    setAttributes({ items: newItems });
+                                                } }
+                                            />
+                                            <TextControl
+                                                label="Price"
+                                                value={ item.price || 0 }
+                                                onChange={ ( newValue ) => {
+                                                    const newItems = items.map(i => i.id === item.id ? { ...i, price: newValue } : i);
+                                                    setAttributes({ items: newItems });
+                                                } }
+                                            />
+                                            <TextControl
+                                                label="Date"
+                                                value={ item.date || '' }
+                                                onChange={ ( newValue ) => {
+                                                    const newItems = items.map(i => i.id === item.id ? { ...i, date: newValue } : i);
+                                                    setAttributes({ items: newItems });
+                                                } }
+                                            />
+                                            <TextControl
+                                                label="Link"
+                                                value={ item.link || '' }
+                                                onChange={ ( newValue ) => {
+                                                    const newItems = items.map(i => i.id === item.id ? { ...i, link: newValue } : i);
+                                                    setAttributes({ items: newItems });
+                                                } }
+                                            />
+                                            <div>
+                                                <Button
+                                                    size="small"
+                                                    variant="outline"
+                                                    className="is-secondary is-destructive"
+                                                    onClick={ () => {
+                                                        const newItems = items.filter(i => i.id !== item.id);
+                                                        setAttributes({ items: newItems });
+                                                    } }
+                                                >
+                                                    Remove price
+                                                </Button>
+                                            </div>
+                                            <hr className="gyc-pricing-table-separator" />
+                                        </div>
+                                    </PanelRow>
+                                ))}
+                                <Button
+                                    isPrimary
+                                    onClick={ () => {
+                                        const newItem = { id: Date.now(), title: '', badge: '', price: 0, date: '', link: '' };
+                                        setAttributes({ items: [...items, newItem] });
+                                    } }
+                                >
+                                    Add price
+                                </Button>
+                            </PanelBody>
+                        </Panel>
+                    </div>
                 </PanelBody>
             </Panel>
         </div>
