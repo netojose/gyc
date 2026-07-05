@@ -1,15 +1,107 @@
-<nav class="bg-[#2d1b33] w-full py-4">
-    <div class="w-full max-w-6xl mx-auto flex justify-between items-center">
-        <div class="font-anton text-[#FEFFE9] text-xl font-bold tracking-wider">
-            <a href="#" class="hover:text-[#5ce1ca] transition">GYC 2026</a>
+<nav x-data="{ open: false }" class="bg-[#2d1b33] w-full py-4">
+    <div class="max-w-6xl mx-auto px-4">
+        <!-- Top Bar -->
+        <div class="flex items-center justify-between">
+            <!-- Logo -->
+            <div class="font-anton text-[#FEFFE9] text-xl font-bold tracking-wider">
+                <a href="#" class="hover:text-[#5ce1ca] transition">
+                    GYC 2026
+                </a>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-6 text-sm font-medium">
+                <a href="#" class="font-jakarta text-[#FEFFE9] hover:text-[#5ce1ca] transition">
+                    About
+                </a>
+                <a href="#" class="font-jakarta text-[#FEFFE9] hover:text-[#5ce1ca] transition">
+                    Schedule
+                </a>
+                <a href="#" class="font-jakarta text-[#FEFFE9] hover:text-[#5ce1ca] transition">
+                    Speakers
+                </a>
+                <a href="#" class="font-jakarta text-[#FEFFE9] hover:text-[#5ce1ca] transition">
+                    Location
+                </a>
+                <a href="#" class="font-jakarta text-[#FEFFE9] hover:text-[#5ce1ca] transition">
+                    FAQ
+                </a>
+
+                <a href="#" class="font-jakarta bg-[#5ce1ca] text-[#2d1b33] px-6 py-2 rounded font-semibold hover:bg-[#49c0ab] transition">
+                    Register
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger -->
+            <button
+                @click="open = !open"
+                class="md:hidden text-[#FEFFE9] focus:outline-none"
+            >
+                <svg
+                    x-show="!open"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-7 h-7"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+
+                <svg
+                    x-show="open"
+                    x-cloak
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-7 h-7"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+            </button>
         </div>
-        <div class="flex items-center space-x-6 text-sm font-medium">
-            <a href="#" class="font-jakarta text-[#FEFFE9] hover:text-[#5ce1ca] transition">About</a>
-            <a href="#" class="font-jakarta text-[#FEFFE9] hover:text-[#5ce1ca] transition">Schedule</a>
-            <a href="#" class="font-jakarta text-[#FEFFE9] hover:text-[#5ce1ca] transition">Speakers</a>
-            <a href="#" class="font-jakarta text-[#FEFFE9] hover:text-[#5ce1ca] transition">Location</a>
-            <a href="#" class="font-jakarta text-[#FEFFE9] hover:text-[#5ce1ca] transition">FAQ</a>
-            <a href="#" class="font-jakarta bg-[#5ce1ca] text-[#2d1b33] px-6 py-2 rounded font-semibold hover:bg-[#49c0ab] transition">Register</a>
+
+        <!-- Mobile Menu -->
+        <div
+            x-show="open"
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 -translate-y-2"
+            x-transition:enter-end="opacity-100 translate-y-0"
+            x-transition:leave="transition ease-in duration-200"
+            x-transition:leave-start="opacity-100 translate-y-0"
+            x-transition:leave-end="opacity-0 -translate-y-2"
+            x-cloak
+            class="md:hidden mt-4 border-t border-white/10 pt-4"
+        >
+            <div class="flex flex-col space-y-3">
+                <a href="#" class="font-jakarta text-[#FEFFE9] hover:text-[#5ce1ca] transition">
+                    About
+                </a>
+
+                <a href="#" class="font-jakarta text-[#FEFFE9] hover:text-[#5ce1ca] transition">
+                    Schedule
+                </a>
+
+                <a href="#" class="font-jakarta text-[#FEFFE9] hover:text-[#5ce1ca] transition">
+                    Speakers
+                </a>
+
+                <a href="#" class="font-jakarta text-[#FEFFE9] hover:text-[#5ce1ca] transition">
+                    Location
+                </a>
+
+                <a href="#" class="font-jakarta text-[#FEFFE9] hover:text-[#5ce1ca] transition">
+                    FAQ
+                </a>
+
+                <a href="#"
+                   class="mt-2 text-center bg-[#5ce1ca] text-[#2d1b33] py-3 rounded font-semibold hover:bg-[#49c0ab] transition">
+                    Register
+                </a>
+            </div>
         </div>
     </div>
 </nav>
