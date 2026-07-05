@@ -32,8 +32,8 @@
 		"extends @wordpress/browserslist-config"
 	],
 	"scripts": {
-		"start:blocks": "wp-scripts start blocks/*",
-		"build:blocks": "wp-scripts build blocks/*",
+		"start:blocks": "wp-scripts start blocks/agenda blocks/people blocks/pricing-table blocks/topics",
+		"build:blocks": "wp-scripts build blocks/agenda blocks/people blocks/pricing-table blocks/topics",
 		"start:theme": "npx @tailwindcss/cli -i ./assets/css/app.css -o ./build/styles.css --watch",
 		"build:theme": "npx @tailwindcss/cli -i ./assets/css/app.css -o ./build/styles.css --minify",
 		"start:js": "npx esbuild assets/js/app.js --bundle --outfile=build-site/app.js --format=esm --watch",
