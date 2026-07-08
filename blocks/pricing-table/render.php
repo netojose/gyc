@@ -57,8 +57,8 @@ $items = empty($attributes['items']) ? array() : $attributes['items'];
         <!-- Footer -->
         <p class="font-jakarta mt-14 text-sm opacity-90">
             Questions? Contact us at
-            <a href="mailto:info@gyceurope.org" class="underline font-medium hover:opacity-70 transition">
-                info@gyceurope.org
+            <a href="mailto:secretary@gyceurope.org" class="underline font-medium hover:opacity-70 transition">
+                secretary@gyceurope.org
             </a>
         </p>
 
