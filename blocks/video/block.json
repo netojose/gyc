@@ -1,0 +1,56 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/video",
+	"version": "0.1.0",
+	"title": "Video",
+	"category": "widgets",
+	"icon": "video-alt3",
+	"description": "Video highlight with poster image and text",
+	"example": {},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "Watch the video"
+		},
+		"title": {
+			"type": "string",
+			"default": "GYC is a movement"
+		},
+		"text": {
+			"type": "string",
+			"default": "It's not just about an event.\nIt's about a generation that wants more — more of Jesus, more community, more mission."
+		},
+		"linkLabel": {
+			"type": "string",
+			"default": "Watch now"
+		},
+		"videoUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"poster": {
+			"type": "string",
+			"default": ""
+		},
+		"posterAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"overlayText": {
+			"type": "string",
+			"default": "This is\nGYC"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/video",
+	"editorScript": "file:../../build/video.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

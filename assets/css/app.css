@@ -6,22 +6,31 @@
 @source "../**/templates/**/*.php";
 
 @font-face {
-  font-family: AntonSC;
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("../assets/fonts/anton-sc/AntonSC-Regular.ttf") format("truetype");
-}
-
-@font-face {
   font-family: PlusJakartaSans;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 200 800;
   font-display: swap;
-  src: url("../assets/fonts/plus-jakarta-sans/PlusJakartaSans-Regular.ttf") format("truetype");
+  src: url("../assets/fonts/plus-jakarta-sans/PlusJakartaSans-Variable.ttf") format("truetype");
+}
+@theme {
+    --font-jakarta: "PlusJakartaSans", sans-serif;
+    --font-script: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+    --color-gyc-ink: #0f2a3d;
+    --color-gyc-teal: #0b5f5a;
+    --color-gyc-teal-dark: #084744;
+    --color-gyc-mint: #5ce1ca;
+    --color-gyc-mint-dark: #49c0ab;
+    --color-gyc-cream: #f7f4ee;
+    --color-gyc-sand: #efebe3;
+    --color-gyc-note: #fff3c9;
+    --color-gyc-plum: #2d1b33;
+    --color-gyc-plum-mid: #3d2143;
+    --color-gyc-plum-light: #4f3359;
+    --color-gyc-ivory: #feffe9;
+    --color-gyc-mist: #efefec;
+    --color-gyc-night: #0a141c;
 }
 
-@theme {
-    --font-anton: "AntonSC", sans-serif;
-    --font-jakarta: "PlusJakartaSans", sans-serif; 
+[x-cloak] {
+    display: none !important;
 }

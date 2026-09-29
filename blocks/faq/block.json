@@ -1,0 +1,238 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/faq",
+	"version": "0.1.0",
+	"title": "FAQ",
+	"category": "widgets",
+	"icon": "editor-help",
+	"description": "Frequently asked questions grouped into categories, searchable from the Page Hero search",
+	"example": {},
+	"attributes": {
+		"noResultsText": {
+			"type": "string",
+			"default": "No questions match your search. Try another word or contact us below."
+		},
+		"categories": {
+			"type": "array",
+			"default": [
+				{
+					"id": 1,
+					"title": "General",
+					"items": [
+						{
+							"id": 1,
+							"question": "What is GYC?",
+							"answer": "Answer coming soon."
+						},
+						{
+							"id": 2,
+							"question": "Who can attend?",
+							"answer": "Answer coming soon."
+						},
+						{
+							"id": 3,
+							"question": "Is GYC only for Adventists?",
+							"answer": "Answer coming soon."
+						},
+						{
+							"id": 4,
+							"question": "Can I attend if I'm not part of a church?",
+							"answer": "Answer coming soon."
+						}
+					]
+				},
+				{
+					"id": 2,
+					"title": "Registration",
+					"items": [
+						{
+							"id": 1,
+							"question": "How much does it cost?",
+							"answer": "Answer coming soon."
+						},
+						{
+							"id": 2,
+							"question": "Can I cancel my registration?",
+							"answer": "Answer coming soon."
+						},
+						{
+							"id": 3,
+							"question": "Is there a group discount?",
+							"answer": "Answer coming soon."
+						},
+						{
+							"id": 4,
+							"question": "How do I register?",
+							"answer": "Answer coming soon."
+						}
+					]
+				},
+				{
+					"id": 3,
+					"title": "Travel",
+					"items": [
+						{
+							"id": 1,
+							"question": "How do I get there?",
+							"answer": "Answer coming soon."
+						},
+						{
+							"id": 2,
+							"question": "Do I need a visa to attend?",
+							"answer": "Answer coming soon."
+						},
+						{
+							"id": 3,
+							"question": "What are the options from the airport?",
+							"answer": "Answer coming soon."
+						},
+						{
+							"id": 4,
+							"question": "Is parking available?",
+							"answer": "Answer coming soon."
+						}
+					]
+				},
+				{
+					"id": 4,
+					"title": "Accommodation",
+					"items": [
+						{
+							"id": 1,
+							"question": "Where can I stay?",
+							"answer": "Answer coming soon."
+						},
+						{
+							"id": 2,
+							"question": "Are rooms shared?",
+							"answer": "Answer coming soon."
+						},
+						{
+							"id": 3,
+							"question": "Can I bring a friend?",
+							"answer": "Answer coming soon."
+						},
+						{
+							"id": 4,
+							"question": "Is camping available?",
+							"answer": "Answer coming soon."
+						}
+					]
+				},
+				{
+					"id": 5,
+					"title": "Conference",
+					"items": [
+						{
+							"id": 1,
+							"question": "What language will be used?",
+							"answer": "Answer coming soon."
+						},
+						{
+							"id": 2,
+							"question": "Will there be translation?",
+							"answer": "Answer coming soon."
+						},
+						{
+							"id": 3,
+							"question": "What should I bring?",
+							"answer": "Answer coming soon."
+						},
+						{
+							"id": 4,
+							"question": "Will there be Wi-Fi?",
+							"answer": "Answer coming soon."
+						}
+					]
+				},
+				{
+					"id": 6,
+					"title": "Food",
+					"items": [
+						{
+							"id": 1,
+							"question": "Will vegetarian/vegan food be available?",
+							"answer": "Answer coming soon."
+						},
+						{
+							"id": 2,
+							"question": "Are there options for allergies?",
+							"answer": "Answer coming soon."
+						},
+						{
+							"id": 3,
+							"question": "Can I bring my own food?",
+							"answer": "Answer coming soon."
+						},
+						{
+							"id": 4,
+							"question": "What meals are included?",
+							"answer": "Answer coming soon."
+						}
+					]
+				},
+				{
+					"id": 7,
+					"title": "Other",
+					"items": [
+						{
+							"id": 1,
+							"question": "Can I get a refund if I can't attend?",
+							"answer": "Answer coming soon."
+						},
+						{
+							"id": 2,
+							"question": "Who do I contact for more information?",
+							"answer": "Answer coming soon."
+						},
+						{
+							"id": 3,
+							"question": "Is there a medical team on site?",
+							"answer": "Answer coming soon."
+						}
+					]
+				}
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"title": {
+						"type": "string"
+					},
+					"items": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"id": {
+									"type": "number"
+								},
+								"question": {
+									"type": "string"
+								},
+								"answer": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/faq",
+	"editorScript": "file:../../build/faq.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

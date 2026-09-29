@@ -1,0 +1,44 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/contact-banner",
+	"version": "0.1.0",
+	"title": "Contact Banner",
+	"category": "widgets",
+	"icon": "email",
+	"description": "Mint strip with a heading, short text and a contact button",
+	"example": {},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": ""
+		},
+		"title": {
+			"type": "string",
+			"default": "Still have questions?"
+		},
+		"text": {
+			"type": "string",
+			"default": "Send us a message and we'll get back to you as soon as possible."
+		},
+		"buttonLabel": {
+			"type": "string",
+			"default": "Contact us"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "#contact"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/contact-banner",
+	"editorScript": "file:../../build/contact-banner.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

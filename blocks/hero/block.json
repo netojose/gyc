@@ -1,0 +1,56 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/hero",
+	"version": "0.1.0",
+	"title": "Hero",
+	"category": "widgets",
+	"icon": "cover-image",
+	"description": "Main page hero with headline, call to action and background photo",
+	"example": {},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "GYC Europe"
+		},
+		"title": {
+			"type": "string",
+			"default": "More than a conference"
+		},
+		"text": {
+			"type": "string",
+			"default": "A generation of young people, from across Europe, growing in faith, building real community and living on mission."
+		},
+		"buttonLabel": {
+			"type": "string",
+			"default": "Discover GYC"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "#about-us"
+		},
+		"image": {
+			"type": "string",
+			"default": ""
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"tagline": {
+			"type": "string",
+			"default": "Different countries.\nOne faith.\nOne mission."
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/hero",
+	"editorScript": "file:../../build/hero.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

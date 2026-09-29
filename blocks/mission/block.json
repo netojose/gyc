@@ -1,0 +1,65 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/mission",
+	"version": "0.1.0",
+	"title": "Mission",
+	"category": "widgets",
+	"icon": "flag",
+	"description": "Centred intro with photo cards, each labelled over the photo and described underneath",
+	"example": {},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "What we do"
+		},
+		"title": {
+			"type": "string",
+			"default": "Our mission"
+		},
+		"text": {
+			"type": "string",
+			"default": "GYC exists to equip the next generation to be missionaries for Christ wherever life takes them."
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "image": "", "imageAlt": "", "title": "Service", "text": "Serving communities across Europe with love, humility, and practical action — reflecting Christ in every context." },
+				{ "id": 2, "image": "", "imageAlt": "", "title": "Evangelism", "text": "Equipping young people to share the three angels' messages boldly and faithfully in their cities and campuses." },
+				{ "id": 3, "image": "", "imageAlt": "", "title": "Biblical studies", "text": "Deepening knowledge of Scripture through seminars, workshops, and mentorship with gifted Bible teachers." },
+				{ "id": 4, "image": "", "imageAlt": "", "title": "Congresses", "text": "Gathering hundreds of young Europeans each year for days of worship, community, training, and inspiration." }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"image": {
+						"type": "string"
+					},
+					"imageAlt": {
+						"type": "string"
+					},
+					"title": {
+						"type": "string"
+					},
+					"text": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/mission",
+	"editorScript": "file:../../build/mission.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

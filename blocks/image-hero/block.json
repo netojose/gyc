@@ -1,0 +1,44 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/image-hero",
+	"version": "0.1.0",
+	"title": "Image Hero",
+	"category": "widgets",
+	"icon": "format-image",
+	"description": "Page intro on a full-width photo with a purple overlay and a two-colour title",
+	"example": {},
+	"attributes": {
+		"image": {
+			"type": "string",
+			"default": ""
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "GYC Congress · Europe · 2027"
+		},
+		"title": {
+			"type": "string",
+			"default": "About"
+		},
+		"titleHighlight": {
+			"type": "string",
+			"default": "GYC"
+		},
+		"text": {
+			"type": "string",
+			"default": "A movement of young Adventists across Europe — gathered, equipped, and sent to proclaim the gospel with boldness and joy."
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/image-hero",
+	"editorScript": "file:../../build/image-hero.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

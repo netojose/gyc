@@ -1,0 +1,59 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/goals",
+	"version": "0.1.0",
+	"title": "Goals",
+	"category": "widgets",
+	"icon": "awards",
+	"description": "Dark section with a heading, side text and a numbered grid of goals",
+	"example": {},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "What we do"
+		},
+		"title": {
+			"type": "string",
+			"default": "Our goals"
+		},
+		"text": {
+			"type": "string",
+			"default": "Four pillars that shape everything we do — from programme design to community formation."
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "title": "Biblical training", "text": "Equipping young Europeans with gifted speakers, Bible teachers, and mentors who will challenge them to deepen their walk with God and sharpen their understanding of Scripture." },
+				{ "id": 2, "title": "Christian fellowship", "text": "Building a real community of faith across borders — fostering long-lasting friendships rooted in Christ among young people from every corner of Europe." },
+				{ "id": 3, "title": "Networking opportunities", "text": "Connecting young people to one another and to broader ministry opportunities that equip and empower them to serve boldly in their local communities." },
+				{ "id": 4, "title": "Leadership responsibilities", "text": "Encouraging the next generation to step up — actively owning leadership roles and partnering with values of excellence, integrity, and service." }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"title": {
+						"type": "string"
+					},
+					"text": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/goals",
+	"editorScript": "file:../../build/goals.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

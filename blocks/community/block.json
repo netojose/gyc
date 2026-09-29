@@ -1,0 +1,74 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/community",
+	"version": "0.1.0",
+	"title": "Community",
+	"category": "widgets",
+	"icon": "location-alt",
+	"description": "Community section with map and photo collage",
+	"example": {},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "Our community"
+		},
+		"title": {
+			"type": "string",
+			"default": "One Europe.\nMany countries."
+		},
+		"text": {
+			"type": "string",
+			"default": "From Portugal to Poland, from Spain to Romania — young people from all over Europe are part of GYC."
+		},
+		"buttonLabel": {
+			"type": "string",
+			"default": "See the countries"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "#"
+		},
+		"map": {
+			"type": "string",
+			"default": ""
+		},
+		"mapAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"note": {
+			"type": "string",
+			"default": "Different languages.\nDifferent cultures.\nOne faith."
+		},
+		"photos": {
+			"type": "array",
+			"default": [],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"url": {
+						"type": "string"
+					},
+					"alt": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/community",
+	"editorScript": "file:../../build/community.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

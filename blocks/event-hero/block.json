@@ -1,0 +1,73 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/event-hero",
+	"version": "0.1.0",
+	"title": "Event Hero",
+	"category": "widgets",
+	"icon": "cover-image",
+	"description": "Event page intro with title, links and key numbers",
+	"example": {},
+	"usesContext": ["postId", "postType"],
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "GYC Annual congress • 2027"
+		},
+		"title": {
+			"type": "string",
+			"default": ""
+		},
+		"primaryLabel": {
+			"type": "string",
+			"default": "Register Now"
+		},
+		"primaryUrl": {
+			"type": "string",
+			"default": "#"
+		},
+		"secondaryLabel": {
+			"type": "string",
+			"default": "View Schedule"
+		},
+		"secondaryUrl": {
+			"type": "string",
+			"default": "#"
+		},
+		"stats": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "value": "4,800+", "label": "Attendees" },
+				{ "id": 2, "value": "3", "label": "Days" },
+				{ "id": 3, "value": "28", "label": "Speakers" },
+				{ "id": 4, "value": "60+", "label": "Seminars" }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"value": {
+						"type": "string"
+					},
+					"label": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false,
+		"multiple": false
+	},
+	"textdomain": "gyc/event-hero",
+	"editorScript": "file:../../build/event-hero.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

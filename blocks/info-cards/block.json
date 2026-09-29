@@ -1,0 +1,51 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/info-cards",
+	"version": "0.1.0",
+	"title": "Info Cards",
+	"category": "widgets",
+	"icon": "info-outline",
+	"description": "Stacked cards, each with a heading, short text and a button",
+	"example": {},
+	"attributes": {
+		"items": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "title": "Booth registration", "text": "Special rates may be available if you want to have a booth at GYC.", "buttonLabel": "Contact us", "buttonUrl": "#contact" },
+				{ "id": 2, "title": "Need help?", "text": "Questions about registration, payment or accommodation?", "buttonLabel": "View FAQ", "buttonUrl": "/faq/" }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"title": {
+						"type": "string"
+					},
+					"text": {
+						"type": "string"
+					},
+					"buttonLabel": {
+						"type": "string"
+					},
+					"buttonUrl": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/info-cards",
+	"editorScript": "file:../../build/info-cards.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

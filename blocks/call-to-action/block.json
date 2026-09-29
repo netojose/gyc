@@ -1,0 +1,48 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/call-to-action",
+	"version": "0.1.0",
+	"title": "Call to Action",
+	"category": "widgets",
+	"icon": "megaphone",
+	"description": "Centered two-line heading with a button",
+	"example": {},
+	"attributes": {
+		"titleTop": {
+			"type": "string",
+			"default": "Together we can"
+		},
+		"title": {
+			"type": "string",
+			"default": "Reach more young people"
+		},
+		"text": {
+			"type": "string",
+			"default": ""
+		},
+		"variant": {
+			"type": "string",
+			"default": "light"
+		},
+		"buttonLabel": {
+			"type": "string",
+			"default": "Donate now"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "#give"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/call-to-action",
+	"editorScript": "file:../../build/call-to-action.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

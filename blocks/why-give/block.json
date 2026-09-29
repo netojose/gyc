@@ -1,0 +1,64 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/why-give",
+	"version": "0.1.0",
+	"title": "Why Give",
+	"category": "widgets",
+	"icon": "heart",
+	"description": "Image with a heading, text and a checklist of reasons to give",
+	"example": {},
+	"attributes": {
+		"image": {
+			"type": "string",
+			"default": ""
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "Why give?"
+		},
+		"title": {
+			"type": "string",
+			"default": "Invest in young lives"
+		},
+		"text": {
+			"type": "string",
+			"default": "Your donation goes directly toward creating an accessible, Christ-centered experience."
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "text": "Making the conference more accessible" },
+				{ "id": 2, "text": "Supporting speakers, workshops and resources" },
+				{ "id": 3, "text": "Providing accommodation and meals" },
+				{ "id": 4, "text": "Reaching the next generation with the gospel" }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"text": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/why-give",
+	"editorScript": "file:../../build/why-give.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

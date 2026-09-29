@@ -62,6 +62,9 @@ class GycEvent
             'exclude_from_search'   => false,
             'publicly_queryable'    => true,
             'capability_type'       => 'page',
+            'template'              => array(
+                array('gyc/event-hero'),
+            ),
         );
 
         register_post_type('event', $args);

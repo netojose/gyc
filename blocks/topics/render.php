@@ -32,7 +32,7 @@ $items = empty($attributes['items']) ? array() : $attributes['items'];
                 <?php foreach ($items as $item): ?>
                     <div class="flex bg-[#F4F1E6] p-6 md:p-8 rounded-sm shadow-xs border-l-4 border-[#3C2D3D]">
                         <div class="space-y-2">
-                            <h3 class="font-jakarta text-xl md:text-2xl font-semibold text-[#3C2D3D]">
+                            <h3 class="font-jakarta text-xl md:text-2xl font-bold text-[#3C2D3D]">
                                 <?php echo esc_html($item['title']); ?>
                             </h3>
                             <p class="font-jakarta text-[#3C2D3D]/80 leading-relaxed text-sm md:text-base">

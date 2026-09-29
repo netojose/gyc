@@ -1,5 +1,7 @@
 # GYC WordPress Theme
 
+For setting up and editing the site in WordPress, see [WORDPRESS.md](WORDPRESS.md).
+
 
 ## Bash commands
 ```bash

@@ -32,10 +32,10 @@
 		"extends @wordpress/browserslist-config"
 	],
 	"scripts": {
-		"start:blocks": "wp-scripts start blocks/agenda blocks/people blocks/pricing-table blocks/topics",
-		"build:blocks": "wp-scripts build blocks/agenda blocks/people blocks/pricing-table blocks/topics",
-		"start:theme": "npx @tailwindcss/cli -i ./assets/css/app.css -o ./build/styles.css --watch",
-		"build:theme": "npx @tailwindcss/cli -i ./assets/css/app.css -o ./build/styles.css --minify",
+		"start:blocks": "wp-scripts start blocks/agenda blocks/people blocks/pricing-table blocks/topics blocks/hero blocks/about-us blocks/video blocks/community blocks/header blocks/footer blocks/event-hero blocks/page-hero blocks/why-give blocks/gift-options blocks/call-to-action blocks/faq blocks/contact-banner blocks/registration-options blocks/whats-included blocks/info-cards blocks/image-hero blocks/vision blocks/mission blocks/goals blocks/committee",
+		"build:blocks": "wp-scripts build blocks/agenda blocks/people blocks/pricing-table blocks/topics blocks/hero blocks/about-us blocks/video blocks/community blocks/header blocks/footer blocks/event-hero blocks/page-hero blocks/why-give blocks/gift-options blocks/call-to-action blocks/faq blocks/contact-banner blocks/registration-options blocks/whats-included blocks/info-cards blocks/image-hero blocks/vision blocks/mission blocks/goals blocks/committee",
+		"start:theme": "npx @tailwindcss/cli -i ./assets/css/app.css -o ./build-site/styles.css --watch",
+		"build:theme": "npx @tailwindcss/cli -i ./assets/css/app.css -o ./build-site/styles.css --minify",
 		"start:js": "npx esbuild assets/js/app.js --bundle --outfile=build-site/app.js --format=esm --watch",
 		"build:js": "npx esbuild assets/js/app.js --bundle --outfile=build-site/app.js --format=esm --minify"
 	}

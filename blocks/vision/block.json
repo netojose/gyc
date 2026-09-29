@@ -1,0 +1,62 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/vision",
+	"version": "0.1.0",
+	"title": "Vision",
+	"category": "widgets",
+	"icon": "visibility",
+	"description": "Heading and two paragraphs next to a three-photo mosaic",
+	"example": {},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "Who we are"
+		},
+		"title": {
+			"type": "string",
+			"default": "Our vision"
+		},
+		"lead": {
+			"type": "string",
+			"default": "GYC Europe is a movement of young Adventists passionate about sharing the transformative power of the gospel across the continent. We believe in empowering a generation to be fearless witnesses for Christ — informed in faith, connected in community, and bold in mission."
+		},
+		"text": {
+			"type": "string",
+			"default": "Our vision is to see European youth rise up — equipped, inspired, and sent — to proclaim the three angels' messages with clarity and compassion, while embracing a culture of excellence and service."
+		},
+		"images": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "url": "", "alt": "" },
+				{ "id": 2, "url": "", "alt": "" },
+				{ "id": 3, "url": "", "alt": "" }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"url": {
+						"type": "string"
+					},
+					"alt": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/vision",
+	"editorScript": "file:../../build/vision.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

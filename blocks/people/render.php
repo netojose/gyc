@@ -8,7 +8,7 @@ $staff = empty($attributes['staff']) ? [] : $attributes['staff'];
     @keydown.escape.window="closeModal()">
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
-            <h2 class="font-anton text-4xl font-bold tracking-wide mb-2 uppercase">Main Speakers</h2>
+            <h2 class="font-jakarta font-extrabold text-4xl tracking-tight mb-2 uppercase">Main Speakers</h2>
             <hr class="h-2 w-24 my-5 mx-auto bg-[#85F6D7] border-0" />
             <p class="font-jakarta text-purple-200/70 text-sm">Powerful voices for this generation</p>
         </div>
@@ -31,7 +31,7 @@ $staff = empty($attributes['staff']) ? [] : $attributes['staff'];
                             </svg>
                         </div>
                     <?php endif; ?>
-                    <h3 class="font-anton uppercase text-xl font-bold tracking-wide"><?php echo esc_html($person['name']); ?></h3>
+                    <h3 class="font-jakarta font-extrabold uppercase text-xl tracking-tight"><?php echo esc_html($person['name']); ?></h3>
                     <p class="font-jakarta text-xs text-purple-200/50 tracking-widest mt-1"><?php echo esc_html($person['role']); ?></p>
                     <p class="font-jakarta text-sm text-purple-200/70 mt-2 px-4"><?php echo esc_html($person['headline']); ?></p>
                 </button>
@@ -69,7 +69,7 @@ $staff = empty($attributes['staff']) ? [] : $attributes['staff'];
                         <span aria-hidden="true">&times;</span>
                     </button>
 
-                    <h4 class="font-anton uppercase text-2xl tracking-wide pr-8"><?php echo esc_html($person['name']); ?></h4>
+                    <h4 class="font-jakarta font-extrabold uppercase text-2xl tracking-tight pr-8"><?php echo esc_html($person['name']); ?></h4>
                     <?php if (!empty($person['role'])) : ?>
                         <p class="font-jakarta text-xs tracking-widest mt-1 text-[#2d1b33]/70"><?php echo esc_html($person['role']); ?></p>
                     <?php endif; ?>
@@ -81,7 +81,7 @@ $staff = empty($attributes['staff']) ? [] : $attributes['staff'];
         <?php endforeach; ?>
 
         <div class="border-t border-purple-900/40 pt-16">
-            <h3 class="font-anton uppercase text-2xl font-bold tracking-wide text-center">Workshop Leaders</h3>
+            <h3 class="font-jakarta font-extrabold uppercase text-2xl tracking-tight text-center">Workshop Leaders</h3>
             <hr class="h-1 w-16.5 mt-5 mb-7 mx-auto bg-[#85F6D7] border-0" />
 
             <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 justify-center text-center">

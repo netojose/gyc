@@ -1,0 +1,48 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/page-hero",
+	"version": "0.1.0",
+	"title": "Page Hero",
+	"category": "widgets",
+	"icon": "cover-image",
+	"description": "Page intro with eyebrow, title and text on a decorated purple background",
+	"example": {},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "Make a difference"
+		},
+		"title": {
+			"type": "string",
+			"default": "Donate"
+		},
+		"text": {
+			"type": "string",
+			"default": "Your support helps reach more young people with the gospel and make GYC Europe 2027 possible."
+		},
+		"showSearch": {
+			"type": "boolean",
+			"default": false
+		},
+		"searchLabel": {
+			"type": "string",
+			"default": "Search the questions"
+		},
+		"searchPlaceholder": {
+			"type": "string",
+			"default": "Search a question..."
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/page-hero",
+	"editorScript": "file:../../build/page-hero.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

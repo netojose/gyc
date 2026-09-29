@@ -7,7 +7,7 @@ $items = empty($attributes['items']) ? array() : $attributes['items'];
     <div class="max-w-6xl mx-auto">
 
         <?php if ($title): ?>
-            <h2 class="font-anton uppercase text-4xl md:text-6xl tracking-wide mb-5">
+            <h2 class="font-jakarta font-extrabold uppercase text-4xl md:text-6xl tracking-tight mb-5">
                 <?php echo esc_html($title); ?>
             </h2>
         <?php endif; ?>
@@ -33,11 +33,11 @@ $items = empty($attributes['items']) ? array() : $attributes['items'];
                         <?php endif; ?>
 
                         <div>
-                            <h3 class="font-anton text-lg tracking-widest text-purple-200 uppercase">
+                            <h3 class="font-jakarta font-bold text-lg tracking-widest text-purple-200 uppercase">
                                 <?php echo esc_html($item['title']); ?>
                             </h3>
 
-                            <div class="mt-6 font-anton uppercase text-5xl font-bold leading-none">
+                            <div class="font-jakarta font-extrabold mt-6 uppercase text-5xl leading-none tracking-tight">
                                 € <?php echo esc_html($item['price']); ?>
                             </div>
 
@@ -46,7 +46,7 @@ $items = empty($attributes['items']) ? array() : $attributes['items'];
                             </p>
                         </div>
 
-                        <a href="<?php echo esc_url($item['link']); ?>" target="_blank" class="mt-10 w-full bg-[#5ce1ca] text-[#2d1b33] font-anton uppercase font-bold py-3 rounded-xl text-sm hover:bg-[#49c0ab] focus:outline-none focus:ring-2 focus:ring-[#5ce1ca]/50 transition">
+                        <a href="<?php echo esc_url($item['link']); ?>" target="_blank" class="font-jakarta font-bold mt-10 w-full bg-[#5ce1ca] text-[#2d1b33] uppercase py-3 rounded-sm text-sm hover:bg-[#49c0ab] focus:outline-none focus:ring-2 focus:ring-[#5ce1ca]/50 transition">
                             Register Now
                         </a>
                     </div>

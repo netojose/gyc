@@ -1,0 +1,92 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/header",
+	"version": "0.1.0",
+	"title": "Site Header",
+	"category": "theme",
+	"icon": "menu",
+	"description": "Main site header with logo, menu, social links and button",
+	"example": {},
+	"attributes": {
+		"logo": {
+			"type": "string",
+			"default": "https://www.gyceurope.org/wp-content/uploads/2024/10/gyc-logo-2.png"
+		},
+		"logoAlt": {
+			"type": "string",
+			"default": "GYC Europe home"
+		},
+		"logoUrl": {
+			"type": "string",
+			"default": "/"
+		},
+		"menu": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "label": "Home", "url": "/" },
+				{ "id": 2, "label": "About", "url": "#about-us" },
+				{ "id": 3, "label": "Community", "url": "#community" },
+				{ "id": 4, "label": "Media", "url": "#" },
+				{ "id": 5, "label": "Events", "url": "#" },
+				{ "id": 6, "label": "Contact", "url": "#contact" }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"label": {
+						"type": "string"
+					},
+					"url": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"socials": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "network": "instagram", "url": "#" },
+				{ "id": 2, "network": "tiktok", "url": "#" },
+				{ "id": 3, "network": "youtube", "url": "#" },
+				{ "id": 4, "network": "facebook", "url": "#" }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"network": {
+						"type": "string"
+					},
+					"url": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"buttonLabel": {
+			"type": "string",
+			"default": "Follow us"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "#contact"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/header",
+	"editorScript": "file:../../build/header.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

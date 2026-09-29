@@ -134,30 +134,15 @@
 			],
 			"fontFamilies": [
 				{
-					"name": "AntonSC",
-					"slug": "anton-sc",
-					"fontFamily": "AntonSC, sans-serif",
-					"fontFace": [
-						{
-							"src": [
-								"file:./assets/fonts/anton-sc/AntonSC-Regular.ttf"
-							],
-							"fontWeight": "400",
-							"fontStyle": "normal",
-							"fontFamily": "AntonSC, sans-serif"
-						}
-					]
-				},
-				{
 					"name": "PlusJakartaSans",
 					"slug": "plus-jakarta-sans",
 					"fontFamily": "PlusJakartaSans, sans-serif",
 					"fontFace": [
 						{
 							"src": [
-								"file:./assets/fonts/plus-jakarta-sans/PlusJakartaSans-Regular.ttf"
+								"file:./assets/fonts/plus-jakarta-sans/PlusJakartaSans-Variable.ttf"
 							],
-							"fontWeight": "400",
+							"fontWeight": "200 800",
 							"fontStyle": "normal",
 							"fontFamily": "PlusJakartaSans, sans-serif"
 						}
@@ -261,7 +246,7 @@
 			},
 			"heading": {
 				"typography": {
-					"fontWeight": "400",
+					"fontWeight": "800",
 					"lineHeight": "1.125",
 					"letterSpacing": "-0.1px"
 				}

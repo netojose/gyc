@@ -9,12 +9,12 @@ $items = empty($attributes['items']) ? array() : $attributes['items'];
         <!-- Header -->
         <div class="mb-12">
             <?php if ($title): ?>
-                <div class="font-anton uppercase flex items-center gap-3 text-xs font-semibold tracking-widest text-gray-500 mb-4">
+                <div class="font-jakarta font-bold uppercase flex items-center gap-3 text-xs tracking-widest text-gray-500 mb-4">
                     <span class="w-8 h-px bg-gray-400"></span> <?php echo esc_html($title); ?>
                 </div>
             <?php endif; ?>
             <?php if ($headline): ?>
-                <h2 class="font-jakarta text-5xl md:text-6xl font-normal tracking-tight leading-tight whitespace-pre-wrap"><?php echo esc_html($headline); ?></h2>
+                <h2 class="font-jakarta text-5xl md:text-6xl font-extrabold tracking-tight leading-tight whitespace-pre-wrap"><?php echo esc_html($headline); ?></h2>
             <?php endif; ?>
         </div>
 
@@ -33,13 +33,13 @@ $items = empty($attributes['items']) ? array() : $attributes['items'];
             <div class="space-y-0" x-show="currentTab === <?php echo $index + 1; ?>">
                 <?php foreach ($day['items'] as $item): ?>
                     <div class="grid md:grid-cols-4 py-8 items-start gap-4">
-                        <div class="font-anton uppercase text-xs font-bold tracking-wider text-gray-400 pt-1">
+                        <div class="font-jakarta font-bold uppercase text-xs tracking-wider text-gray-400 pt-1">
                             <?php echo esc_html($item['time']); ?>
                         </div>
                         <div class="md:col-span-3 flex flex-col md:flex-row md:justify-between gap-2">
                             <div class="space-y-4">
                                 <div>
-                                    <h4 class="font-jakarta text-xl font-medium text-[#2d1b33] mb-2">
+                                    <h4 class="font-jakarta text-xl font-bold text-[#2d1b33] mb-2">
                                         <?php echo esc_html($item['title']); ?>
                                     </h4>
                                     <?php if (!empty($item['description'])): ?>

@@ -1,0 +1,74 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/registration-options",
+	"version": "0.1.0",
+	"title": "Registration Options",
+	"category": "widgets",
+	"icon": "tickets-alt",
+	"description": "Price boxes with date ranges; only the box whose dates include today can be registered for",
+	"example": {},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Registration prices"
+		},
+		"activeMode": {
+			"type": "string",
+			"default": "auto"
+		},
+		"upcomingLabel": {
+			"type": "string",
+			"default": "Opens soon"
+		},
+		"closedLabel": {
+			"type": "string",
+			"default": "Closed"
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "label": "Early bird", "price": "€320", "start": "", "end": "2026-12-31", "buttonLabel": "Register now", "buttonUrl": "#" },
+				{ "id": 2, "label": "Regular", "price": "€380", "start": "2027-01-01", "end": "2027-04-30", "buttonLabel": "Register now", "buttonUrl": "#" },
+				{ "id": 3, "label": "Late", "price": "€450", "start": "2027-05-01", "end": "2027-06-30", "buttonLabel": "Register now", "buttonUrl": "#" }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"label": {
+						"type": "string"
+					},
+					"price": {
+						"type": "string"
+					},
+					"start": {
+						"type": "string"
+					},
+					"end": {
+						"type": "string"
+					},
+					"buttonLabel": {
+						"type": "string"
+					},
+					"buttonUrl": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/registration-options",
+	"editorScript": "file:../../build/registration-options.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

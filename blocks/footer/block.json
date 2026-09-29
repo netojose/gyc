@@ -1,0 +1,133 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/footer",
+	"version": "0.1.0",
+	"title": "Site Footer",
+	"category": "theme",
+	"icon": "align-full-width",
+	"description": "Main site footer with newsletter sign-up and link columns",
+	"example": {},
+	"attributes": {
+		"logo": {
+			"type": "string",
+			"default": "https://www.gyceurope.org/wp-content/uploads/2024/10/gyc-logo-2.png"
+		},
+		"logoAlt": {
+			"type": "string",
+			"default": "GYC Europe home"
+		},
+		"logoUrl": {
+			"type": "string",
+			"default": "/"
+		},
+		"description": {
+			"type": "string",
+			"default": "A movement of young Adventists across Europe — knowing Christ, growing together, going in mission."
+		},
+		"newsletterTitle": {
+			"type": "string",
+			"default": "Stay connected."
+		},
+		"newsletterText": {
+			"type": "string",
+			"default": "Updates on events, and what's next — no spam."
+		},
+		"newsletterAction": {
+			"type": "string",
+			"default": ""
+		},
+		"newsletterFieldName": {
+			"type": "string",
+			"default": "email"
+		},
+		"newsletterPlaceholder": {
+			"type": "string",
+			"default": "Your email address"
+		},
+		"newsletterButton": {
+			"type": "string",
+			"default": "Subscribe"
+		},
+		"columns": {
+			"type": "array",
+			"default": [
+				{
+					"id": 1,
+					"title": "Explore",
+					"links": [
+						{ "id": 1, "label": "About", "url": "#about-us" },
+						{ "id": 2, "label": "Community", "url": "#community" },
+						{ "id": 3, "label": "Media", "url": "#" },
+						{ "id": 4, "label": "Events", "url": "#" }
+					]
+				},
+				{
+					"id": 2,
+					"title": "Archive",
+					"links": [
+						{ "id": 1, "label": "GYC Europe 2025", "url": "#" },
+						{ "id": 2, "label": "GYC Europe 2024", "url": "#" },
+						{ "id": 3, "label": "GYC Europe 2023", "url": "#" }
+					]
+				},
+				{
+					"id": 3,
+					"title": "Connect",
+					"links": [
+						{ "id": 1, "label": "Instagram", "url": "#" },
+						{ "id": 2, "label": "YouTube", "url": "#" },
+						{ "id": 3, "label": "info@gyceurope.org", "url": "info@gyceurope.org" }
+					]
+				}
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"title": {
+						"type": "string"
+					},
+					"links": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"id": {
+									"type": "number"
+								},
+								"label": {
+									"type": "string"
+								},
+								"url": {
+									"type": "string"
+								}
+							}
+						}
+					}
+				}
+			}
+		},
+		"copyright": {
+			"type": "string",
+			"default": "© {year} GYC Europe. All rights reserved."
+		},
+		"tagline": {
+			"type": "string",
+			"default": "Generation. Youth. Christ. Europe"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/footer",
+	"editorScript": "file:../../build/footer.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

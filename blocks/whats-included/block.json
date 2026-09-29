@@ -1,0 +1,70 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/whats-included",
+	"version": "0.1.0",
+	"title": "What's Included",
+	"category": "widgets",
+	"icon": "yes-alt",
+	"description": "Checklist of what the price includes, next to a highlighted call-to-action card",
+	"example": {},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "What's included?"
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "text": "Conference access" },
+				{ "id": 2, "text": "Main sessions" },
+				{ "id": 3, "text": "Workshops" },
+				{ "id": 4, "text": "Meals (breakfast, lunch, dinner)" },
+				{ "id": 5, "text": "Accommodation (optional)" },
+				{ "id": 6, "text": "Event materials" }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"text": {
+						"type": "string"
+					}
+				}
+			}
+		},
+		"cardTitleTop": {
+			"type": "string",
+			"default": "Your place"
+		},
+		"cardTitle": {
+			"type": "string",
+			"default": "is waiting"
+		},
+		"cardText": {
+			"type": "string",
+			"default": "Secure your registration and get ready to stand fast."
+		},
+		"cardButtonLabel": {
+			"type": "string",
+			"default": "Register now"
+		},
+		"cardButtonUrl": {
+			"type": "string",
+			"default": "#pricing"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/whats-included",
+	"editorScript": "file:../../build/whats-included.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

@@ -1,0 +1,76 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/committee",
+	"version": "0.1.0",
+	"title": "Committee",
+	"category": "widgets",
+	"icon": "groups",
+	"description": "Team members with photo, role, email and Instagram; the first members are shown larger",
+	"example": {},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "Leadership"
+		},
+		"title": {
+			"type": "string",
+			"default": "Executive committee"
+		},
+		"text": {
+			"type": "string",
+			"default": "The Committee is responsible for organising each edition of GYC — a group of dedicated young professionals who believe in the mission and share the values of GYC in their daily lives."
+		},
+		"featuredCount": {
+			"type": "number",
+			"default": 3
+		},
+		"members": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "photo": "", "name": "Andreas Müller", "role": "President", "email": "a.muller@gyc-europe.org", "instagram": "@andreas.muller" },
+				{ "id": 2, "photo": "", "name": "Kelsey Laurent", "role": "General VP", "email": "k.laurent@gyc-europe.org", "instagram": "@kelseylaurent" },
+				{ "id": 3, "photo": "", "name": "Olivier Kris", "role": "Treasurer", "email": "o.kris@gyc-europe.org", "instagram": "@olivier.kris" },
+				{ "id": 4, "photo": "", "name": "Claire Kim", "role": "VP Creative Affairs", "email": "c.kim@gyc-europe.org", "instagram": "@clairekim.eu" },
+				{ "id": 5, "photo": "", "name": "Thomas Mayhew", "role": "VP Programming", "email": "t.mayhew@gyc-europe.org", "instagram": "@thomasmayhew" },
+				{ "id": 6, "photo": "", "name": "Anna Wood", "role": "VP Logistics", "email": "a.wood@gyc-europe.org", "instagram": "@annawood.eu" },
+				{ "id": 7, "photo": "", "name": "Junior Vertus", "role": "VP Communication", "email": "j.vertus@gyc-europe.org", "instagram": "@juniorvertus" },
+				{ "id": 8, "photo": "", "name": "Stephanie Lee", "role": "VP Marketing", "email": "s.lee@gyc-europe.org", "instagram": "@stephanielee.eu" }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"photo": {
+						"type": "string"
+					},
+					"name": {
+						"type": "string"
+					},
+					"role": {
+						"type": "string"
+					},
+					"email": {
+						"type": "string"
+					},
+					"instagram": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/committee",
+	"editorScript": "file:../../build/committee.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

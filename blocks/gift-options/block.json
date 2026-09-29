@@ -1,0 +1,63 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/gift-options",
+	"version": "0.1.0",
+	"title": "Gift Options",
+	"category": "widgets",
+	"icon": "money-alt",
+	"description": "Heading, text and cards with ways to give",
+	"example": {},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Every gift matters"
+		},
+		"text": {
+			"type": "string",
+			"default": "Whether it's a one-time gift or a regular donation, your support helps create an unforgettable experience."
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "icon": "gift", "title": "One-time donation", "text": "Make a single contribution", "buttonLabel": "Donate", "buttonUrl": "#" },
+				{ "id": 2, "icon": "calendar", "title": "Monthly gift", "text": "Give regularly and help us plan", "buttonLabel": "Give monthly", "buttonUrl": "#" },
+				{ "id": 3, "icon": "person", "title": "Sponsor a young person", "text": "Help someone who can't afford to come", "buttonLabel": "Learn more", "buttonUrl": "#" }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"icon": {
+						"type": "string"
+					},
+					"title": {
+						"type": "string"
+					},
+					"text": {
+						"type": "string"
+					},
+					"buttonLabel": {
+						"type": "string"
+					},
+					"buttonUrl": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/gift-options",
+	"editorScript": "file:../../build/gift-options.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

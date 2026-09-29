@@ -1,0 +1,70 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/about-us",
+	"version": "0.1.0",
+	"title": "About Us",
+	"category": "widgets",
+	"icon": "groups",
+	"description": "About us intro with a list of pillars",
+	"example": {},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "About us"
+		},
+		"title": {
+			"type": "string",
+			"default": "What is GYC?"
+		},
+		"text": {
+			"type": "string",
+			"default": "GYC Europe exists to help young people know Christ, grow together and be equipped for mission — across Europe and beyond."
+		},
+		"linkLabel": {
+			"type": "string",
+			"default": "About GYC"
+		},
+		"linkUrl": {
+			"type": "string",
+			"default": "#"
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "icon": "pray", "title": "Know Christ", "text": "Discover a real relationship with Jesus." },
+				{ "id": 2, "icon": "friends", "title": "Grow together", "text": "Build deep friendships across Europe." },
+				{ "id": 3, "icon": "mission", "title": "Live on mission", "text": "Use your gifts to make a difference." },
+				{ "id": 4, "icon": "movement", "title": "Be part of a European movement", "text": "Young people. Different cultures. One purpose." }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"icon": {
+						"type": "string"
+					},
+					"title": {
+						"type": "string"
+					},
+					"text": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/about-us",
+	"editorScript": "file:../../build/about-us.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}
