@@ -3,7 +3,7 @@ $title = empty($attributes['title']) ? null : $attributes['title'];
 $headline = empty($attributes['headline']) ? null : $attributes['headline'];
 $items = empty($attributes['items']) ? array() : $attributes['items'];
 ?>
-<section class="bg-[#f4f3f0] text-[#2d1b33] py-16 px-6 md:px-12 lg:px-24 font-sans" x-data="{ currentTab: 1 }">
+<section id="schedule" class="bg-[#f4f3f0] text-[#2d1b33] py-16 px-6 md:px-12 lg:px-24 font-sans" x-data="{ currentTab: 1 }">
     <div class="max-w-6xl mx-auto">
 
         <!-- Header -->
@@ -14,7 +14,7 @@ $items = empty($attributes['items']) ? array() : $attributes['items'];
                 </div>
             <?php endif; ?>
             <?php if ($headline): ?>
-                <h2 class="font-jakarta text-5xl md:text-6xl font-extrabold tracking-tight leading-tight whitespace-pre-wrap"><?php echo esc_html($headline); ?></h2>
+                <h2 class="font-jakarta text-4xl md:text-5xl font-extrabold uppercase tracking-tight leading-tight whitespace-pre-wrap"><?php echo esc_html($headline); ?></h2>
             <?php endif; ?>
         </div>
 
@@ -39,9 +39,9 @@ $items = empty($attributes['items']) ? array() : $attributes['items'];
                         <div class="md:col-span-3 flex flex-col md:flex-row md:justify-between gap-2">
                             <div class="space-y-4">
                                 <div>
-                                    <h4 class="font-jakarta text-xl font-bold text-[#2d1b33] mb-2">
+                                    <h3 class="font-jakarta text-xl font-bold text-[#2d1b33] mb-2">
                                         <?php echo esc_html($item['title']); ?>
-                                    </h4>
+                                    </h3>
                                     <?php if (!empty($item['description'])): ?>
                                         <p class="font-jakarta text-sm text-gray-500 font-normal leading-relaxed max-w-xl">
                                             <?php echo esc_html($item['description']); ?>

@@ -8,7 +8,7 @@ $staff = empty($attributes['staff']) ? [] : $attributes['staff'];
     @keydown.escape.window="closeModal()">
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
-            <h2 class="font-jakarta font-extrabold text-4xl tracking-tight mb-2 uppercase">Main Speakers</h2>
+            <h2 class="font-jakarta font-extrabold text-4xl md:text-5xl tracking-tight mb-2 uppercase">Main Speakers</h2>
             <hr class="h-2 w-24 my-5 mx-auto bg-[#85F6D7] border-0" />
             <p class="font-jakarta text-purple-200/70 text-sm">Powerful voices for this generation</p>
         </div>
@@ -69,7 +69,7 @@ $staff = empty($attributes['staff']) ? [] : $attributes['staff'];
                         <span aria-hidden="true">&times;</span>
                     </button>
 
-                    <h4 class="font-jakarta font-extrabold uppercase text-2xl tracking-tight pr-8"><?php echo esc_html($person['name']); ?></h4>
+                    <h4 class="font-jakarta font-extrabold uppercase text-xl tracking-tight pr-8"><?php echo esc_html($person['name']); ?></h4>
                     <?php if (!empty($person['role'])) : ?>
                         <p class="font-jakarta text-xs tracking-widest mt-1 text-[#2d1b33]/70"><?php echo esc_html($person['role']); ?></p>
                     <?php endif; ?>

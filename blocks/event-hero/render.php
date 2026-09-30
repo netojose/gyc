@@ -27,7 +27,7 @@ $stats = array_filter($stats, function ($stat) {
         <?php if ($eyebrow): ?>
             <p class="flex items-center gap-3">
                 <span class="w-10 h-px bg-gyc-mint" aria-hidden="true"></span>
-                <span class="text-xs font-bold tracking-widest uppercase text-gyc-mint"><?php echo esc_html($eyebrow); ?></span>
+                <span class="font-jakarta text-xs font-bold tracking-[0.25em] uppercase text-gyc-mint"><?php echo esc_html($eyebrow); ?></span>
             </p>
         <?php endif; ?>
 
@@ -48,7 +48,7 @@ $stats = array_filter($stats, function ($stat) {
         <?php if (count($stats) > 0): ?>
             <hr class="border-t border-white/20 mb-12 w-full" />
 
-            <ul class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 w-full" role="list">
+            <ul class="grid grid-cols-2 gap-8 md:flex md:justify-between md:gap-6 w-full" role="list">
                 <?php foreach ($stats as $stat): ?>
                     <li class="flex flex-col gap-1">
                         <span class="text-4xl md:text-5xl lg:text-6xl font-serif text-[#A7F3D0]"><?php echo esc_html($stat['value']); ?></span>

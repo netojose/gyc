@@ -7,7 +7,7 @@ $items = empty($attributes['items']) ? array() : $attributes['items'];
     <div class="max-w-6xl mx-auto">
 
         <?php if ($title): ?>
-            <h2 class="font-jakarta font-extrabold uppercase text-4xl md:text-6xl tracking-tight mb-5">
+            <h2 class="font-jakarta font-extrabold uppercase text-4xl md:text-5xl tracking-tight mb-5">
                 <?php echo esc_html($title); ?>
             </h2>
         <?php endif; ?>

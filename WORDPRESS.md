@@ -40,13 +40,13 @@ During development, run `start:blocks`, `start:theme` and `start:js` side by sid
 | Donate (`page-donate.html`) | http://localhost/gyc-main/donate/ |
 | FAQ (`page-faq.html`) | http://localhost/gyc-main/faq/ |
 | Register (`page-register.html`) | http://localhost/gyc-main/register/ |
-| Single event (`single-event.html`) | http://localhost/gyc-main/event/test/ |
-| Same event by ID | http://localhost/gyc-main/?post_type=event&p=9 (redirects to the address above) |
+| Single event (`single-event.html`) – demo with every event block | http://localhost/gyc-main/event/demo-2027/ |
+| Same event by ID | http://localhost/gyc-main/?post_type=event&p=18 (redirects to the address above) |
 | Events archive | http://localhost/gyc-main/event/ |
 | 404 page | Any address that doesn't exist, e.g. http://localhost/gyc-main/does-not-exist/ |
 | Admin | http://localhost/gyc-main/wp-admin/ |
 
-Every event's address is `http://localhost/gyc-main/event/<slug>/`, where the slug is set in the event's settings. `test` is the local sample event (ID 9).
+Every event's address is `http://localhost/gyc-main/event/<slug>/`, where the slug is set in the event's settings. `demo-2027` ("Stand Fast 2027 (Demo)", ID 18) is the local sample event: it uses every event block with dummy content.
 
 ## 4. Setting it up in WordPress
 
