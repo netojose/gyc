@@ -6,12 +6,12 @@
 	"title": "Mission",
 	"category": "widgets",
 	"icon": "flag",
-	"description": "Centred intro with photo cards, each labelled over the photo and described underneath",
+	"description": "Centred intro with white cards, each with a photo, title and short text",
 	"example": {},
 	"attributes": {
 		"eyebrow": {
 			"type": "string",
-			"default": "What we do"
+			"default": ""
 		},
 		"title": {
 			"type": "string",
@@ -19,15 +19,39 @@
 		},
 		"text": {
 			"type": "string",
-			"default": "GYC exists to equip the next generation to be missionaries for Christ wherever life takes them."
+			"default": "There exists today an army of dedicated young people within the Seventh-day Adventist Church who yearn to demonstrate Nehemiah's leadership, Daniel's integrity, Mary's humility, Paul's passion for evangelism, and Christ's love for God and humanity."
 		},
 		"items": {
 			"type": "array",
 			"default": [
-				{ "id": 1, "image": "", "imageAlt": "", "title": "Service", "text": "Serving communities across Europe with love, humility, and practical action — reflecting Christ in every context." },
-				{ "id": 2, "image": "", "imageAlt": "", "title": "Evangelism", "text": "Equipping young people to share the three angels' messages boldly and faithfully in their cities and campuses." },
-				{ "id": 3, "image": "", "imageAlt": "", "title": "Biblical studies", "text": "Deepening knowledge of Scripture through seminars, workshops, and mentorship with gifted Bible teachers." },
-				{ "id": 4, "image": "", "imageAlt": "", "title": "Congresses", "text": "Gathering hundreds of young Europeans each year for days of worship, community, training, and inspiration." }
+				{
+					"id": 1,
+					"image": "",
+					"imageAlt": "",
+					"title": "Service",
+					"text": "Serving our communities with practical love."
+				},
+				{
+					"id": 2,
+					"image": "",
+					"imageAlt": "",
+					"title": "Evangelism",
+					"text": "Sharing the hope of Jesus with Europe."
+				},
+				{
+					"id": 3,
+					"image": "",
+					"imageAlt": "",
+					"title": "Bible study",
+					"text": "Going deeper into Scripture together."
+				},
+				{
+					"id": 4,
+					"image": "",
+					"imageAlt": "",
+					"title": "Conferences",
+					"text": "Gathering young people to grow and be equipped."
+				}
 			],
 			"items": {
 				"type": "object",

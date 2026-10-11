@@ -6,36 +6,38 @@
 	"title": "Why Give",
 	"category": "widgets",
 	"icon": "heart",
-	"description": "Image with a heading, text and a checklist of reasons to give",
+	"description": "What each gift amount makes possible, next to a card with a button to the donation page",
 	"example": {},
 	"attributes": {
-		"image": {
-			"type": "string",
-			"default": ""
-		},
-		"imageAlt": {
-			"type": "string",
-			"default": ""
-		},
-		"eyebrow": {
-			"type": "string",
-			"default": "Why give?"
-		},
 		"title": {
 			"type": "string",
-			"default": "Invest in young lives"
+			"default": "What your gift makes possible"
 		},
 		"text": {
 			"type": "string",
-			"default": "Your donation goes directly toward creating an accessible, Christ-centered experience."
+			"default": ""
 		},
 		"items": {
 			"type": "array",
 			"default": [
-				{ "id": 1, "text": "Making the conference more accessible" },
-				{ "id": 2, "text": "Supporting speakers, workshops and resources" },
-				{ "id": 3, "text": "Providing accommodation and meals" },
-				{ "id": 4, "text": "Reaching the next generation with the gospel" }
+				{
+					"id": 1,
+					"amount": "€25",
+					"title": "Bibles and study materials",
+					"text": "Puts a Bible and study guide in the hands of a young person."
+				},
+				{
+					"id": 2,
+					"amount": "€80",
+					"title": "A conference scholarship",
+					"text": "Helps a student from a lower-income country attend GYC."
+				},
+				{
+					"id": 3,
+					"amount": "€250",
+					"title": "Local outreach",
+					"text": "Supports a team running community outreach in their city."
+				}
 			],
 			"items": {
 				"type": "object",
@@ -43,11 +45,37 @@
 					"id": {
 						"type": "number"
 					},
+					"amount": {
+						"type": "string"
+					},
+					"title": {
+						"type": "string"
+					},
 					"text": {
 						"type": "string"
 					}
 				}
 			}
+		},
+		"cardTitle": {
+			"type": "string",
+			"default": "Make a donation"
+		},
+		"cardText": {
+			"type": "string",
+			"default": "Give once or monthly, with any amount, on our secure donation page."
+		},
+		"buttonLabel": {
+			"type": "string",
+			"default": "Donate now"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "#"
+		},
+		"note": {
+			"type": "string",
+			"default": "Secure payment. You will receive a receipt by email."
 		}
 	},
 	"supports": {

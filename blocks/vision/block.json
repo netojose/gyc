@@ -11,26 +11,38 @@
 	"attributes": {
 		"eyebrow": {
 			"type": "string",
-			"default": "Who we are"
+			"default": ""
 		},
 		"title": {
 			"type": "string",
-			"default": "Our vision"
+			"default": "A generation that knows Christ and makes Him known"
 		},
 		"lead": {
 			"type": "string",
-			"default": "GYC Europe is a movement of young Adventists passionate about sharing the transformative power of the gospel across the continent. We believe in empowering a generation to be fearless witnesses for Christ — informed in faith, connected in community, and bold in mission."
+			"default": "GYC Europe is a youth-led movement that inspires young people to a deeper relationship with Jesus, a love for His Word and a life of mission. We believe young people are not only the church of tomorrow, but part of God's work today."
 		},
 		"text": {
 			"type": "string",
-			"default": "Our vision is to see European youth rise up — equipped, inspired, and sent — to proclaim the three angels' messages with clarity and compassion, while embracing a culture of excellence and service."
+			"default": "We are a supportive ministry of Seventh-day Adventist Church, part of Trans-European Division and members of ASI Europe."
 		},
 		"images": {
 			"type": "array",
 			"default": [
-				{ "id": 1, "url": "", "alt": "" },
-				{ "id": 2, "url": "", "alt": "" },
-				{ "id": 3, "url": "", "alt": "" }
+				{
+					"id": 1,
+					"url": "",
+					"alt": ""
+				},
+				{
+					"id": 2,
+					"url": "",
+					"alt": ""
+				},
+				{
+					"id": 3,
+					"url": "",
+					"alt": ""
+				}
 			],
 			"items": {
 				"type": "object",

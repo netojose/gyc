@@ -39,11 +39,10 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-    const { image, imageAlt, eyebrow, title, text, items } = attributes;
+    const { title, text, items, cardTitle, cardText, buttonLabel, buttonUrl, note } = attributes;
 
     const updateItem = ( id, changes ) => {
-        const newItems = items.map(i => i.id === id ? { ...i, ...changes } : i);
-        setAttributes({ items: newItems });
+        setAttributes({ items: items.map(i => i.id === id ? { ...i, ...changes } : i) });
     };
 
     return (
@@ -52,40 +51,37 @@ export default function Edit({ attributes, setAttributes }) {
                 <PanelBody initialOpen={false} title="Why Give">
                     <div className="gyc-why-give-fields-wrapper">
                         <TextControl
-                            label="Image URL"
-                            help="Leave empty to show the GYC placeholder."
-                            value={ image || '' }
-                            onChange={ ( newValue ) => setAttributes( { image: newValue } ) }
-                        />
-                        <TextControl
-                            label="Image alt text"
-                            value={ imageAlt || '' }
-                            onChange={ ( newValue ) => setAttributes( { imageAlt: newValue } ) }
-                        />
-                        <TextControl
-                            label="Eyebrow"
-                            value={ eyebrow || '' }
-                            onChange={ ( newValue ) => setAttributes( { eyebrow: newValue } ) }
-                        />
-                        <TextControl
                             label="Title"
                             value={ title || '' }
                             onChange={ ( newValue ) => setAttributes( { title: newValue } ) }
                         />
                         <TextareaControl
                             label="Text"
-                            rows={3}
+                            help="Optional, shown under the title."
+                            rows={2}
                             value={ text || '' }
                             onChange={ ( newValue ) => setAttributes( { text: newValue } ) }
                         />
 
                         <Panel>
-                            <PanelBody initialOpen={false} title="Checklist">
+                            <PanelBody initialOpen={false} title="Gift amounts">
                                 {items.map(item => (
                                     <PanelRow key={item.id}>
                                         <div className="gyc-why-give-fields-wrapper">
                                             <TextControl
+                                                label="Amount"
+                                                help="For example €25"
+                                                value={ item.amount || '' }
+                                                onChange={ ( newValue ) => updateItem( item.id, { amount: newValue } ) }
+                                            />
+                                            <TextControl
+                                                label="Title"
+                                                value={ item.title || '' }
+                                                onChange={ ( newValue ) => updateItem( item.id, { title: newValue } ) }
+                                            />
+                                            <TextareaControl
                                                 label="Text"
+                                                rows={2}
                                                 value={ item.text || '' }
                                                 onChange={ ( newValue ) => updateItem( item.id, { text: newValue } ) }
                                             />
@@ -94,12 +90,9 @@ export default function Edit({ attributes, setAttributes }) {
                                                     size="small"
                                                     variant="outline"
                                                     className="is-secondary is-destructive"
-                                                    onClick={ () => {
-                                                        const newItems = items.filter(i => i.id !== item.id);
-                                                        setAttributes({ items: newItems });
-                                                    } }
+                                                    onClick={ () => setAttributes({ items: items.filter(i => i.id !== item.id) }) }
                                                 >
-                                                    Remove item
+                                                    Remove amount
                                                 </Button>
                                             </div>
                                             <hr className="gyc-why-give-separator" />
@@ -109,12 +102,46 @@ export default function Edit({ attributes, setAttributes }) {
                                 <Button
                                     isPrimary
                                     onClick={ () => {
-                                        const newItem = { id: Date.now(), text: '' };
+                                        const newItem = { id: Date.now(), amount: '', title: '', text: '' };
                                         setAttributes({ items: [...items, newItem] });
                                     } }
                                 >
-                                    Add item
+                                    Add amount
                                 </Button>
+                            </PanelBody>
+                        </Panel>
+
+                        <Panel>
+                            <PanelBody initialOpen={false} title="Donation card">
+                                <div className="gyc-why-give-fields-wrapper">
+                                    <TextControl
+                                        label="Card title"
+                                        value={ cardTitle || '' }
+                                        onChange={ ( newValue ) => setAttributes( { cardTitle: newValue } ) }
+                                    />
+                                    <TextareaControl
+                                        label="Card text"
+                                        rows={2}
+                                        value={ cardText || '' }
+                                        onChange={ ( newValue ) => setAttributes( { cardText: newValue } ) }
+                                    />
+                                    <TextControl
+                                        label="Button label"
+                                        value={ buttonLabel || '' }
+                                        onChange={ ( newValue ) => setAttributes( { buttonLabel: newValue } ) }
+                                    />
+                                    <TextControl
+                                        label="Donation page link"
+                                        help="Full URL of the external donation page, e.g. https://..."
+                                        value={ buttonUrl || '' }
+                                        onChange={ ( newValue ) => setAttributes( { buttonUrl: newValue } ) }
+                                    />
+                                    <TextControl
+                                        label="Note under the button"
+                                        value={ note || '' }
+                                        onChange={ ( newValue ) => setAttributes( { note: newValue } ) }
+                                    />
+                                </div>
                             </PanelBody>
                         </Panel>
                     </div>

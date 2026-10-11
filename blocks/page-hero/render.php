@@ -15,14 +15,14 @@ $search_placeholder = empty($attributes['searchPlaceholder']) ? '' : $attributes
         <path class="fill-gyc-plum-light/60" d="M0 200v-40l240-70 260 90 210-60 230 50 250-110 250 80v60z"/>
     </svg>
 
-    <div class="relative max-w-6xl mx-auto px-6 md:px-12 pt-16 pb-28 md:pt-24 md:pb-40">
+    <div class="relative max-w-content mx-auto px-6 md:px-12 pt-16 pb-28 md:pt-24 md:pb-40">
         <div class="max-w-2xl space-y-5">
             <?php if ($eyebrow): ?>
                 <p class="font-jakarta text-xs font-bold tracking-[0.25em] uppercase text-white/85"><?php echo esc_html($eyebrow); ?></p>
             <?php endif; ?>
 
             <?php if ($title): ?>
-                <h1 id="gyc-page-hero-title" class="font-jakarta text-5xl md:text-7xl font-extrabold uppercase leading-none tracking-tight break-words"><?php echo esc_html($title); ?></h1>
+                <h1 id="gyc-page-hero-title" class="font-display text-5xl md:text-7xl uppercase leading-none break-words"><?php echo esc_html($title); ?></h1>
             <?php endif; ?>
 
             <?php if ($text): ?>

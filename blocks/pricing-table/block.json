@@ -6,20 +6,20 @@
 	"title": "Pricing Table",
 	"category": "widgets",
 	"icon": "tickets",
-	"description": "Example block scaffolded with Create Block tool.",
+	"description": "Mint registration section with price boxes, one optionally highlighted with a badge",
 	"example": {},
 	"attributes": {
 		"title": {
 			"type": "string",
-			"default": ""
+			"default": "Ready to stand fast?"
 		},
 		"headline": {
 			"type": "string",
-			"default": ""
+			"default": "Don't miss this opportunity to be part of something greater. Register today and join over 700 young people from across Europe committed to standing fast in faith."
 		},
 		"items": {
-            "type": "array",
-            "default": [],
+			"type": "array",
+			"default": [],
 			"items": {
 				"type": "object",
 				"properties": {
@@ -43,7 +43,19 @@
 					}
 				}
 			}
-        }
+		},
+		"buttonLabel": {
+			"type": "string",
+			"default": "Register now"
+		},
+		"contactText": {
+			"type": "string",
+			"default": "Questions? Contact us at"
+		},
+		"contactEmail": {
+			"type": "string",
+			"default": "info@gyceurope.org"
+		}
 	},
 	"supports": {
 		"html": false,

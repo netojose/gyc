@@ -14,31 +14,80 @@ $copyright = empty($attributes['copyright']) ? null : str_replace('{year}', wp_d
 $tagline = empty($attributes['tagline']) ? null : $attributes['tagline'];
 
 $has_newsletter = $newsletter_title || $newsletter_text || $newsletter_action;
-$link_class = 'underline underline-offset-4 decoration-gyc-ink/30 hover:text-gyc-teal hover:decoration-gyc-teal focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gyc-teal';
+// Light by default; dark when the page turns on "Dark header and footer" (see GycUI::is_dark_chrome)
+$c = GycUI::is_dark_chrome()
+    ? array(
+        'footer' => 'bg-gyc-plum text-white border-white/10',
+        'logo' => 'brightness-0 invert',
+        'muted' => 'text-white/75',
+        'heading' => 'text-gyc-mint',
+        'link' => 'hover:decoration-gyc-mint hover:text-gyc-mint focus-visible:outline-gyc-mint',
+        'focus' => 'focus-visible:outline-gyc-mint',
+        'divider' => 'border-white/10',
+        'title' => 'text-white',
+        'bottom' => 'border-t border-white/10 pt-6',
+    )
+    : array(
+        'footer' => 'bg-gyc-cream text-gyc-ink border-gyc-ink/10',
+        'logo' => 'brightness-0',
+        'muted' => 'text-gyc-ink/80',
+        'heading' => 'text-gyc-teal',
+        'link' => 'hover:decoration-gyc-teal hover:text-gyc-teal focus-visible:outline-gyc-teal',
+        'focus' => 'focus-visible:outline-gyc-teal',
+        'divider' => 'border-gyc-ink/10',
+        'title' => 'text-gyc-ink',
+        'bottom' => '',
+    );
+$link_class = 'underline decoration-transparent underline-offset-4 motion-safe:transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 ' . $c['link'];
 ?>
-<footer id="contact" class="bg-white text-gyc-ink border-t border-gyc-ink/10 pt-14 pb-8">
-    <div class="max-w-6xl mx-auto px-6 md:px-12">
-        <div class="grid grid-cols-2 md:grid-cols-6 lg:grid-cols-12 gap-x-8 gap-y-12">
-            <div class="col-span-2 space-y-5">
-                <a href="<?php echo esc_url($logo_url); ?>" class="inline-block rounded font-jakarta text-lg font-extrabold focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-teal">
+<footer id="contact" class="<?php echo esc_attr($c['footer']); ?> border-t pt-16 pb-10">
+    <div class="max-w-content mx-auto px-6 md:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-12">
+            <div class="lg:col-span-5 space-y-5">
+                <a href="<?php echo esc_url($logo_url); ?>" class="inline-block rounded font-jakarta text-lg font-extrabold focus-visible:outline-2 focus-visible:outline-offset-4 <?php echo esc_attr($c['focus']); ?>">
                     <?php if ($logo): ?>
-                        <img loading="lazy" decoding="async" src="<?php echo esc_url($logo); ?>" alt="<?php echo esc_attr($logo_alt); ?>" class="w-12 h-auto brightness-0" draggable="false" />
+                        <img loading="lazy" decoding="async" src="<?php echo esc_url($logo); ?>" alt="<?php echo esc_attr($logo_alt); ?>" class="w-16 h-auto <?php echo esc_attr($c['logo']); ?>" draggable="false" />
                     <?php else: ?>
                         <?php echo esc_html(get_bloginfo('name')); ?>
                     <?php endif; ?>
                 </a>
                 <?php if ($description): ?>
-                    <p class="font-jakarta text-sm leading-relaxed text-gyc-ink/70 max-w-xs"><?php echo esc_html($description); ?></p>
+                    <p class="font-jakarta text-sm leading-relaxed max-w-sm <?php echo esc_attr($c['muted']); ?>"><?php echo esc_html($description); ?></p>
                 <?php endif; ?>
             </div>
 
+            <?php if (count($columns) > 0): ?>
+                <div class="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-10">
+                    <?php foreach (array_values($columns) as $index => $column): ?>
+                        <?php
+                        $links = empty($column['links']) ? array() : array_filter($column['links'], function ($link) {
+                            return !empty($link['label']) && !empty($link['url']);
+                        });
+                        $heading_id = 'gyc-footer-column-' . $index;
+                        ?>
+                        <nav <?php if (!empty($column['title'])): ?>aria-labelledby="<?php echo esc_attr($heading_id); ?>"<?php endif; ?>>
+                            <?php if (!empty($column['title'])): ?>
+                                <h2 id="<?php echo esc_attr($heading_id); ?>" class="font-jakarta text-sm font-bold tracking-wide mb-4 <?php echo esc_attr($c['heading']); ?>"><?php echo esc_html($column['title']); ?></h2>
+                            <?php endif; ?>
+                            <?php if (count($links) > 0): ?>
+                                <ul class="space-y-3 font-jakarta text-base break-words" role="list">
+                                    <?php foreach ($links as $link): ?>
+                                        <li><a href="<?php echo esc_url(GycUI::resolve_url($link['url'])); ?>" class="<?php echo esc_attr($link_class); ?>"><?php echo esc_html($link['label']); ?></a></li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+                        </nav>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
+
             <?php if ($has_newsletter): ?>
-                <div class="col-span-2 md:col-span-4 space-y-3">
+                <div class="lg:col-span-12 space-y-3 border-t pt-10 <?php echo esc_attr($c['divider']); ?>">
                     <?php if ($newsletter_title): ?>
-                        <h2 class="font-jakarta text-2xl md:text-3xl font-extrabold tracking-tight text-gyc-ink"><?php echo esc_html($newsletter_title); ?></h2>
+                        <h2 class="font-jakarta text-2xl md:text-3xl font-extrabold tracking-tight <?php echo esc_attr($c['title']); ?>"><?php echo esc_html($newsletter_title); ?></h2>
                     <?php endif; ?>
                     <?php if ($newsletter_text): ?>
-                        <p id="gyc-newsletter-hint" class="font-jakarta text-sm text-gyc-ink/70"><?php echo esc_html($newsletter_text); ?></p>
+                        <p id="gyc-newsletter-hint" class="font-jakarta text-sm <?php echo esc_attr($c['muted']); ?>"><?php echo esc_html($newsletter_text); ?></p>
                     <?php endif; ?>
                     <?php if ($newsletter_action): ?>
                         <form class="flex flex-col sm:flex-row pt-2" action="<?php echo esc_url($newsletter_action); ?>" method="post">
@@ -61,31 +110,10 @@ $link_class = 'underline underline-offset-4 decoration-gyc-ink/30 hover:text-gyc
                     <?php endif; ?>
                 </div>
             <?php endif; ?>
-
-            <?php foreach (array_values($columns) as $index => $column): ?>
-                <?php
-                $links = empty($column['links']) ? array() : array_filter($column['links'], function ($link) {
-                    return !empty($link['label']) && !empty($link['url']);
-                });
-                $heading_id = 'gyc-footer-column-' . $index;
-                ?>
-                <nav class="col-span-1 md:col-span-2 <?php echo $index === 0 ? 'lg:col-start-7' : ''; ?>" <?php if (!empty($column['title'])): ?>aria-labelledby="<?php echo esc_attr($heading_id); ?>"<?php endif; ?>>
-                    <?php if (!empty($column['title'])): ?>
-                        <h2 id="<?php echo esc_attr($heading_id); ?>" class="font-jakarta text-xs font-bold uppercase tracking-[0.2em] text-gyc-ink/70 mb-4"><?php echo esc_html($column['title']); ?></h2>
-                    <?php endif; ?>
-                    <?php if (count($links) > 0): ?>
-                        <ul class="space-y-2.5 font-jakarta text-sm break-words" role="list">
-                            <?php foreach ($links as $link): ?>
-                                <li><a href="<?php echo esc_url(GycUI::resolve_url($link['url'])); ?>" class="<?php echo esc_attr($link_class); ?>"><?php echo esc_html($link['label']); ?></a></li>
-                            <?php endforeach; ?>
-                        </ul>
-                    <?php endif; ?>
-                </nav>
-            <?php endforeach; ?>
         </div>
 
         <?php if ($copyright || $tagline): ?>
-            <div class="mt-14 flex flex-col-reverse gap-2 sm:flex-row sm:items-center sm:justify-between font-jakarta text-xs text-gyc-ink/70">
+            <div class="mt-16 flex flex-col-reverse gap-2 sm:flex-row sm:items-center sm:justify-between font-jakarta text-xs <?php echo esc_attr($c['bottom'] . ' ' . $c['muted']); ?>">
                 <?php if ($copyright): ?>
                     <p><?php echo esc_html($copyright); ?></p>
                 <?php endif; ?>

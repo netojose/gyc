@@ -6,12 +6,12 @@
 	"title": "Committee",
 	"category": "widgets",
 	"icon": "groups",
-	"description": "Team members with photo, role, email and Instagram; the first members are shown larger",
+	"description": "Team members four per row with photo, name, role, country and optional email and Instagram",
 	"example": {},
 	"attributes": {
 		"eyebrow": {
 			"type": "string",
-			"default": "Leadership"
+			"default": ""
 		},
 		"title": {
 			"type": "string",
@@ -19,23 +19,83 @@
 		},
 		"text": {
 			"type": "string",
-			"default": "The Committee is responsible for organising each edition of GYC — a group of dedicated young professionals who believe in the mission and share the values of GYC in their daily lives."
-		},
-		"featuredCount": {
-			"type": "number",
-			"default": 3
+			"default": "The committee is responsible for organising and running GYC Europe. Its members are young professionals and students serving as volunteers."
 		},
 		"members": {
 			"type": "array",
 			"default": [
-				{ "id": 1, "photo": "", "name": "Andreas Müller", "role": "President", "email": "a.muller@gyc-europe.org", "instagram": "@andreas.muller" },
-				{ "id": 2, "photo": "", "name": "Kelsey Laurent", "role": "General VP", "email": "k.laurent@gyc-europe.org", "instagram": "@kelseylaurent" },
-				{ "id": 3, "photo": "", "name": "Olivier Kris", "role": "Treasurer", "email": "o.kris@gyc-europe.org", "instagram": "@olivier.kris" },
-				{ "id": 4, "photo": "", "name": "Claire Kim", "role": "VP Creative Affairs", "email": "c.kim@gyc-europe.org", "instagram": "@clairekim.eu" },
-				{ "id": 5, "photo": "", "name": "Thomas Mayhew", "role": "VP Programming", "email": "t.mayhew@gyc-europe.org", "instagram": "@thomasmayhew" },
-				{ "id": 6, "photo": "", "name": "Anna Wood", "role": "VP Logistics", "email": "a.wood@gyc-europe.org", "instagram": "@annawood.eu" },
-				{ "id": 7, "photo": "", "name": "Junior Vertus", "role": "VP Communication", "email": "j.vertus@gyc-europe.org", "instagram": "@juniorvertus" },
-				{ "id": 8, "photo": "", "name": "Stephanie Lee", "role": "VP Marketing", "email": "s.lee@gyc-europe.org", "instagram": "@stephanielee.eu" }
+				{
+					"id": 1,
+					"photo": "",
+					"name": "Full name",
+					"role": "President",
+					"country": "Country",
+					"email": "",
+					"instagram": ""
+				},
+				{
+					"id": 2,
+					"photo": "",
+					"name": "Full name",
+					"role": "Vice President",
+					"country": "Country",
+					"email": "",
+					"instagram": ""
+				},
+				{
+					"id": 3,
+					"photo": "",
+					"name": "Full name",
+					"role": "Secretary",
+					"country": "Country",
+					"email": "",
+					"instagram": ""
+				},
+				{
+					"id": 4,
+					"photo": "",
+					"name": "Full name",
+					"role": "Treasurer",
+					"country": "Country",
+					"email": "",
+					"instagram": ""
+				},
+				{
+					"id": 5,
+					"photo": "",
+					"name": "Full name",
+					"role": "Communications",
+					"country": "Country",
+					"email": "",
+					"instagram": ""
+				},
+				{
+					"id": 6,
+					"photo": "",
+					"name": "Full name",
+					"role": "Programming",
+					"country": "Country",
+					"email": "",
+					"instagram": ""
+				},
+				{
+					"id": 7,
+					"photo": "",
+					"name": "Full name",
+					"role": "Outreach",
+					"country": "Country",
+					"email": "",
+					"instagram": ""
+				},
+				{
+					"id": 8,
+					"photo": "",
+					"name": "Full name",
+					"role": "Media",
+					"country": "Country",
+					"email": "",
+					"instagram": ""
+				}
 			],
 			"items": {
 				"type": "object",
@@ -56,6 +116,9 @@
 						"type": "string"
 					},
 					"instagram": {
+						"type": "string"
+					},
+					"country": {
 						"type": "string"
 					}
 				}

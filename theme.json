@@ -9,74 +9,59 @@
 			"defaultPalette": false,
 			"palette": [
 				{
-					"color": "#2d1b33",
-					"name": "Primary",
-					"slug": "primary"
+					"color": "#0f2a3d",
+					"name": "Ink",
+					"slug": "gyc-ink"
 				},
 				{
-					"color": "#fffdf0",
-					"name": "Secondary",
-					"slug": "secondary"
+					"color": "#0a141c",
+					"name": "Night",
+					"slug": "gyc-night"
 				},
 				{
-					"color": "oklch(70.7% 0.022 261.325)",
-					"name": "Tertiary",
-					"slug": "tertiary"
-				},
-				{
-					"color": "#3C2D3D",
-					"name": "Accent",
-					"slug": "accent"
-				},
-				{
-					"color": "#F4F1E6",
-					"name": "Accent 2",
-					"slug": "accent-2"
+					"color": "#0b5f5a",
+					"name": "Teal",
+					"slug": "gyc-teal"
 				},
 				{
 					"color": "#5ce1ca",
-					"name": "Inverse",
-					"slug": "inverse"
+					"name": "Mint",
+					"slug": "gyc-mint"
 				},
 				{
-					"color": "#FFFFFF",
-					"name": "Base",
+					"color": "#2d1b33",
+					"name": "Plum",
+					"slug": "gyc-plum"
+				},
+				{
+					"color": "#3d2143",
+					"name": "Plum mid",
+					"slug": "gyc-plum-mid"
+				},
+				{
+					"color": "#f7f4ee",
+					"name": "Cream",
+					"slug": "gyc-cream"
+				},
+				{
+					"color": "#efefec",
+					"name": "Mist",
+					"slug": "gyc-mist"
+				},
+				{
+					"color": "#feffe9",
+					"name": "Ivory",
+					"slug": "gyc-ivory"
+				},
+				{
+					"color": "#ffffff",
+					"name": "White",
 					"slug": "base"
 				},
 				{
-					"color": "#111111",
+					"color": "#0f2a3d",
 					"name": "Contrast",
 					"slug": "contrast"
-				},
-				{
-					"color": "#FFEE58",
-					"name": "Accent 1",
-					"slug": "accent-1"
-				},
-				{
-					"color": "#F6CFF4",
-					"name": "Accent 2",
-					"slug": "accent-2"
-				},
-				{
-					"color": "#503AA8",
-					"name": "Accent 3",
-					"slug": "accent-3"
-				},
-				{
-					"color": "#686868",
-					"name": "Accent 4",
-					"slug": "accent-4"
-				},
-				{
-					"color": "#FBFAF3",
-					"name": "Accent 5",
-					"slug": "accent-5"
-				},
-				{
-					"color": "color-mix(in srgb, currentColor 20%, transparent)",
-					"name": "Accent 6",
-					"slug": "accent-6"
 				}
 			]
 		},
@@ -179,7 +164,7 @@
 				},
 				":focus": {
 					"outline": {
-						"color": "var:preset|color|accent-4",
+						"color": "var:preset|color|gyc-teal",
 						"offset": "2px"
 					}
 				},

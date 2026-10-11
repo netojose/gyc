@@ -12,7 +12,7 @@
 		"items": {
 			"type": "array",
 			"default": [
-				{ "id": 1, "title": "Booth registration", "text": "Special rates may be available if you want to have a booth at GYC.", "buttonLabel": "Contact us", "buttonUrl": "#contact" },
+				{ "id": 1, "title": "Booth registration", "text": "Special rates may be available if you want to have a booth at GYC.", "buttonLabel": "Contact us", "buttonUrl": "/contact-us/" },
 				{ "id": 2, "title": "Need help?", "text": "Questions about registration, payment or accommodation?", "buttonLabel": "View FAQ", "buttonUrl": "/faq/" }
 			],
 			"items": {

@@ -18,7 +18,7 @@ $categories = array_filter(array_map(function ($category) {
     x-data="gycFaq"
     @gyc-faq-search.window="search($event)"
     tabindex="-1">
-    <div class="max-w-6xl mx-auto px-6 md:px-12">
+    <div class="max-w-content mx-auto px-6 md:px-12">
         <p class="sr-only" role="status" x-text="status"></p>
 
         <?php if ($no_results_text): ?>
@@ -30,14 +30,14 @@ $categories = array_filter(array_map(function ($category) {
                 <?php $heading_id = 'gyc-faq-category-' . $category_index; ?>
                 <div data-faq-category>
                     <?php if (!empty($category['title'])): ?>
-                        <h2 id="<?php echo esc_attr($heading_id); ?>" class="font-jakarta text-xs font-extrabold uppercase tracking-[0.18em] mb-4"><?php echo esc_html($category['title']); ?></h2>
+                        <h2 id="<?php echo esc_attr($heading_id); ?>" class="font-display text-sm uppercase tracking-[0.12em] mb-4"><?php echo esc_html($category['title']); ?></h2>
                     <?php endif; ?>
 
                     <ul class="border-b border-gyc-plum/15" role="list" <?php if (!empty($category['title'])): ?>aria-labelledby="<?php echo esc_attr($heading_id); ?>"<?php endif; ?>>
                         <?php foreach ($category['items'] as $item): ?>
                             <li class="border-t border-gyc-plum/15" data-faq-item>
                                 <details class="group">
-                                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4 rounded-sm py-3 font-jakarta text-sm text-gyc-plum/90 hover:text-gyc-plum [&::-webkit-details-marker]:hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gyc-teal">
+                                    <summary class="flex cursor-pointer list-none items-center justify-between gap-4 rounded-sm py-3 font-jakarta text-sm text-gyc-plum/90 motion-safe:transition-colors hover:text-gyc-plum [&::-webkit-details-marker]:hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gyc-teal">
                                         <span><?php echo esc_html($item['question']); ?></span>
                                         <svg class="h-3.5 w-3.5 shrink-0 motion-safe:transition-transform group-open:rotate-45" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" viewBox="0 0 24 24" aria-hidden="true">
                                             <path d="M12 4v16M4 12h16"/>

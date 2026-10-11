@@ -6,7 +6,7 @@
 	"title": "Site Header",
 	"category": "theme",
 	"icon": "menu",
-	"description": "Main site header with logo, menu, social links and button",
+	"description": "Main site header with logo, menu and button",
 	"example": {},
 	"attributes": {
 		"logo": {
@@ -25,11 +25,9 @@
 			"type": "array",
 			"default": [
 				{ "id": 1, "label": "Home", "url": "/" },
-				{ "id": 2, "label": "About", "url": "#about-us" },
+				{ "id": 2, "label": "About", "url": "/about-us/" },
 				{ "id": 3, "label": "Community", "url": "#community" },
-				{ "id": 4, "label": "Media", "url": "#" },
-				{ "id": 5, "label": "Events", "url": "#" },
-				{ "id": 6, "label": "Contact", "url": "#contact" }
+				{ "id": 6, "label": "Contact", "url": "/contact-us/" }
 			],
 			"items": {
 				"type": "object",
@@ -46,36 +44,13 @@
 				}
 			}
 		},
-		"socials": {
-			"type": "array",
-			"default": [
-				{ "id": 1, "network": "instagram", "url": "#" },
-				{ "id": 2, "network": "tiktok", "url": "#" },
-				{ "id": 3, "network": "youtube", "url": "#" },
-				{ "id": 4, "network": "facebook", "url": "#" }
-			],
-			"items": {
-				"type": "object",
-				"properties": {
-					"id": {
-						"type": "number"
-					},
-					"network": {
-						"type": "string"
-					},
-					"url": {
-						"type": "string"
-					}
-				}
-			}
-		},
 		"buttonLabel": {
 			"type": "string",
-			"default": "Follow us"
+			"default": "Register now"
 		},
 		"buttonUrl": {
 			"type": "string",
-			"default": "#contact"
+			"default": "/register/"
 		}
 	},
 	"supports": {

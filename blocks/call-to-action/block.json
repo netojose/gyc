@@ -31,7 +31,7 @@
 		},
 		"buttonUrl": {
 			"type": "string",
-			"default": "#give"
+			"default": "/donate/"
 		}
 	},
 	"supports": {

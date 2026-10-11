@@ -1,0 +1,91 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/contact",
+	"version": "0.1.0",
+	"title": "Contact",
+	"category": "widgets",
+	"icon": "email",
+	"description": "Contact details with social links next to a message form that is sent by email",
+	"example": {},
+	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "We would love to hear from you"
+		},
+		"cards": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "icon": "mail", "title": "Email", "text": "For general questions about GYC Europe.", "linkLabel": "info@gyceurope.org", "linkUrl": "info@gyceurope.org" },
+				{ "id": 2, "icon": "chat", "title": "Instagram messages", "text": "The fastest way to reach our team.", "linkLabel": "@gyc_europe", "linkUrl": "https://www.instagram.com/gyc_europe/" },
+				{ "id": 3, "icon": "location", "title": "Bring GYC to your country", "text": "Want to start a local GYC group or host an event?", "linkLabel": "Talk to us", "linkUrl": "#contact-form" }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": { "type": "number" },
+					"icon": { "type": "string" },
+					"title": { "type": "string" },
+					"text": { "type": "string" },
+					"linkLabel": { "type": "string" },
+					"linkUrl": { "type": "string" }
+				}
+			}
+		},
+		"socials": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "network": "instagram", "url": "https://www.instagram.com/gyc_europe/" },
+				{ "id": 2, "network": "youtube", "url": "#" },
+				{ "id": 3, "network": "facebook", "url": "#" }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": { "type": "number" },
+					"network": { "type": "string" },
+					"url": { "type": "string" }
+				}
+			}
+		},
+		"formTitle": {
+			"type": "string",
+			"default": "Send a message"
+		},
+		"formText": {
+			"type": "string",
+			"default": "Fill in the form and choose what your message is about."
+		},
+		"topics": {
+			"type": "string",
+			"default": "General question\nEvents\nVolunteering\nMedia and press\nPartnerships"
+		},
+		"recipient": {
+			"type": "string",
+			"default": "info@gyceurope.org"
+		},
+		"buttonLabel": {
+			"type": "string",
+			"default": "Send message"
+		},
+		"note": {
+			"type": "string",
+			"default": "We reply within two days."
+		},
+		"successMessage": {
+			"type": "string",
+			"default": "Thank you! Your message has been sent. We will reply within two days."
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/contact",
+	"editorScript": "file:../../build/contact.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

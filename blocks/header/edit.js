@@ -1,6 +1,5 @@
 import {
     TextControl,
-    SelectControl,
     Panel,
     PanelBody,
     PanelRow,
@@ -30,13 +29,6 @@ import { useBlockProps } from '@wordpress/block-editor';
  */
 import './editor.scss';
 
-const NETWORK_OPTIONS = [
-    { label: 'Instagram', value: 'instagram' },
-    { label: 'TikTok', value: 'tiktok' },
-    { label: 'YouTube', value: 'youtube' },
-    { label: 'Facebook', value: 'facebook' },
-];
-
 /**
  * The edit function describes the structure of your block in the context of the
  * editor. This represents what the editor will render when the block is used.
@@ -46,16 +38,11 @@ const NETWORK_OPTIONS = [
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-    const { logo, logoAlt, logoUrl, menu, socials, buttonLabel, buttonUrl } = attributes;
+    const { logo, logoAlt, logoUrl, menu, buttonLabel, buttonUrl } = attributes;
 
     const updateMenuItem = ( id, changes ) => {
         const newMenu = menu.map(i => i.id === id ? { ...i, ...changes } : i);
         setAttributes({ menu: newMenu });
-    };
-
-    const updateSocial = ( id, changes ) => {
-        const newSocials = socials.map(i => i.id === id ? { ...i, ...changes } : i);
-        setAttributes({ socials: newSocials });
     };
 
     return (
@@ -121,51 +108,6 @@ export default function Edit({ attributes, setAttributes }) {
                                     } }
                                 >
                                     Add menu item
-                                </Button>
-                            </PanelBody>
-                        </Panel>
-
-                        <Panel>
-                            <PanelBody initialOpen={false} title="Social links">
-                                {socials.map(social => (
-                                    <PanelRow key={social.id}>
-                                        <div className="gyc-header-fields-wrapper">
-                                            <SelectControl
-                                                label="Network"
-                                                value={ social.network || 'instagram' }
-                                                options={ NETWORK_OPTIONS }
-                                                onChange={ ( newValue ) => updateSocial( social.id, { network: newValue } ) }
-                                            />
-                                            <TextControl
-                                                label="Link"
-                                                value={ social.url || '' }
-                                                onChange={ ( newValue ) => updateSocial( social.id, { url: newValue } ) }
-                                            />
-                                            <div>
-                                                <Button
-                                                    size="small"
-                                                    variant="outline"
-                                                    className="is-secondary is-destructive"
-                                                    onClick={ () => {
-                                                        const newSocials = socials.filter(i => i.id !== social.id);
-                                                        setAttributes({ socials: newSocials });
-                                                    } }
-                                                >
-                                                    Remove social link
-                                                </Button>
-                                            </div>
-                                            <hr className="gyc-header-separator" />
-                                        </div>
-                                    </PanelRow>
-                                ))}
-                                <Button
-                                    isPrimary
-                                    onClick={ () => {
-                                        const newSocial = { id: Date.now(), network: 'instagram', url: '' };
-                                        setAttributes({ socials: [...socials, newSocial] });
-                                    } }
-                                >
-                                    Add social link
                                 </Button>
                             </PanelBody>
                         </Panel>

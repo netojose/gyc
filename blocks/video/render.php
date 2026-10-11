@@ -6,7 +6,6 @@ $link_label = empty($attributes['linkLabel']) ? null : $attributes['linkLabel'];
 $video_url = empty($attributes['videoUrl']) ? null : $attributes['videoUrl'];
 $poster = empty($attributes['poster']) ? null : $attributes['poster'];
 $poster_alt = empty($attributes['posterAlt']) ? '' : $attributes['posterAlt'];
-$overlay_text = empty($attributes['overlayText']) ? null : $attributes['overlayText'];
 
 // YouTube and Vimeo links are played through their embed player, anything else as a video file.
 $embed_url = null;
@@ -23,8 +22,8 @@ $player_label = $title ? sprintf('Play video: %s', $title) : 'Play video';
     class="bg-white text-gyc-ink"
     <?php if ($title): ?>aria-labelledby="gyc-video-title"<?php endif; ?>
     x-data="{ playing: false, play() { this.playing = true; this.$nextTick(function () { if (this.$refs.player) { this.$refs.player.focus(); } }.bind(this)); } }">
-    <div class="grid grid-cols-1 lg:grid-cols-12">
-        <div class="relative lg:col-span-7 aspect-video lg:aspect-auto lg:min-h-[30rem] bg-[#0a1433] overflow-hidden">
+    <div class="max-w-content mx-auto md:px-12 grid grid-cols-1 lg:grid-cols-12">
+        <div class="relative lg:col-span-7 aspect-video bg-[#0a1433] overflow-hidden">
             <?php if ($video_url): ?>
                 <template x-if="playing">
                     <?php if ($embed_url): ?>
@@ -70,27 +69,21 @@ $player_label = $title ? sprintf('Play video: %s', $title) : 'Play video';
                 <span class="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent" aria-hidden="true"></span>
 
                 <?php if ($video_url): ?>
-                    <span class="absolute left-1/2 top-1/2 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-sm border-2 border-white/90 bg-black/30 text-white backdrop-blur-sm motion-safe:transition-colors group-hover:bg-gyc-teal" aria-hidden="true">
-                        <svg class="ml-1 h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"></path></svg>
+                    <span class="absolute left-1/2 top-1/2 flex h-14 w-14 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white/90 bg-black/20 text-white backdrop-blur-sm motion-safe:transition-colors group-hover:bg-gyc-teal group-hover:border-gyc-teal" aria-hidden="true">
+                        <svg class="ml-0.5 h-5 w-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"></path></svg>
                     </span>
-                <?php endif; ?>
-
-                <?php if ($overlay_text): ?>
-                    <span class="absolute bottom-6 left-6 md:bottom-10 md:left-16 -rotate-3 font-script text-3xl md:text-5xl uppercase leading-none text-white whitespace-pre-line drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]" aria-hidden="true"><?php echo esc_html($overlay_text); ?></span>
                 <?php endif; ?>
             </<?php echo $video_url ? 'a' : 'div'; ?>>
         </div>
 
-        <div class="lg:col-span-5 flex items-center px-6 md:px-12 lg:px-16 py-14 lg:py-20">
+        <div class="lg:col-span-5 flex items-center px-6 md:px-0 lg:pl-14 py-14 lg:py-10">
             <div class="max-w-md space-y-5">
                 <?php if ($eyebrow): ?>
                     <p class="font-jakarta text-xs font-bold tracking-[0.25em] uppercase text-gyc-ink/80"><?php echo esc_html($eyebrow); ?></p>
                 <?php endif; ?>
 
                 <?php if ($title): ?>
-                    <h2 id="gyc-video-title" class="font-jakarta text-4xl md:text-5xl font-extrabold uppercase leading-none tracking-tight text-gyc-ink">
-                        <?php echo esc_html($title); ?>
-                    </h2>
+                    <h2 id="gyc-video-title" class="font-display text-5xl md:text-6xl uppercase leading-none text-gyc-ink whitespace-pre-line"><?php echo esc_html($title); ?></h2>
                 <?php endif; ?>
 
                 <?php if ($text): ?>
@@ -101,9 +94,9 @@ $player_label = $title ? sprintf('Play video: %s', $title) : 'Play video';
                     <a
                         href="<?php echo esc_url($video_url); ?>"
                         @click.prevent="play()"
-                        class="inline-flex items-center gap-3 border-b-2 border-gyc-ink pb-1.5 font-jakarta text-xs font-bold uppercase tracking-[0.2em] text-gyc-ink motion-safe:transition-colors hover:text-gyc-teal hover:border-gyc-teal focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-teal">
+                        class="inline-flex items-center gap-3 border-b-2 border-gyc-teal pb-1.5 font-jakarta text-xs font-bold uppercase tracking-[0.2em] text-gyc-teal motion-safe:transition-colors hover:text-gyc-teal-dark hover:border-gyc-teal-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-teal">
                         <?php echo esc_html($link_label); ?>
-                        <svg class="h-3 w-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"></path></svg>
+                        <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M13 6l6 6-6 6"></path></svg>
                     </a>
                 <?php endif; ?>
             </div>

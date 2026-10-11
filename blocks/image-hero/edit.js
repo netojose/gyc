@@ -46,7 +46,7 @@ export default function Edit({ attributes, setAttributes }) {
                     <div className="gyc-image-hero-fields-wrapper">
                         <TextControl
                             label="Background image URL"
-                            help="Shown behind a purple overlay as decoration, so it needs no alt text. Leave empty for plain purple."
+                            help="Shown behind a dark blue overlay as decoration, so it needs no alt text. Leave empty for plain dark blue."
                             value={ image || '' }
                             onChange={ ( newValue ) => setAttributes( { image: newValue } ) }
                         />
@@ -56,13 +56,13 @@ export default function Edit({ attributes, setAttributes }) {
                             onChange={ ( newValue ) => setAttributes( { eyebrow: newValue } ) }
                         />
                         <TextControl
-                            label="Title – first line"
-                            help="Together with the second line, this is the page's main heading."
+                            label="Title"
+                            help="The page's main heading."
                             value={ title || '' }
                             onChange={ ( newValue ) => setAttributes( { title: newValue } ) }
                         />
                         <TextControl
-                            label="Title – second line (mint)"
+                            label="Title – second line in mint (optional)"
                             value={ titleHighlight || '' }
                             onChange={ ( newValue ) => setAttributes( { titleHighlight: newValue } ) }
                         />

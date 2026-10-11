@@ -17,14 +17,14 @@ $icons = array(
     id="about-us"
     class="bg-gyc-cream text-gyc-ink py-16 md:py-20 border-t border-gyc-ink/10"
     <?php if ($title): ?>aria-labelledby="gyc-about-us-title"<?php endif; ?>>
-    <div class="max-w-6xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-start">
+    <div class="max-w-content mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-start">
         <div class="lg:col-span-5 space-y-5">
             <?php if ($eyebrow): ?>
                 <p class="font-jakarta text-xs font-bold tracking-[0.25em] uppercase text-gyc-ink/80"><?php echo esc_html($eyebrow); ?></p>
             <?php endif; ?>
 
             <?php if ($title): ?>
-                <h2 id="gyc-about-us-title" class="font-jakarta text-4xl md:text-5xl font-extrabold uppercase leading-none tracking-tight text-gyc-ink">
+                <h2 id="gyc-about-us-title" class="font-display text-5xl md:text-6xl uppercase leading-none text-gyc-ink">
                     <?php echo esc_html($title); ?>
                 </h2>
             <?php endif; ?>
@@ -54,7 +54,7 @@ $icons = array(
                                 <?php echo $icons[$item['icon']]; ?>
                             </svg>
                         <?php endif; ?>
-                        <h3 class="font-jakarta text-xs font-extrabold uppercase tracking-[0.18em] leading-snug text-gyc-ink mb-3">
+                        <h3 class="font-display text-sm uppercase tracking-[0.12em] leading-snug text-gyc-ink mb-3">
                             <?php echo esc_html($item['title']); ?>
                         </h3>
                         <p class="font-jakarta text-sm leading-relaxed text-gyc-ink/80">

@@ -2,9 +2,7 @@ import {
     TextControl,
     TextareaControl,
     Panel,
-    PanelBody,
-    PanelRow,
-    Button
+    PanelBody
 } from '@wordpress/components';
 
 /**
@@ -39,12 +37,7 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-    const { eyebrow, title, text, buttonLabel, buttonUrl, map, mapAlt, note, photos } = attributes;
-
-    const updatePhoto = ( id, changes ) => {
-        const newPhotos = photos.map(i => i.id === id ? { ...i, ...changes } : i);
-        setAttributes({ photos: newPhotos });
-    };
+    const { eyebrow, title, text, buttonLabel, buttonUrl, map, mapAlt, collage, collageAlt } = attributes;
 
     return (
         <div { ...useBlockProps() }>
@@ -91,56 +84,18 @@ export default function Edit({ attributes, setAttributes }) {
                             value={ mapAlt || '' }
                             onChange={ ( newValue ) => setAttributes( { mapAlt: newValue } ) }
                         />
-                        <TextareaControl
-                            label="Handwritten note"
-                            rows={3}
-                            value={ note || '' }
-                            onChange={ ( newValue ) => setAttributes( { note: newValue } ) }
+                        <TextControl
+                            label="Photo collage image URL"
+                            help="One image with the photos and the handwritten note already in it."
+                            value={ collage || '' }
+                            onChange={ ( newValue ) => setAttributes( { collage: newValue } ) }
                         />
-
-                        <Panel>
-                            <PanelBody initialOpen={false} title="Photos">
-                                {photos.map(photo => (
-                                    <PanelRow key={photo.id}>
-                                        <div className="gyc-community-fields-wrapper">
-                                            <TextControl
-                                                label="Photo URL"
-                                                value={ photo.url || '' }
-                                                onChange={ ( newValue ) => updatePhoto( photo.id, { url: newValue } ) }
-                                            />
-                                            <TextControl
-                                                label="Alt text"
-                                                value={ photo.alt || '' }
-                                                onChange={ ( newValue ) => updatePhoto( photo.id, { alt: newValue } ) }
-                                            />
-                                            <div>
-                                                <Button
-                                                    size="small"
-                                                    variant="outline"
-                                                    className="is-secondary is-destructive"
-                                                    onClick={ () => {
-                                                        const newPhotos = photos.filter(i => i.id !== photo.id);
-                                                        setAttributes({ photos: newPhotos });
-                                                    } }
-                                                >
-                                                    Remove photo
-                                                </Button>
-                                            </div>
-                                            <hr className="gyc-community-separator" />
-                                        </div>
-                                    </PanelRow>
-                                ))}
-                                <Button
-                                    isPrimary
-                                    onClick={ () => {
-                                        const newPhoto = { id: Date.now(), url: '', alt: '' };
-                                        setAttributes({ photos: [...photos, newPhoto] });
-                                    } }
-                                >
-                                    Add photo
-                                </Button>
-                            </PanelBody>
-                        </Panel>
+                        <TextControl
+                            label="Photo collage alt text"
+                            help="Describe the photos and include the handwritten words, e.g. Young people from GYC events. Note: Different languages. Different cultures. One faith."
+                            value={ collageAlt || '' }
+                            onChange={ ( newValue ) => setAttributes( { collageAlt: newValue } ) }
+                        />
                     </div>
                 </PanelBody>
             </Panel>

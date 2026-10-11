@@ -38,7 +38,7 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-    const { eyebrow, title, primaryLabel, primaryUrl, secondaryLabel, secondaryUrl, stats } = attributes;
+    const { image, eyebrow, title, titleHighlight, details, primaryLabel, primaryUrl, secondaryLabel, secondaryUrl, stats } = attributes;
 
     const updateStat = ( id, changes ) => {
         const newStats = stats.map(i => i.id === id ? { ...i, ...changes } : i);
@@ -51,18 +51,36 @@ export default function Edit({ attributes, setAttributes }) {
                 <PanelBody initialOpen={false} title="Event Hero">
                     <div className="gyc-event-hero-fields-wrapper">
                         <TextControl
+                            label="Background illustration URL"
+                            help="Shown on the right behind the text, as decoration, so it needs no alt text. Leave empty for plain purple with hills."
+                            value={ image || '' }
+                            onChange={ ( newValue ) => setAttributes( { image: newValue } ) }
+                        />
+                        <TextControl
                             label="Eyebrow"
                             value={ eyebrow || '' }
                             onChange={ ( newValue ) => setAttributes( { eyebrow: newValue } ) }
                         />
                         <TextControl
-                            label="Title"
+                            label="Title – first line"
                             help="Leave empty to use the event title."
                             value={ title || '' }
                             onChange={ ( newValue ) => setAttributes( { title: newValue } ) }
                         />
+                        <TextControl
+                            label="Title – second line in mint (optional)"
+                            help="For example: Stand / Fast."
+                            value={ titleHighlight || '' }
+                            onChange={ ( newValue ) => setAttributes( { titleHighlight: newValue } ) }
+                        />
+                        <TextControl
+                            label="Place and dates"
+                            help="For example: Katowice, Poland · August 18–22, 2027"
+                            value={ details || '' }
+                            onChange={ ( newValue ) => setAttributes( { details: newValue } ) }
+                        />
 
-                        <p>Links can be full URLs, site paths like /about, sections like #schedule, or an email address.</p>
+                        <p>Links can be full URLs, site paths like /about, sections like #schedule or #register, or an email address. The first is the mint button, the second an outlined button.</p>
                         <TextControl
                             label="First link label"
                             value={ primaryLabel || '' }
@@ -85,7 +103,7 @@ export default function Edit({ attributes, setAttributes }) {
                         />
 
                         <Panel>
-                            <PanelBody initialOpen={false} title="Numbers">
+                            <PanelBody initialOpen={false} title="Numbers (optional)">
                                 {stats.map(stat => (
                                     <PanelRow key={stat.id}>
                                         <div className="gyc-event-hero-fields-wrapper">

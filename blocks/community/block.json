@@ -37,27 +37,13 @@
 			"type": "string",
 			"default": ""
 		},
-		"note": {
+		"collage": {
 			"type": "string",
-			"default": "Different languages.\nDifferent cultures.\nOne faith."
+			"default": ""
 		},
-		"photos": {
-			"type": "array",
-			"default": [],
-			"items": {
-				"type": "object",
-				"properties": {
-					"id": {
-						"type": "number"
-					},
-					"url": {
-						"type": "string"
-					},
-					"alt": {
-						"type": "string"
-					}
-				}
-			}
+		"collageAlt": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"supports": {

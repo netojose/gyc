@@ -1,7 +1,6 @@
 import {
     TextControl,
     TextareaControl,
-    RangeControl,
     Panel,
     PanelBody,
     PanelRow,
@@ -40,7 +39,7 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-    const { eyebrow, title, text, featuredCount, members } = attributes;
+    const { eyebrow, title, text, members } = attributes;
 
     const updateMember = ( id, changes ) => {
         const newMembers = members.map(i => i.id === id ? { ...i, ...changes } : i);
@@ -78,15 +77,6 @@ export default function Edit({ attributes, setAttributes }) {
                             value={ text || '' }
                             onChange={ ( newValue ) => setAttributes( { text: newValue } ) }
                         />
-                        <RangeControl
-                            label="Members shown larger (first row)"
-                            help="The first members in the list get bigger photos; the rest are shown five per row."
-                            min={ 0 }
-                            max={ 6 }
-                            value={ featuredCount ?? 3 }
-                            onChange={ ( newValue ) => setAttributes( { featuredCount: newValue } ) }
-                        />
-
                         <Panel>
                             <PanelBody initialOpen={false} title="Members">
                                 {members.map((member, index) => (
@@ -103,19 +93,25 @@ export default function Edit({ attributes, setAttributes }) {
                                                 onChange={ ( newValue ) => updateMember( member.id, { role: newValue } ) }
                                             />
                                             <TextControl
+                                                label="Country"
+                                                value={ member.country || '' }
+                                                onChange={ ( newValue ) => updateMember( member.id, { country: newValue } ) }
+                                            />
+                                            <TextControl
                                                 label="Photo URL"
                                                 value={ member.photo || '' }
                                                 onChange={ ( newValue ) => updateMember( member.id, { photo: newValue } ) }
                                             />
                                             <TextControl
                                                 label="Email"
+                                                help="Optional. Shown below the country when filled in."
                                                 type="email"
                                                 value={ member.email || '' }
                                                 onChange={ ( newValue ) => updateMember( member.id, { email: newValue } ) }
                                             />
                                             <TextControl
                                                 label="Instagram handle"
-                                                help="For example @gyceurope"
+                                                help="Optional. For example @gyceurope"
                                                 value={ member.instagram || '' }
                                                 onChange={ ( newValue ) => updateMember( member.id, { instagram: newValue } ) }
                                             />
@@ -145,7 +141,7 @@ export default function Edit({ attributes, setAttributes }) {
                                 <Button
                                     isPrimary
                                     onClick={ () => {
-                                        const newMember = { id: Date.now(), photo: '', name: '', role: '', email: '', instagram: '' };
+                                        const newMember = { id: Date.now(), photo: '', name: '', role: '', country: '', email: '', instagram: '' };
                                         setAttributes({ members: [...members, newMember] });
                                     } }
                                 >

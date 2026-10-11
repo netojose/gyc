@@ -6,24 +6,32 @@
 	"title": "Topics",
 	"category": "widgets",
 	"icon": "editor-ul",
-	"description": "Topics block",
+	"description": "Event intro with eyebrow, headline and paragraphs next to a photo, with optional cards below",
 	"example": {},
 	"attributes": {
 		"title": {
 			"type": "string",
-			"default": ""
+			"default": "Our mission"
 		},
 		"headline": {
 			"type": "string",
-			"default": ""
+			"default": "Four days to go deeper and stand fast"
 		},
 		"text": {
+			"type": "string",
+			"default": "Young people from all over Europe will gather in Katowice for worship, Bible study, prayer and outreach. Come to be rooted in Christ and leave ready to stand for Him where you live.\n\nWe want to inspire young people to **stand fast** in their faith, united in spirit and purpose. We're committed to raising up a generation that will boldly proclaim the gospel and live out the values of Christ's kingdom."
+		},
+		"image": {
+			"type": "string",
+			"default": ""
+		},
+		"imageAlt": {
 			"type": "string",
 			"default": ""
 		},
 		"items": {
-            "type": "array",
-            "default": [],
+			"type": "array",
+			"default": [],
 			"items": {
 				"type": "object",
 				"properties": {
@@ -38,7 +46,7 @@
 					}
 				}
 			}
-        }
+		}
 	},
 	"supports": {
 		"html": false,

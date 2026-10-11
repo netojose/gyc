@@ -1,6 +1,7 @@
 import {
     TextControl,
     TextareaControl,
+    SelectControl,
     Panel,
     PanelBody
 } from '@wordpress/components';
@@ -37,58 +38,75 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-    const { eyebrow, title, text, buttonLabel, buttonUrl, image, imageAlt, tagline } = attributes;
+    const { layout, eyebrow, title, text, buttonLabel, buttonUrl, image, imageAlt } = attributes;
+    const currentLayout = layout || 'split';
+    const showText = currentLayout !== 'image';
+    const showImage = currentLayout !== 'text';
 
     return (
         <div { ...useBlockProps() }>
             <Panel>
                 <PanelBody initialOpen={false} title="Hero">
                     <div className="gyc-hero-fields-wrapper">
-                        <TextControl
-                            label="Eyebrow"
-                            value={ eyebrow || '' }
-                            onChange={ ( newValue ) => setAttributes( { eyebrow: newValue } ) }
+                        <SelectControl
+                            label="Layout"
+                            value={ currentLayout }
+                            options={ [
+                                { label: 'Text on the left, photo behind', value: 'split' },
+                                { label: 'Text only, no photo', value: 'text' },
+                                { label: 'Photo only, no text', value: 'image' },
+                            ] }
+                            onChange={ ( newValue ) => setAttributes( { layout: newValue } ) }
                         />
+                        { showText && (
+                            <TextControl
+                                label="Eyebrow"
+                                value={ eyebrow || '' }
+                                onChange={ ( newValue ) => setAttributes( { eyebrow: newValue } ) }
+                            />
+                        ) }
                         <TextControl
                             label="Title"
+                            help={ showText ? undefined : "Not shown on the page, but read by screen readers as the page's main heading." }
                             value={ title || '' }
                             onChange={ ( newValue ) => setAttributes( { title: newValue } ) }
                         />
-                        <TextareaControl
-                            label="Text"
-                            rows={4}
-                            value={ text || '' }
-                            onChange={ ( newValue ) => setAttributes( { text: newValue } ) }
-                        />
-                        <TextControl
-                            label="Button label"
-                            value={ buttonLabel || '' }
-                            onChange={ ( newValue ) => setAttributes( { buttonLabel: newValue } ) }
-                        />
-                        <TextControl
-                            label="Button link"
-                            help="Full URL, site path like /register/, a section like #community, or an email address."
-                            value={ buttonUrl || '' }
-                            onChange={ ( newValue ) => setAttributes( { buttonUrl: newValue } ) }
-                        />
-                        <TextControl
-                            label="Image URL"
-                            value={ image || '' }
-                            onChange={ ( newValue ) => setAttributes( { image: newValue } ) }
-                        />
-                        <TextControl
-                            label="Image alt text"
-                            help="Describe the photo for screen readers. Leave empty if it is purely decorative."
-                            value={ imageAlt || '' }
-                            onChange={ ( newValue ) => setAttributes( { imageAlt: newValue } ) }
-                        />
-                        <TextareaControl
-                            label="Handwritten tagline"
-                            help="One phrase per line."
-                            rows={3}
-                            value={ tagline || '' }
-                            onChange={ ( newValue ) => setAttributes( { tagline: newValue } ) }
-                        />
+                        { showText && (
+                            <>
+                                <TextareaControl
+                                    label="Text"
+                                    rows={4}
+                                    value={ text || '' }
+                                    onChange={ ( newValue ) => setAttributes( { text: newValue } ) }
+                                />
+                                <TextControl
+                                    label="Button label"
+                                    value={ buttonLabel || '' }
+                                    onChange={ ( newValue ) => setAttributes( { buttonLabel: newValue } ) }
+                                />
+                                <TextControl
+                                    label="Button link"
+                                    help="Full URL, site path like /register/, a section like #community, or an email address."
+                                    value={ buttonUrl || '' }
+                                    onChange={ ( newValue ) => setAttributes( { buttonUrl: newValue } ) }
+                                />
+                            </>
+                        ) }
+                        { showImage && (
+                            <>
+                                <TextControl
+                                    label="Image URL"
+                                    value={ image || '' }
+                                    onChange={ ( newValue ) => setAttributes( { image: newValue } ) }
+                                />
+                                <TextControl
+                                    label="Image alt text"
+                                    help="Describe the photo for screen readers. Leave empty if it is purely decorative."
+                                    value={ imageAlt || '' }
+                                    onChange={ ( newValue ) => setAttributes( { imageAlt: newValue } ) }
+                                />
+                            </>
+                        ) }
                     </div>
                 </PanelBody>
             </Panel>

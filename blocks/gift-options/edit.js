@@ -74,7 +74,7 @@ export default function Edit({ attributes, setAttributes }) {
 
                         <Panel>
                             <PanelBody initialOpen={false} title="Cards">
-                                <p>Button links can be full URLs, site paths like /about, or sections like #give.</p>
+                                <p>Icon and link are optional. Links can be full URLs, site paths like /contact-us/, or sections like #give.</p>
                                 {items.map(item => (
                                     <PanelRow key={item.id}>
                                         <div className="gyc-gift-options-fields-wrapper">
@@ -96,12 +96,12 @@ export default function Edit({ attributes, setAttributes }) {
                                                 onChange={ ( newValue ) => updateItem( item.id, { text: newValue } ) }
                                             />
                                             <TextControl
-                                                label="Button label"
+                                                label="Link label"
                                                 value={ item.buttonLabel || '' }
                                                 onChange={ ( newValue ) => updateItem( item.id, { buttonLabel: newValue } ) }
                                             />
                                             <TextControl
-                                                label="Button link"
+                                                label="Link"
                                                 value={ item.buttonUrl || '' }
                                                 onChange={ ( newValue ) => updateItem( item.id, { buttonUrl: newValue } ) }
                                             />

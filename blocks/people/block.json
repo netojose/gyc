@@ -6,12 +6,24 @@
 	"title": "People",
 	"category": "widgets",
 	"icon": "admin-users",
-	"description": "Example block scaffolded with Create Block tool.",
+	"description": "Main speakers with photo cards and a bio pop-up, plus a box of workshop speakers",
 	"example": {},
 	"attributes": {
+		"title": {
+			"type": "string",
+			"default": "Main speakers"
+		},
+		"text": {
+			"type": "string",
+			"default": ""
+		},
+		"staffTitle": {
+			"type": "string",
+			"default": "Workshop speakers"
+		},
 		"main": {
 			"type": "array",
-            "default": [],
+			"default": [],
 			"items": {
 				"type": "object",
 				"properties": {
@@ -38,7 +50,7 @@
 		},
 		"staff": {
 			"type": "array",
-            "default": [],
+			"default": [],
 			"items": {
 				"type": "object",
 				"properties": {
@@ -49,6 +61,9 @@
 						"type": "string"
 					},
 					"name": {
+						"type": "string"
+					},
+					"role": {
 						"type": "string"
 					}
 				}

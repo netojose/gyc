@@ -37,7 +37,7 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-    const { eyebrow, title, text, linkLabel, videoUrl, poster, posterAlt, overlayText } = attributes;
+    const { eyebrow, title, text, linkLabel, videoUrl, poster, posterAlt } = attributes;
 
     return (
         <div { ...useBlockProps() }>
@@ -49,8 +49,10 @@ export default function Edit({ attributes, setAttributes }) {
                             value={ eyebrow || '' }
                             onChange={ ( newValue ) => setAttributes( { eyebrow: newValue } ) }
                         />
-                        <TextControl
+                        <TextareaControl
                             label="Title"
+                            help="Use a new line to break the title."
+                            rows={2}
                             value={ title || '' }
                             onChange={ ( newValue ) => setAttributes( { title: newValue } ) }
                         />
@@ -81,12 +83,6 @@ export default function Edit({ attributes, setAttributes }) {
                             help="Only used when there is no video URL; otherwise the poster is labelled as the play button."
                             value={ posterAlt || '' }
                             onChange={ ( newValue ) => setAttributes( { posterAlt: newValue } ) }
-                        />
-                        <TextareaControl
-                            label="Handwritten overlay text"
-                            rows={2}
-                            value={ overlayText || '' }
-                            onChange={ ( newValue ) => setAttributes( { overlayText: newValue } ) }
                         />
                     </div>
                 </PanelBody>

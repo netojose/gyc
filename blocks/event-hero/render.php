@@ -1,58 +1,85 @@
 <?php
 $post_id = empty($block->context['postId']) ? get_the_ID() : $block->context['postId'];
+$image = empty($attributes['image']) ? null : $attributes['image'];
 $eyebrow = empty($attributes['eyebrow']) ? null : $attributes['eyebrow'];
 $title = empty($attributes['title']) ? get_the_title($post_id) : $attributes['title'];
+$title_highlight = empty($attributes['titleHighlight']) ? null : $attributes['titleHighlight'];
+$details = empty($attributes['details']) ? null : $attributes['details'];
 $primary_label = empty($attributes['primaryLabel']) ? null : $attributes['primaryLabel'];
 $primary_url = empty($attributes['primaryUrl']) ? null : GycUI::resolve_url($attributes['primaryUrl'], false);
 $secondary_label = empty($attributes['secondaryLabel']) ? null : $attributes['secondaryLabel'];
 $secondary_url = empty($attributes['secondaryUrl']) ? null : GycUI::resolve_url($attributes['secondaryUrl'], false);
 $stats = empty($attributes['stats']) ? array() : $attributes['stats'];
 
-$links = array();
-if ($primary_label && $primary_url) {
-    $links[] = array('label' => $primary_label, 'url' => $primary_url);
-}
-if ($secondary_label && $secondary_url) {
-    $links[] = array('label' => $secondary_label, 'url' => $secondary_url);
-}
-
 $stats = array_filter($stats, function ($stat) {
     return !empty($stat['value']) && !empty($stat['label']);
 });
+$has_title = $title || $title_highlight;
 ?>
 <header
-    class="relative min-h-screen flex flex-col justify-between px-6 py-8 md:px-16 lg:px-24 bg-linear-to-b from-[#25152b] to-gyc-plum"
-    <?php if ($title): ?>aria-labelledby="gyc-event-hero-title"<?php endif; ?>>
-    <div class="flex-1 flex flex-col justify-center items-start text-left max-w-6xl w-full mx-auto my-12 gap-y-6">
-        <?php if ($eyebrow): ?>
-            <p class="flex items-center gap-3">
-                <span class="w-10 h-px bg-gyc-mint" aria-hidden="true"></span>
-                <span class="font-jakarta text-xs font-bold tracking-[0.25em] uppercase text-gyc-mint"><?php echo esc_html($eyebrow); ?></span>
-            </p>
-        <?php endif; ?>
+    class="relative overflow-hidden bg-linear-to-b from-[#1e1024] to-gyc-plum text-white"
+    <?php if ($has_title): ?>aria-labelledby="gyc-event-hero-title"<?php endif; ?>>
+    <?php if ($image): ?>
+        <!-- Decorative illustration: the text carries the meaning -->
+        <img
+            class="absolute inset-0 h-full w-full object-cover object-right"
+            src="<?php echo esc_url($image); ?>"
+            alt=""
+            fetchpriority="high"
+            decoding="async"
+            draggable="false" />
+        <div class="absolute inset-0 bg-linear-to-r from-[#1e1024] via-[#1e1024]/60 to-transparent" aria-hidden="true"></div>
+    <?php else: ?>
+        <!-- Without an illustration, layered hills keep the hero from looking empty -->
+        <svg class="absolute inset-x-0 bottom-0 h-40 w-full md:h-64" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true">
+            <path class="fill-white/5" d="M0 260V150l220-110 240 130 200-90 230 70 260-130 290 120v120z"/>
+            <path class="fill-gyc-plum-light/50" d="M0 260v-50l260-80 300 100 240-70 270 60 370-120v160z"/>
+        </svg>
+    <?php endif; ?>
 
-        <?php if ($title): ?>
-            <h1 id="gyc-event-hero-title" class="font-jakarta font-extrabold text-gyc-ivory text-5xl md:text-7xl tracking-tight mb-6 uppercase break-words max-w-full"><?php echo esc_html($title); ?></h1>
-        <?php endif; ?>
+    <div class="relative max-w-content mx-auto px-6 md:px-12 py-24 md:py-32 lg:min-h-[40rem] lg:flex lg:flex-col lg:justify-center">
+        <div class="max-w-xl space-y-6">
+            <?php if ($eyebrow): ?>
+                <p class="font-jakarta text-sm font-semibold text-gyc-mint"><?php echo esc_html($eyebrow); ?></p>
+            <?php endif; ?>
 
-        <?php if (count($links) > 0): ?>
-            <div class="flex flex-wrap gap-x-12 gap-y-4 mb-12">
-                <?php foreach ($links as $link): ?>
-                    <a href="<?php echo esc_url($link['url']); ?>" class="rounded text-sm text-white font-bold tracking-widest uppercase hover:opacity-80 motion-safe:transition-opacity focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-mint">
-                        <?php echo esc_html($link['label']); ?>
-                    </a>
-                <?php endforeach; ?>
-            </div>
-        <?php endif; ?>
+            <?php if ($has_title): ?>
+                <h1 id="gyc-event-hero-title" class="font-display text-6xl md:text-8xl uppercase leading-[0.95] break-words">
+                    <?php if ($title): ?>
+                        <span class="block text-gyc-ivory"><?php echo esc_html($title); ?></span>
+                    <?php endif; ?>
+                    <?php if ($title_highlight): ?>
+                        <span class="block text-gyc-mint"><?php echo esc_html($title_highlight); ?></span>
+                    <?php endif; ?>
+                </h1>
+            <?php endif; ?>
+
+            <?php if ($details): ?>
+                <p class="font-jakarta text-lg md:text-xl text-white/90"><?php echo esc_html($details); ?></p>
+            <?php endif; ?>
+
+            <?php if (($primary_label && $primary_url) || ($secondary_label && $secondary_url)): ?>
+                <div class="flex flex-wrap items-center gap-4 pt-2">
+                    <?php if ($primary_label && $primary_url): ?>
+                        <a href="<?php echo esc_url($primary_url); ?>" class="inline-flex items-center rounded-full bg-gyc-mint px-7 py-3.5 font-jakarta text-sm font-semibold text-gyc-plum motion-safe:transition-colors hover:bg-gyc-mint-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-mint">
+                            <?php echo esc_html($primary_label); ?>
+                        </a>
+                    <?php endif; ?>
+                    <?php if ($secondary_label && $secondary_url): ?>
+                        <a href="<?php echo esc_url($secondary_url); ?>" class="inline-flex items-center rounded-full border border-white/60 px-7 py-3.5 font-jakarta text-sm font-semibold text-white motion-safe:transition-colors hover:border-white hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-mint">
+                            <?php echo esc_html($secondary_label); ?>
+                        </a>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
+        </div>
 
         <?php if (count($stats) > 0): ?>
-            <hr class="border-t border-white/20 mb-12 w-full" />
-
-            <ul class="grid grid-cols-2 gap-8 md:flex md:justify-between md:gap-6 w-full" role="list">
+            <ul class="mt-14 grid grid-cols-2 gap-8 border-t border-white/15 pt-10 md:grid-cols-4" role="list">
                 <?php foreach ($stats as $stat): ?>
                     <li class="flex flex-col gap-1">
-                        <span class="text-4xl md:text-5xl lg:text-6xl font-serif text-[#A7F3D0]"><?php echo esc_html($stat['value']); ?></span>
-                        <span class="text-xs md:text-sm font-bold tracking-widest font-jakarta uppercase text-white/70"><?php echo esc_html($stat['label']); ?></span>
+                        <span class="font-display text-4xl md:text-5xl text-gyc-mint"><?php echo esc_html($stat['value']); ?></span>
+                        <span class="font-jakarta text-xs font-bold uppercase tracking-widest text-white/75"><?php echo esc_html($stat['label']); ?></span>
                     </li>
                 <?php endforeach; ?>
             </ul>

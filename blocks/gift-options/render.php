@@ -9,51 +9,56 @@ $icons = array(
     'person' => '<circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-3.9 3.1-7 7-7s7 3.1 7 7"/>',
     'heart' => '<path d="M12 20s-7.5-4.6-7.5-10A4.3 4.3 0 0 1 12 7.2 4.3 4.3 0 0 1 19.5 10c0 5.4-7.5 10-7.5 10z"/>',
 );
+
+$items = array_filter($items, function ($item) {
+    return !empty($item['title']) || !empty($item['text']);
+});
 ?>
 <section
-    id="give"
-    class="bg-gyc-plum-mid text-white py-16 md:py-24"
+    class="bg-gyc-mist text-gyc-ink py-16 md:py-24"
     <?php if ($title): ?>aria-labelledby="gyc-gift-options-title"<?php endif; ?>>
-    <div class="max-w-6xl mx-auto px-6 md:px-12">
-        <div class="max-w-xl mx-auto text-center space-y-5">
-            <?php if ($title): ?>
-                <h2 id="gyc-gift-options-title" class="font-jakarta text-3xl md:text-4xl font-extrabold uppercase leading-tight tracking-tight"><?php echo esc_html($title); ?></h2>
-            <?php endif; ?>
+    <div class="max-w-content mx-auto px-6 md:px-12">
+        <?php if ($title || $text): ?>
+            <div class="max-w-2xl space-y-5">
+                <?php if ($title): ?>
+                    <h2 id="gyc-gift-options-title" class="font-display small-caps text-4xl md:text-5xl leading-none"><?php echo esc_html($title); ?></h2>
+                <?php endif; ?>
 
-            <?php if ($text): ?>
-                <p class="font-jakarta text-base leading-loose text-white/85"><?php echo esc_html($text); ?></p>
-            <?php endif; ?>
-        </div>
+                <?php if ($text): ?>
+                    <p class="font-jakarta text-sm md:text-base leading-relaxed text-gyc-ink/80"><?php echo esc_html($text); ?></p>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
 
         <?php if (count($items) > 0): ?>
-            <ul class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" role="list">
+            <ul class="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5" role="list">
                 <?php foreach (array_values($items) as $index => $item): ?>
                     <?php
                     $item_title_id = 'gyc-gift-options-item-' . $index;
                     $button_url = empty($item['buttonUrl']) ? null : GycUI::resolve_url($item['buttonUrl'], false);
                     ?>
-                    <li class="flex flex-col items-center rounded-sm bg-gyc-ivory px-6 py-8 text-center text-gyc-plum">
+                    <li class="flex flex-col rounded-2xl border border-gyc-ink/10 bg-white p-6 md:p-8">
                         <?php if (!empty($item['icon']) && isset($icons[$item['icon']])): ?>
-                            <span class="mb-5 flex h-12 w-12 items-center justify-center rounded-full border-2 border-gyc-plum" aria-hidden="true">
-                                <svg class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+                            <span class="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-gyc-mint/20 text-gyc-teal" aria-hidden="true">
+                                <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                                     <?php echo $icons[$item['icon']]; ?>
                                 </svg>
                             </span>
                         <?php endif; ?>
 
                         <?php if (!empty($item['title'])): ?>
-                            <h3 id="<?php echo esc_attr($item_title_id); ?>" class="font-jakarta text-xs font-extrabold uppercase tracking-[0.18em] leading-snug mb-3"><?php echo esc_html($item['title']); ?></h3>
+                            <h3 id="<?php echo esc_attr($item_title_id); ?>" class="font-display small-caps text-xl leading-tight"><?php echo esc_html($item['title']); ?></h3>
                         <?php endif; ?>
 
                         <?php if (!empty($item['text'])): ?>
-                            <p class="font-jakarta text-sm leading-relaxed text-gyc-plum/80 mb-6"><?php echo esc_html($item['text']); ?></p>
+                            <p class="mt-2 font-jakarta text-sm leading-relaxed text-gyc-ink/80"><?php echo esc_html($item['text']); ?></p>
                         <?php endif; ?>
 
                         <?php if (!empty($item['buttonLabel']) && $button_url): ?>
                             <a
                                 href="<?php echo esc_url($button_url); ?>"
                                 <?php if (!empty($item['title'])): ?>aria-describedby="<?php echo esc_attr($item_title_id); ?>"<?php endif; ?>
-                                class="mt-auto inline-block w-full max-w-48 rounded-sm bg-gyc-plum px-6 py-3 font-jakarta text-xs font-bold uppercase tracking-[0.18em] text-gyc-mint hover:bg-gyc-plum-light motion-safe:transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-plum">
+                                class="mt-4 self-start font-jakarta text-sm font-semibold text-gyc-teal underline decoration-transparent hover:decoration-current motion-safe:transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gyc-teal">
                                 <?php echo esc_html($item['buttonLabel']); ?>
                             </a>
                         <?php endif; ?>

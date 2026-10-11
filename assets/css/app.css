@@ -12,9 +12,17 @@
   font-display: swap;
   src: url("../assets/fonts/plus-jakarta-sans/PlusJakartaSans-Variable.ttf") format("truetype");
 }
+@font-face {
+  font-family: Anton;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("../assets/fonts/anton/Anton-Regular.ttf") format("truetype");
+}
 @theme {
     --font-jakarta: "PlusJakartaSans", sans-serif;
-    --font-script: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+    --font-display: "Anton", "Impact", "Arial Narrow", sans-serif;
+    --container-content: 85rem;
     --color-gyc-ink: #0f2a3d;
     --color-gyc-teal: #0b5f5a;
     --color-gyc-teal-dark: #084744;
@@ -29,6 +37,11 @@
     --color-gyc-ivory: #feffe9;
     --color-gyc-mist: #efefec;
     --color-gyc-night: #0a141c;
+}
+
+/* Headings written in normal case, shown as capitals with smaller capitals for lowercase letters */
+@utility small-caps {
+    font-variant-caps: small-caps;
 }
 
 [x-cloak] {

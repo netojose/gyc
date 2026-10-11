@@ -15,9 +15,9 @@ $has_card = $card_title_top || $card_title || $card_text || ($card_button_label 
 <section
     class="bg-gyc-mist text-gyc-plum py-10 md:py-14"
     <?php if ($title): ?>aria-labelledby="gyc-whats-included-title"<?php endif; ?>>
-    <div class="max-w-6xl mx-auto px-6 md:px-12">
+    <div class="max-w-content mx-auto px-6 md:px-12">
         <?php if ($title): ?>
-            <h2 id="gyc-whats-included-title" class="font-jakarta text-2xl md:text-3xl font-extrabold uppercase leading-tight tracking-tight mb-6"><?php echo esc_html($title); ?></h2>
+            <h2 id="gyc-whats-included-title" class="font-display text-2xl md:text-3xl uppercase leading-none mb-6"><?php echo esc_html($title); ?></h2>
         <?php endif; ?>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -40,7 +40,7 @@ $has_card = $card_title_top || $card_title || $card_text || ($card_button_label 
 
                     <div class="relative space-y-4">
                         <?php if ($card_title_top || $card_title): ?>
-                            <p class="font-jakarta font-extrabold uppercase leading-tight tracking-tight">
+                            <p class="font-display uppercase leading-none">
                                 <?php if ($card_title_top): ?>
                                     <span class="block text-lg md:text-xl"><?php echo esc_html($card_title_top); ?></span>
                                 <?php endif; ?>

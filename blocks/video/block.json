@@ -15,7 +15,7 @@
 		},
 		"title": {
 			"type": "string",
-			"default": "GYC is a movement"
+			"default": "GYC is\nA movement"
 		},
 		"text": {
 			"type": "string",
@@ -36,10 +36,6 @@
 		"posterAlt": {
 			"type": "string",
 			"default": ""
-		},
-		"overlayText": {
-			"type": "string",
-			"default": "This is\nGYC"
 		}
 	},
 	"supports": {

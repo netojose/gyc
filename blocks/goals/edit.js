@@ -69,7 +69,7 @@ export default function Edit({ attributes, setAttributes }) {
                         />
 
                         <Panel>
-                            <PanelBody initialOpen={false} title="Goals (numbered automatically)">
+                            <PanelBody initialOpen={false} title="Goals">
                                 {items.map(item => (
                                     <PanelRow key={item.id}>
                                         <div className="gyc-goals-fields-wrapper">

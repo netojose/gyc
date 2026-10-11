@@ -6,20 +6,20 @@
 	"title": "Agenda",
 	"category": "widgets",
 	"icon": "calendar",
-	"description": "Example block scaffolded with Create Block tool.",
+	"description": "Event program with a tab per day and a time, title, description and speaker per session",
 	"example": {},
 	"attributes": {
 		"title": {
 			"type": "string",
-			"default": ""
+			"default": "Program"
 		},
 		"headline": {
 			"type": "string",
-			"default": ""
+			"default": "Four days.\nOne purpose."
 		},
 		"items": {
-            "type": "array",
-            "default": [],
+			"type": "array",
+			"default": [],
 			"items": {
 				"type": "object",
 				"properties": {
@@ -58,7 +58,7 @@
 					}
 				}
 			}
-        }
+		}
 	},
 	"supports": {
 		"html": false,

@@ -2,7 +2,7 @@
 	"name": "gyc",
 	"version": "1.0.0",
 	"description": "GYC WordPress Theme",
-	"author": "José Neto",
+	"author": "JosГ© Neto",
 	"license": "GPL-2.0-or-later",
 	"keywords": [
 		"WordPress",
@@ -25,15 +25,14 @@
 		"@wordpress/browserslist-config": "^6.34.0",
 		"@wordpress/scripts": "^32.5.0",
 		"@wordpress/ui": "^0.16.0",
-		"postcss-cli": "^11.0.1",
-		"vite": "^8.1.0"
+		"postcss-cli": "^11.0.1"
 	},
 	"browserslist": [
 		"extends @wordpress/browserslist-config"
 	],
 	"scripts": {
-		"start:blocks": "wp-scripts start blocks/agenda blocks/people blocks/pricing-table blocks/topics blocks/hero blocks/about-us blocks/video blocks/community blocks/header blocks/footer blocks/event-hero blocks/page-hero blocks/why-give blocks/gift-options blocks/call-to-action blocks/faq blocks/contact-banner blocks/registration-options blocks/whats-included blocks/info-cards blocks/image-hero blocks/vision blocks/mission blocks/goals blocks/committee",
-		"build:blocks": "wp-scripts build blocks/agenda blocks/people blocks/pricing-table blocks/topics blocks/hero blocks/about-us blocks/video blocks/community blocks/header blocks/footer blocks/event-hero blocks/page-hero blocks/why-give blocks/gift-options blocks/call-to-action blocks/faq blocks/contact-banner blocks/registration-options blocks/whats-included blocks/info-cards blocks/image-hero blocks/vision blocks/mission blocks/goals blocks/committee",
+		"start:blocks": "wp-scripts start blocks/agenda blocks/people blocks/pricing-table blocks/topics blocks/hero blocks/about-us blocks/video blocks/community blocks/header blocks/footer blocks/event-hero blocks/page-hero blocks/why-give blocks/gift-options blocks/call-to-action blocks/faq blocks/contact-banner blocks/registration-options blocks/whats-included blocks/info-cards blocks/image-hero blocks/vision blocks/mission blocks/goals blocks/committee blocks/contact blocks/event-modal editor/page-settings",
+		"build:blocks": "wp-scripts build blocks/agenda blocks/people blocks/pricing-table blocks/topics blocks/hero blocks/about-us blocks/video blocks/community blocks/header blocks/footer blocks/event-hero blocks/page-hero blocks/why-give blocks/gift-options blocks/call-to-action blocks/faq blocks/contact-banner blocks/registration-options blocks/whats-included blocks/info-cards blocks/image-hero blocks/vision blocks/mission blocks/goals blocks/committee blocks/contact blocks/event-modal editor/page-settings",
 		"start:theme": "npx @tailwindcss/cli -i ./assets/css/app.css -o ./build-site/styles.css --watch",
 		"build:theme": "npx @tailwindcss/cli -i ./assets/css/app.css -o ./build-site/styles.css --minify",
 		"start:js": "npx esbuild assets/js/app.js --bundle --outfile=build-site/app.js --format=esm --watch",

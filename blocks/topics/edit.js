@@ -40,7 +40,7 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-    const { title, headline, text, items } = attributes;
+    const { title, headline, text, image, imageAlt, items } = attributes;
 
     return (
         <div { ...useBlockProps() }>
@@ -48,24 +48,38 @@ export default function Edit({ attributes, setAttributes }) {
                 <PanelBody initialOpen={false} title="Topics">
                     <div className="gyc-topics-fields-wrapper">
                         <TextControl
-                            label="Title"
+                            label="Eyebrow"
+                            help="Small text above the headline, e.g. Our mission."
                             value={ title || '' }
                             onChange={ ( newValue ) => setAttributes( { title: newValue } ) }
                         />
                         <TextControl
                             label="Headline"
+                            help="Type it in normal case; it is shown in small capitals."
                             value={ headline || '' }
                             onChange={ ( newValue ) => setAttributes( { headline: newValue } ) }
                         />
                         <TextareaControl
                             label="Text"
+                            help="Leave an empty line between paragraphs. Put **two stars** around words to make them bold."
                             rows={8}
                             value={ text || '' }
                             onChange={ ( newValue ) => setAttributes( { text: newValue } ) }
                         />
+                        <TextControl
+                            label="Image URL"
+                            value={ image || '' }
+                            onChange={ ( newValue ) => setAttributes( { image: newValue } ) }
+                        />
+                        <TextControl
+                            label="Image alt text"
+                            help="Describe the photo for screen readers. Leave empty if it is purely decorative."
+                            value={ imageAlt || '' }
+                            onChange={ ( newValue ) => setAttributes( { imageAlt: newValue } ) }
+                        />
 
                         <Panel>
-                            <PanelBody initialOpen={false} title="Items">
+                            <PanelBody initialOpen={false} title="Cards (optional, shown below)">
                                 {items.map(item => (
                                     <PanelRow key={item.id}>
                                         <div className="gyc-topics-fields-wrapper">

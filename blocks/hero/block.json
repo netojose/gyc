@@ -6,9 +6,14 @@
 	"title": "Hero",
 	"category": "widgets",
 	"icon": "cover-image",
-	"description": "Main page hero with headline, call to action and background photo",
+	"description": "Main page hero: text over a photo, text only, or photo only",
 	"example": {},
 	"attributes": {
+		"layout": {
+			"type": "string",
+			"enum": ["split", "text", "image"],
+			"default": "split"
+		},
 		"eyebrow": {
 			"type": "string",
 			"default": "GYC Europe"
@@ -36,10 +41,6 @@
 		"imageAlt": {
 			"type": "string",
 			"default": ""
-		},
-		"tagline": {
-			"type": "string",
-			"default": "Different countries.\nOne faith.\nOne mission."
 		}
 	},
 	"supports": {

@@ -10,6 +10,32 @@ class GycEditor
     {
         add_action('init', array($this, 'register_blocks'));
         add_filter('allowed_block_types_all', array($this, 'allowed_block_types'), 10, 2);
+        add_action('enqueue_block_editor_assets', array($this, 'enqueue_page_settings'));
+    }
+
+    /**
+     * Sidebar panel for pages and events with the dark header and footer toggle (editor/page-settings).
+     */
+    public function enqueue_page_settings()
+    {
+        $screen = function_exists('get_current_screen') ? get_current_screen() : null;
+        if (! $screen || ! in_array($screen->post_type, GycUI::DARK_CHROME_POST_TYPES, true)) {
+            return;
+        }
+
+        $asset_file = get_template_directory() . '/build/page-settings.asset.php';
+        if (! file_exists($asset_file)) {
+            return;
+        }
+
+        $asset = require $asset_file;
+        wp_enqueue_script(
+            'gyc-page-settings',
+            get_template_directory_uri() . '/build/page-settings.js',
+            $asset['dependencies'],
+            $asset['version'],
+            true
+        );
     }
 
     public function register_blocks()
@@ -40,6 +66,8 @@ class GycEditor
         register_block_type($td . '/blocks/mission/block.json');
         register_block_type($td . '/blocks/goals/block.json');
         register_block_type($td . '/blocks/committee/block.json');
+        register_block_type($td . '/blocks/contact/block.json');
+        register_block_type($td . '/blocks/event-modal/block.json');
     }
 
     public function allowed_block_types($allowed_blocks, $editor_context)

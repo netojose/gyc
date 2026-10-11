@@ -1,75 +1,72 @@
 <?php
 $title = empty($attributes['title']) ? null : $attributes['title'];
 $headline = empty($attributes['headline']) ? null : $attributes['headline'];
-$items = empty($attributes['items']) ? array() : $attributes['items'];
+$items = empty($attributes['items']) ? array() : array_values($attributes['items']);
 ?>
-<section id="schedule" class="bg-[#f4f3f0] text-[#2d1b33] py-16 px-6 md:px-12 lg:px-24 font-sans" x-data="{ currentTab: 1 }">
-    <div class="max-w-6xl mx-auto">
-
-        <!-- Header -->
-        <div class="mb-12">
+<section
+    id="schedule"
+    class="scroll-mt-8 bg-gyc-plum-mid text-white py-16 md:py-24"
+    <?php if ($headline): ?>aria-labelledby="gyc-agenda-title"<?php endif; ?>
+    x-data="{ currentTab: 1 }">
+    <div class="max-w-content mx-auto px-6 md:px-12">
+        <div class="space-y-5">
             <?php if ($title): ?>
-                <div class="font-jakarta font-bold uppercase flex items-center gap-3 text-xs tracking-widest text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span> <?php echo esc_html($title); ?>
-                </div>
+                <p class="font-jakarta text-sm font-semibold uppercase tracking-[0.15em] text-white/90"><?php echo esc_html($title); ?></p>
             <?php endif; ?>
             <?php if ($headline): ?>
-                <h2 class="font-jakarta text-4xl md:text-5xl font-extrabold uppercase tracking-tight leading-tight whitespace-pre-wrap"><?php echo esc_html($headline); ?></h2>
+                <h2 id="gyc-agenda-title" class="font-display text-5xl md:text-6xl uppercase leading-none text-gyc-mint whitespace-pre-line"><?php echo esc_html($headline); ?></h2>
             <?php endif; ?>
         </div>
 
-        <!-- Tabs Navigation -->
-        <div class="border-b border-gray-300 mb-10">
-            <div class="flex flex-wrap gap-8 md:gap-12 text-xs font-bold tracking-widest uppercase">
-                <?php foreach ($items as $index => $day): ?>
-                    <button class="font-jakarta cursor-pointer transition" :class="{ 'border-b-2 border-[#2d1b33] pb-4 text-[#2d1b33]': currentTab === <?php echo $index + 1; ?>, 'text-gray-400 pb-4 hover:text-[#2d1b33]': currentTab !== <?php echo $index + 1; ?> }" @click="currentTab = <?php echo $index + 1; ?>">
-                        <?php echo esc_html($day['date']); ?>
-                    </button>
-                <?php endforeach; ?>
+        <?php if (count($items) > 1): ?>
+            <!-- Day picker; without JavaScript every day is listed one after another -->
+            <div class="mt-10 border-b border-white/30" role="group" aria-label="Choose a day">
+                <div class="flex flex-wrap gap-x-10 gap-y-2">
+                    <?php foreach ($items as $index => $day): ?>
+                        <button
+                            type="button"
+                            class="-mb-px border-b-2 py-4 font-jakarta text-xs font-bold tracking-wider motion-safe:transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gyc-mint"
+                            :class="currentTab === <?php echo $index + 1; ?> ? 'border-gyc-mint text-gyc-mint' : 'border-transparent text-white hover:text-gyc-mint'"
+                            :aria-pressed="(currentTab === <?php echo $index + 1; ?>).toString()"
+                            aria-controls="gyc-agenda-day-<?php echo $index + 1; ?>"
+                            @click="currentTab = <?php echo $index + 1; ?>">
+                            <?php echo esc_html($day['date']); ?>
+                        </button>
+                    <?php endforeach; ?>
+                </div>
             </div>
-        </div>
+        <?php endif; ?>
 
         <?php foreach ($items as $index => $day): ?>
-            <div class="space-y-0" x-show="currentTab === <?php echo $index + 1; ?>">
-                <?php foreach ($day['items'] as $item): ?>
-                    <div class="grid md:grid-cols-4 py-8 items-start gap-4">
-                        <div class="font-jakarta font-bold uppercase text-xs tracking-wider text-gray-400 pt-1">
-                            <?php echo esc_html($item['time']); ?>
-                        </div>
-                        <div class="md:col-span-3 flex flex-col md:flex-row md:justify-between gap-2">
-                            <div class="space-y-4">
-                                <div>
-                                    <h3 class="font-jakarta text-xl font-bold text-[#2d1b33] mb-2">
-                                        <?php echo esc_html($item['title']); ?>
-                                    </h3>
-                                    <?php if (!empty($item['description'])): ?>
-                                        <p class="font-jakarta text-sm text-gray-500 font-normal leading-relaxed max-w-xl">
-                                            <?php echo esc_html($item['description']); ?>
-                                        </p>
-                                    <?php endif; ?>
-                                </div>
-
-                                <?php
-                                $tags = !empty($item['tags']) ? explode(',', $item['tags']) : [];
-                                if (count($tags) > 0):
-                                ?>
-                                    <div>
+            <div
+                id="gyc-agenda-day-<?php echo $index + 1; ?>"
+                class="mt-6"
+                <?php if (count($items) > 1): ?>x-show="currentTab === <?php echo $index + 1; ?>"<?php endif; ?>>
+                <h3 class="sr-only"><?php echo esc_html($day['date']); ?></h3>
+                <ul role="list">
+                    <?php foreach ((empty($day['items']) ? array() : $day['items']) as $item): ?>
+                        <?php $tags = empty($item['tags']) ? array() : array_filter(array_map('trim', explode(',', $item['tags']))); ?>
+                        <li class="grid grid-cols-1 md:grid-cols-12 gap-2 md:gap-6 py-7">
+                            <p class="md:col-span-3 pt-1 font-jakarta text-xs font-bold uppercase tracking-wider text-white/85"><?php echo esc_html($item['time']); ?></p>
+                            <div class="md:col-span-7 space-y-2">
+                                <h4 class="font-jakarta text-lg md:text-xl font-semibold text-gyc-mint"><?php echo esc_html($item['title']); ?></h4>
+                                <?php if (!empty($item['description'])): ?>
+                                    <p class="max-w-xl font-jakarta text-sm leading-relaxed text-white/80"><?php echo esc_html($item['description']); ?></p>
+                                <?php endif; ?>
+                                <?php if (count($tags) > 0): ?>
+                                    <p class="flex flex-wrap gap-2 pt-1">
                                         <?php foreach ($tags as $tag): ?>
-                                            <span class="inline-block bg-[#d2f3ec] text-[#1e7a68] text-[10px] font-bold tracking-widest font-jakarta uppercase px-2.5 py-1 rounded-xs">
-                                                <?php echo esc_html($tag); ?>
-                                            </span>
+                                            <span class="rounded-full bg-gyc-mint/15 px-2.5 py-1 font-jakarta text-[0.65rem] font-bold uppercase tracking-widest text-gyc-mint"><?php echo esc_html($tag); ?></span>
                                         <?php endforeach; ?>
-                                    </div>
+                                    </p>
                                 <?php endif; ?>
                             </div>
                             <?php if (!empty($item['responsible'])): ?>
-                                <div class="font-jakarta text-xs font-medium text-gray-500 md:text-right pt-1 whitespace-nowrap">
-                                    <?php echo esc_html($item['responsible']); ?>
-                                </div>
+                                <p class="md:col-span-2 pt-1 font-jakarta text-xs text-white/80 md:text-right"><?php echo esc_html($item['responsible']); ?></p>
                             <?php endif; ?>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
+                        </li>
+                    <?php endforeach; ?>
+                </ul>
             </div>
         <?php endforeach; ?>
     </div>

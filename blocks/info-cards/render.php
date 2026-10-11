@@ -10,13 +10,13 @@ if (count($items) === 0) {
 }
 ?>
 <div class="bg-gyc-mist text-gyc-plum pt-4 pb-16 md:pb-20">
-    <ul class="max-w-6xl mx-auto px-6 md:px-12 space-y-6" role="list">
+    <ul class="max-w-content mx-auto px-6 md:px-12 space-y-6" role="list">
         <?php foreach ($items as $item): ?>
             <?php $button_url = empty($item['buttonUrl']) ? null : GycUI::resolve_url($item['buttonUrl'], false); ?>
             <li class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 rounded-sm border border-gyc-plum/10 bg-gyc-ivory px-6 py-8 md:px-8">
                 <div class="space-y-2">
                     <?php if (!empty($item['title'])): ?>
-                        <h2 class="font-jakarta text-lg font-extrabold uppercase tracking-tight"><?php echo esc_html($item['title']); ?></h2>
+                        <h2 class="font-display text-lg uppercase"><?php echo esc_html($item['title']); ?></h2>
                     <?php endif; ?>
                     <?php if (!empty($item['text'])): ?>
                         <p class="font-jakarta text-sm text-gyc-plum/80"><?php echo esc_html($item['text']); ?></p>

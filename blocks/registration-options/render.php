@@ -48,7 +48,7 @@ if ($active_mode === 'auto') {
     id="pricing"
     class="bg-gyc-mist text-gyc-plum pt-16 md:pt-20 pb-6 scroll-mt-4"
     <?php if ($title): ?>aria-labelledby="gyc-registration-options-title"<?php endif; ?>>
-    <div class="max-w-6xl mx-auto px-6 md:px-12">
+    <div class="max-w-content mx-auto px-6 md:px-12">
         <?php if ($title): ?>
             <h2 id="gyc-registration-options-title" class="sr-only"><?php echo esc_html($title); ?></h2>
         <?php endif; ?>
@@ -66,7 +66,7 @@ if ($active_mode === 'auto') {
                     ?>
                     <li class="flex flex-col items-center rounded-sm px-6 py-8 text-center <?php echo $is_active ? 'bg-gyc-mint shadow-lg' : 'bg-white border border-gyc-plum/10'; ?>">
                         <?php if (!empty($item['label'])): ?>
-                            <h3 class="font-jakarta text-xs font-extrabold uppercase tracking-[0.18em] mb-4">
+                            <h3 class="font-display text-sm uppercase tracking-[0.12em] mb-4">
                                 <?php echo esc_html($item['label']); ?>
                                 <?php if ($is_active): ?><span class="sr-only">(available now)</span><?php endif; ?>
                             </h3>

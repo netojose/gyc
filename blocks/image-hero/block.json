@@ -6,7 +6,7 @@
 	"title": "Image Hero",
 	"category": "widgets",
 	"icon": "format-image",
-	"description": "Page intro on a full-width photo with a purple overlay and a two-colour title",
+	"description": "Page intro with title and text on a dark blue background, with an optional photo behind",
 	"example": {},
 	"attributes": {
 		"image": {
@@ -15,19 +15,19 @@
 		},
 		"eyebrow": {
 			"type": "string",
-			"default": "GYC Congress · Europe · 2027"
+			"default": ""
 		},
 		"title": {
 			"type": "string",
-			"default": "About"
+			"default": "About GYC Europe"
 		},
 		"titleHighlight": {
 			"type": "string",
-			"default": "GYC"
+			"default": ""
 		},
 		"text": {
 			"type": "string",
-			"default": "A movement of young Adventists across Europe — gathered, equipped, and sent to proclaim the gospel with boldness and joy."
+			"default": "A movement of young Adventists across Europe, gathered around the Word of God and sent to share Jesus where they live."
 		}
 	},
 	"supports": {

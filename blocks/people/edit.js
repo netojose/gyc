@@ -39,15 +39,35 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-    const { main = [], staff = [] } = attributes;
+    const { title, text, staffTitle, main = [], staff = [] } = attributes;
 
     return (
         <div { ...useBlockProps() }>
             <Panel>
                 <PanelBody initialOpen={false} title="People">
                     <div className="gyc-people-fields-wrapper">
+                        <TextControl
+                            label="Title"
+                            help="Type it in normal case; it is shown in small capitals."
+                            value={ title || '' }
+                            onChange={ ( newValue ) => setAttributes( { title: newValue } ) }
+                        />
+                        <TextareaControl
+                            label="Text"
+                            help="Optional, shown under the title."
+                            rows={2}
+                            value={ text || '' }
+                            onChange={ ( newValue ) => setAttributes( { text: newValue } ) }
+                        />
+                        <TextControl
+                            label="Workshop speakers title"
+                            value={ staffTitle || '' }
+                            onChange={ ( newValue ) => setAttributes( { staffTitle: newValue } ) }
+                        />
+
                         <Panel>
-                            <PanelBody initialOpen={false} title={"Main"}>
+                            <PanelBody initialOpen={false} title="Main speakers">
+                                <p>Role is shown under the name. Headline and description appear in the pop-up when a speaker is clicked.</p>
                                 {main.map(person => (
                                     <PanelRow key={person.id}>
                                         <div className="gyc-people-fields-wrapper">
@@ -69,6 +89,7 @@ export default function Edit({ attributes, setAttributes }) {
                                             />
                                             <TextControl
                                                 label="Role"
+                                                help="Topic or ministry, e.g. Keynote speaker."
                                                 value={ person.role || '' }
                                                 onChange={ ( newValue ) => {
                                                     const newMain = main.map(i => i.id === person.id ? { ...i, role: newValue } : i);
@@ -130,7 +151,8 @@ export default function Edit({ attributes, setAttributes }) {
                         </Panel>
 
                         <Panel>
-                            <PanelBody initialOpen={false} title={"Staff"}>
+                            <PanelBody initialOpen={false} title="Workshop speakers">
+                                <p>Without a photo, the speaker's initials are shown.</p>
                                 {staff.map(person => (
                                     <PanelRow key={person.id}>
                                         <div className="gyc-people-fields-wrapper">
@@ -147,6 +169,15 @@ export default function Edit({ attributes, setAttributes }) {
                                                 value={ person.name || '' }
                                                 onChange={ ( newValue ) => {
                                                     const newStaff = staff.map(i => i.id === person.id ? { ...i, name: newValue } : i);
+                                                    setAttributes({ staff: newStaff });
+                                                } }
+                                            />
+                                            <TextControl
+                                                label="Role"
+                                                help="Topic or ministry."
+                                                value={ person.role || '' }
+                                                onChange={ ( newValue ) => {
+                                                    const newStaff = staff.map(i => i.id === person.id ? { ...i, role: newValue } : i);
                                                     setAttributes({ staff: newStaff });
                                                 } }
                                             />
@@ -173,7 +204,8 @@ export default function Edit({ attributes, setAttributes }) {
                                         const newPerson = {
                                             id: Date.now(),
                                             photo: '',
-                                            name: ''
+                                            name: '',
+                                            role: ''
                                         };
 
                                         setAttributes({ staff: [ ...staff, newPerson ] });

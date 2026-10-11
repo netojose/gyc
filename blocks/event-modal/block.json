@@ -1,0 +1,81 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/event-modal",
+	"version": "0.1.0",
+	"title": "Event Modal",
+	"category": "widgets",
+	"icon": "megaphone",
+	"description": "Pop-up announcing the congress, shown over the page on every visit. Can be switched on and off",
+	"example": {},
+	"attributes": {
+		"active": {
+			"type": "boolean",
+			"default": true
+		},
+		"image": {
+			"type": "string",
+			"default": ""
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "GYC Europe 2027"
+		},
+		"title": {
+			"type": "string",
+			"default": "Stand"
+		},
+		"titleHighlight": {
+			"type": "string",
+			"default": "Fast"
+		},
+		"notice": {
+			"type": "string",
+			"default": "**GYC Europe 2027** · Early registration opens in **November**"
+		},
+		"whereLabel": {
+			"type": "string",
+			"default": "Where"
+		},
+		"whereValue": {
+			"type": "string",
+			"default": "Katowice, Poland"
+		},
+		"whenLabel": {
+			"type": "string",
+			"default": "When"
+		},
+		"whenValue": {
+			"type": "string",
+			"default": "August 18–22, 2027"
+		},
+		"text": {
+			"type": "string",
+			"default": "Four days of worship, Bible study, prayer and outreach with young people from all over Europe."
+		},
+		"primaryLabel": {
+			"type": "string",
+			"default": "Go to the event site"
+		},
+		"primaryUrl": {
+			"type": "string",
+			"default": "/event/"
+		},
+		"closeLabel": {
+			"type": "string",
+			"default": "Continue to GYC Europe"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false,
+		"multiple": false
+	},
+	"textdomain": "gyc/event-modal",
+	"editorScript": "file:../../build/event-modal.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

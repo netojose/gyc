@@ -14,7 +14,7 @@ $has_title = $title_top || $title;
         <?php if ($has_title || $text): ?>
             <div class="space-y-4">
                 <?php if ($has_title): ?>
-                    <h2 id="gyc-call-to-action-title" class="font-jakarta font-extrabold uppercase leading-tight tracking-tight">
+                    <h2 id="gyc-call-to-action-title" class="font-display uppercase leading-none">
                         <?php if ($title_top): ?>
                             <span class="block text-2xl md:text-3xl mb-3"><?php echo esc_html($title_top); ?></span>
                         <?php endif; ?>

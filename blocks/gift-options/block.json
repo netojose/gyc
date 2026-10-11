@@ -6,23 +6,44 @@
 	"title": "Gift Options",
 	"category": "widgets",
 	"icon": "money-alt",
-	"description": "Heading, text and cards with ways to give",
+	"description": "Heading and cards with other ways to give",
 	"example": {},
 	"attributes": {
 		"title": {
 			"type": "string",
-			"default": "Every gift matters"
+			"default": "Other ways to give"
 		},
 		"text": {
 			"type": "string",
-			"default": "Whether it's a one-time gift or a regular donation, your support helps create an unforgettable experience."
+			"default": ""
 		},
 		"items": {
 			"type": "array",
 			"default": [
-				{ "id": 1, "icon": "gift", "title": "One-time donation", "text": "Make a single contribution", "buttonLabel": "Donate", "buttonUrl": "#" },
-				{ "id": 2, "icon": "calendar", "title": "Monthly gift", "text": "Give regularly and help us plan", "buttonLabel": "Give monthly", "buttonUrl": "#" },
-				{ "id": 3, "icon": "person", "title": "Sponsor a young person", "text": "Help someone who can't afford to come", "buttonLabel": "Learn more", "buttonUrl": "#" }
+				{
+					"id": 1,
+					"icon": "",
+					"title": "Bank transfer",
+					"text": "Give directly to the GYC Europe account. Contact us and we will send you the bank details.",
+					"buttonLabel": "Ask for bank details",
+					"buttonUrl": "/contact-us/"
+				},
+				{
+					"id": 2,
+					"icon": "",
+					"title": "Sponsor a delegate",
+					"text": "Cover the full registration of a young person from another country.",
+					"buttonLabel": "",
+					"buttonUrl": ""
+				},
+				{
+					"id": 3,
+					"icon": "",
+					"title": "Partner with us",
+					"text": "Churches and organisations can partner with GYC Europe for events and projects.",
+					"buttonLabel": "",
+					"buttonUrl": ""
+				}
 			],
 			"items": {
 				"type": "object",

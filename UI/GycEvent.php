@@ -47,7 +47,7 @@ class GycEvent
             'label'                 => __('Event', 'text_domain'),
             'description'           => __('Events', 'text_domain'),
             'labels'                => $labels,
-            'supports'              => array('title', 'editor'),
+            'supports'              => array('title', 'editor', 'custom-fields'),
             'show_in_rest'          => true,
             'hierarchical'          => false,
             'public'                => true,

@@ -39,7 +39,7 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-    const { title, headline, items } = attributes;
+    const { title, headline, items, buttonLabel, contactText, contactEmail } = attributes;
 
     return (
         <div { ...useBlockProps() }>
@@ -57,9 +57,27 @@ export default function Edit({ attributes, setAttributes }) {
                             value={ headline || '' }
                             onChange={ ( newValue ) => setAttributes( { headline: newValue } ) }
                         />
+                        <TextControl
+                            label="Button label"
+                            help="Shown on every price box."
+                            value={ buttonLabel || '' }
+                            onChange={ ( newValue ) => setAttributes( { buttonLabel: newValue } ) }
+                        />
+                        <TextControl
+                            label="Contact line"
+                            value={ contactText || '' }
+                            onChange={ ( newValue ) => setAttributes( { contactText: newValue } ) }
+                        />
+                        <TextControl
+                            label="Contact email"
+                            type="email"
+                            value={ contactEmail || '' }
+                            onChange={ ( newValue ) => setAttributes( { contactEmail: newValue } ) }
+                        />
 
                         <Panel>
-                            <PanelBody initialOpen={false} title={"Items"}>
+                            <PanelBody initialOpen={false} title="Price boxes">
+                                <p>A box with a badge (e.g. Popular) is highlighted. Links can be full URLs or site paths like /register/.</p>
                                 {items.map(item => (
                                     <PanelRow key={item.id}>
                                         <div className="gyc-pricing-table-fields-wrapper">
