@@ -6,6 +6,7 @@ $button_label = empty($attributes['buttonLabel']) ? null : $attributes['buttonLa
 $button_url = empty($attributes['buttonUrl']) ? null : GycUI::resolve_url($attributes['buttonUrl'], false);
 $logo = empty($attributes['logo']) ? null : $attributes['logo'];
 $logo_alt = empty($attributes['logoAlt']) ? '' : $attributes['logoAlt'];
+$is_logo = ($attributes['imageType'] ?? '') === 'logo';
 
 // The GYC Focus website is a separate site, so it opens in a new tab.
 $button_is_external = $button_url && preg_match('~^https?://~i', $button_url) && wp_parse_url($button_url, PHP_URL_HOST) !== wp_parse_url(home_url(), PHP_URL_HOST);
@@ -44,9 +45,15 @@ $button_is_external = $button_url && preg_match('~^https?://~i', $button_url) &&
         </div>
 
         <?php if ($logo): ?>
-            <div class="flex aspect-[2/1] items-center justify-center rounded-3xl bg-white p-10 md:p-14">
+            <?php if ($is_logo): ?>
+                <!-- Logo: shown whole, centred on a white card -->
+                <div class="flex aspect-[2/1] items-center justify-center rounded-3xl bg-white p-10 md:p-14">
+            <?php else: ?>
+                <!-- Picture: fills the box; edges are cropped when its shape differs -->
+                <div class="relative aspect-[2/1] overflow-hidden rounded-3xl bg-white">
+            <?php endif; ?>
                 <img
-                    class="max-h-full max-w-full object-contain"
+                    class="<?php echo $is_logo ? 'max-h-full max-w-full object-contain' : 'absolute inset-0 h-full w-full object-cover'; ?>"
                     src="<?php echo esc_url($logo); ?>"
                     alt="<?php echo esc_attr($logo_alt); ?>"
                     loading="lazy"

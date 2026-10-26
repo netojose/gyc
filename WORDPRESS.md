@@ -93,6 +93,7 @@ Every event's address is `http://localhost/gyc-main/events/<slug>/`, where the s
    - **Info cards:** the "Contact us" button goes to the Contact page (`/contact-us/`) and "View FAQ" goes to `/faq/`.
 8. **About Us page:** create a page titled "About Us" with the slug `about-us`, publish it, and edit the sections in Appearance → Editor → Templates → Page: About Us.
    - **Photos:** none are set yet, so every photo slot shows a grey placeholder. Add photo URLs in the Vision (three photos), Mission (one per card) and Committee (one per member) blocks. The Image Hero can also take an optional background photo.
+   - **Focus block image:** choose **Image type** in the block's settings. *Picture* (the default) fills the rounded box, which is twice as wide as it is tall, so the edges of a differently shaped photo are cropped. *Logo* shows the whole image centred on a white card with space around it. The box only appears once an image URL is filled in.
    - The hero photo sits behind a dark blue overlay and is treated as decoration, so it has no alt text field. Committee photos don't need alt text either, because each person's name is shown right below.
    - **Committee members are placeholders from the design** ("Full name" and "Country" with the eight roles). Replace them with the real committee before launch. Members are shown four per row and can be reordered with Move up / Move down. Email and Instagram are optional and only appear when filled in.
    - The "Get involved" button in the aqua strip links to `/register/`.

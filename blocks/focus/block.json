@@ -29,6 +29,11 @@
 			"type": "string",
 			"default": "#"
 		},
+		"imageType": {
+			"type": "string",
+			"enum": ["picture", "logo"],
+			"default": "picture"
+		},
 		"logo": {
 			"type": "string",
 			"default": ""

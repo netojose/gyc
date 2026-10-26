@@ -1,6 +1,7 @@
 import {
     TextControl,
     TextareaControl,
+    SelectControl,
     Panel,
     PanelBody
 } from '@wordpress/components';
@@ -37,7 +38,8 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-    const { eyebrow, title, text, buttonLabel, buttonUrl, logo, logoAlt } = attributes;
+    const { eyebrow, title, text, buttonLabel, buttonUrl, imageType, logo, logoAlt } = attributes;
+    const isLogo = imageType === 'logo';
 
     return (
         <div { ...useBlockProps() }>
@@ -71,14 +73,25 @@ export default function Edit({ attributes, setAttributes }) {
                             value={ buttonUrl || '' }
                             onChange={ ( newValue ) => setAttributes( { buttonUrl: newValue } ) }
                         />
+                        <SelectControl
+                            label="Image type"
+                            value={ isLogo ? 'logo' : 'picture' }
+                            options={ [
+                                { label: 'Picture – fills the box', value: 'picture' },
+                                { label: 'Logo – fitted on a white card', value: 'logo' },
+                            ] }
+                            onChange={ ( newValue ) => setAttributes( { imageType: newValue } ) }
+                        />
                         <TextControl
-                            label="Logo image URL"
-                            help="The white logo card only appears once this is filled in."
+                            label={ isLogo ? 'Logo URL' : 'Picture URL' }
+                            help={ isLogo
+                                ? 'The whole logo is shown, centred on a white card with space around it. The card only appears once this is filled in.'
+                                : 'The picture fills a rounded box twice as wide as it is tall; edges are cropped if its shape differs. The box only appears once this is filled in.' }
                             value={ logo || '' }
                             onChange={ ( newValue ) => setAttributes( { logo: newValue } ) }
                         />
                         <TextControl
-                            label="Logo alt text"
+                            label={ isLogo ? 'Logo alt text' : 'Picture alt text' }
                             value={ logoAlt || '' }
                             onChange={ ( newValue ) => setAttributes( { logoAlt: newValue } ) }
                         />
