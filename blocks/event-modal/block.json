@@ -51,7 +51,7 @@
 		},
 		"text": {
 			"type": "string",
-			"default": "Four days of worship, Bible study, prayer and outreach with young people from all over Europe."
+			"default": "Five days of worship, Bible study, prayer and outreach with young people from all over Europe."
 		},
 		"primaryLabel": {
 			"type": "string",
@@ -59,7 +59,7 @@
 		},
 		"primaryUrl": {
 			"type": "string",
-			"default": "/event/"
+			"default": "/events/"
 		},
 		"closeLabel": {
 			"type": "string",

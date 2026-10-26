@@ -25,6 +25,10 @@
 			"type": "string",
 			"default": "Watch now"
 		},
+		"linkUrl": {
+			"type": "string",
+			"default": "#"
+		},
 		"videoUrl": {
 			"type": "string",
 			"default": ""

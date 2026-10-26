@@ -15,7 +15,7 @@
 		},
 		"headline": {
 			"type": "string",
-			"default": "Four days.\nOne purpose."
+			"default": "Five days.\nOne purpose."
 		},
 		"items": {
 			"type": "array",

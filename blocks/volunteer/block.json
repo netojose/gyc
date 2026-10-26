@@ -1,0 +1,77 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/volunteer",
+	"version": "0.1.0",
+	"title": "Volunteer",
+	"category": "widgets",
+	"icon": "groups",
+	"description": "Ways to volunteer next to a registration form that is emailed to the site admin",
+	"example": {},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "Volunteer with us"
+		},
+		"title": {
+			"type": "string",
+			"default": "Serve with GYC Europe"
+		},
+		"text": {
+			"type": "string",
+			"default": "Fill in the form and someone from the team will get in touch to find the right place for you."
+		},
+		"areas": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "title": "Events and logistics", "text": "Help on site at our conferences and gatherings." },
+				{ "id": 2, "title": "Media and communications", "text": "Design, video, photography, writing and social media." },
+				{ "id": 3, "title": "Prayer and outreach", "text": "Lead prayer, Bible study or community outreach." },
+				{ "id": 4, "title": "Your local church", "text": "Represent GYC Europe in your country and church." }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": { "type": "number" },
+					"title": { "type": "string" },
+					"text": { "type": "string" }
+				}
+			}
+		},
+		"formTitle": {
+			"type": "string",
+			"default": "Volunteer registration"
+		},
+		"skills": {
+			"type": "string",
+			"default": "Music\nMedia & design\nVideo & photo\nSocial media\nTeaching\nPrayer ministry\nLogistics\nTranslation\nHospitality\nTech & web"
+		},
+		"consent": {
+			"type": "string",
+			"default": "I agree that GYC Europe may contact me about volunteering and store this information for that purpose."
+		},
+		"recipient": {
+			"type": "string",
+			"default": "volunteer@example.com"
+		},
+		"buttonLabel": {
+			"type": "string",
+			"default": "Send application"
+		},
+		"successMessage": {
+			"type": "string",
+			"default": "Thank you for signing up! Someone from the team will get in touch with you soon."
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/volunteer",
+	"editorScript": "file:../../build/volunteer.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

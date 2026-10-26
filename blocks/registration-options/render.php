@@ -64,9 +64,9 @@ if ($active_mode === 'auto') {
                     $button_url = empty($item['buttonUrl']) ? null : GycUI::resolve_url($item['buttonUrl'], false);
                     $range = $date_range($start, $end);
                     ?>
-                    <li class="flex flex-col items-center rounded-sm px-6 py-8 text-center <?php echo $is_active ? 'bg-gyc-mint shadow-lg' : 'bg-white border border-gyc-plum/10'; ?>">
+                    <li class="flex flex-col items-center rounded-2xl px-6 py-8 text-center <?php echo $is_active ? 'bg-gyc-mint shadow-lg' : 'bg-white border border-gyc-plum/10'; ?>">
                         <?php if (!empty($item['label'])): ?>
-                            <h3 class="font-display text-sm uppercase tracking-[0.12em] mb-4">
+                            <h3 class="font-display small-caps text-xl leading-tight mb-4">
                                 <?php echo esc_html($item['label']); ?>
                                 <?php if ($is_active): ?><span class="sr-only">(available now)</span><?php endif; ?>
                             </h3>
@@ -84,17 +84,17 @@ if ($active_mode === 'auto') {
                             <?php if ($is_active && $button_url && !empty($item['buttonLabel'])): ?>
                                 <a
                                     href="<?php echo esc_url($button_url); ?>"
-                                    class="group inline-flex w-full max-w-56 items-center justify-center gap-2 rounded-sm bg-gyc-plum px-6 py-3 font-jakarta text-xs font-bold uppercase tracking-[0.18em] text-white hover:bg-gyc-plum-light motion-safe:transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-plum">
+                                    class="group inline-flex w-full max-w-56 items-center justify-center gap-2 rounded-full bg-gyc-plum px-6 py-3.5 font-jakarta text-sm font-semibold text-white hover:bg-gyc-plum-light motion-safe:transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-plum">
                                     <?php echo esc_html($item['buttonLabel']); ?>
                                     <span class="sr-only">– <?php echo esc_html($item['label']); ?></span>
-                                    <svg class="h-3.5 w-3.5 motion-safe:transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <svg class="h-4 w-4 motion-safe:transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M13 6l6 6-6 6"></path>
                                     </svg>
                                 </a>
                             <?php elseif (!$is_active): ?>
                                 <?php $status_label = $is_upcoming ? $upcoming_label : $closed_label; ?>
                                 <?php if ($status_label): ?>
-                                    <p class="inline-flex w-full max-w-56 items-center justify-center rounded-sm border border-dashed border-gyc-plum/30 px-6 py-3 font-jakarta text-xs font-bold uppercase tracking-[0.18em] text-gyc-plum/70">
+                                    <p class="inline-flex w-full max-w-56 items-center justify-center rounded-full border border-dashed border-gyc-plum/30 px-6 py-3.5 font-jakarta text-sm font-semibold text-gyc-plum/70">
                                         <?php echo esc_html($status_label); ?>
                                     </p>
                                 <?php endif; ?>

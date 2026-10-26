@@ -63,7 +63,7 @@
 		},
 		"cardText": {
 			"type": "string",
-			"default": "Give once or monthly, with any amount, on our secure donation page."
+			"default": "Donations are made through our secure online donation form. Choose a one-time or monthly gift there."
 		},
 		"buttonLabel": {
 			"type": "string",
@@ -75,7 +75,7 @@
 		},
 		"note": {
 			"type": "string",
-			"default": "Secure payment. You will receive a receipt by email."
+			"default": "Opens the secure donation page in a new tab."
 		}
 	},
 	"supports": {

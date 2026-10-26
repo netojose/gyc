@@ -50,11 +50,15 @@
 		},
 		"contactText": {
 			"type": "string",
-			"default": "Questions? Contact us at"
+			"default": ""
 		},
-		"contactEmail": {
+		"contactLinkLabel": {
 			"type": "string",
-			"default": "info@gyceurope.org"
+			"default": "Still have questions? Give a look to our FAQ's page"
+		},
+		"contactLinkUrl": {
+			"type": "string",
+			"default": "/faq/"
 		}
 	},
 	"supports": {

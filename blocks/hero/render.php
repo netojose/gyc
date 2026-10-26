@@ -7,6 +7,8 @@ $button_label = empty($attributes['buttonLabel']) ? null : $attributes['buttonLa
 $button_url = empty($attributes['buttonUrl']) ? null : GycUI::resolve_url($attributes['buttonUrl']);
 $image = empty($attributes['image']) ? null : $attributes['image'];
 $image_alt = empty($attributes['imageAlt']) ? '' : $attributes['imageAlt'];
+// The front page keeps its louder all-caps title and button; other pages use the small-caps style
+$is_loud = is_front_page();
 ?>
 <section
     class="relative overflow-hidden bg-gyc-cream text-gyc-ink"
@@ -57,7 +59,7 @@ $image_alt = empty($attributes['imageAlt']) ? '' : $attributes['imageAlt'];
                 <?php endif; ?>
 
                 <?php if ($title): ?>
-                    <h1 id="gyc-hero-title" class="font-display text-6xl sm:text-7xl lg:text-[5.5rem] uppercase leading-[0.95] text-gyc-ink break-words">
+                    <h1 id="gyc-hero-title" class="font-display <?php echo $is_loud ? 'text-6xl sm:text-7xl lg:text-[5.5rem] uppercase leading-[0.95]' : 'small-caps text-5xl md:text-7xl leading-none'; ?> text-gyc-ink break-words">
                         <?php echo esc_html($title); ?>
                     </h1>
                 <?php endif; ?>
@@ -69,7 +71,7 @@ $image_alt = empty($attributes['imageAlt']) ? '' : $attributes['imageAlt'];
                 <?php if ($button_label && $button_url): ?>
                     <a
                         href="<?php echo esc_url($button_url); ?>"
-                        class="inline-flex items-center gap-4 rounded-full bg-linear-to-r from-gyc-teal-dark to-gyc-teal px-8 py-4 font-jakarta text-xs font-bold uppercase tracking-[0.2em] text-white shadow-md motion-safe:transition-colors hover:from-gyc-teal-dark hover:to-gyc-teal-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-teal">
+                        class="inline-flex items-center gap-4 rounded-full bg-linear-to-r from-gyc-teal-dark to-gyc-teal <?php echo $is_loud ? 'px-8 py-4 text-xs font-bold uppercase tracking-[0.2em]' : 'px-7 py-3.5 text-sm font-semibold'; ?> font-jakarta text-white shadow-md motion-safe:transition-colors hover:from-gyc-teal-dark hover:to-gyc-teal-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-teal">
                         <?php echo esc_html($button_label); ?>
                         <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M13 6l6 6-6 6"></path>

@@ -22,7 +22,7 @@ $search_placeholder = empty($attributes['searchPlaceholder']) ? '' : $attributes
             <?php endif; ?>
 
             <?php if ($title): ?>
-                <h1 id="gyc-page-hero-title" class="font-display text-5xl md:text-7xl uppercase leading-none break-words"><?php echo esc_html($title); ?></h1>
+                <h1 id="gyc-page-hero-title" class="font-display small-caps text-5xl md:text-7xl leading-none break-words"><?php echo esc_html($title); ?></h1>
             <?php endif; ?>
 
             <?php if ($text): ?>
@@ -38,7 +38,7 @@ $search_placeholder = empty($attributes['searchPlaceholder']) ? '' : $attributes
                     @submit.prevent="$dispatch('gyc-faq-search', { query: query, submit: true })"
                     class="pt-4 max-w-md">
                     <label for="gyc-page-hero-search" class="sr-only"><?php echo esc_html($search_label); ?></label>
-                    <div class="flex items-center rounded-sm bg-white p-1.5 pl-4 focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-gyc-mint">
+                    <div class="flex items-center rounded-full bg-white p-1.5 pl-5 focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-gyc-mint">
                         <input
                             id="gyc-page-hero-search"
                             type="search"
@@ -47,7 +47,7 @@ $search_placeholder = empty($attributes['searchPlaceholder']) ? '' : $attributes
                             placeholder="<?php echo esc_attr($search_placeholder); ?>"
                             autocomplete="off"
                             class="min-w-0 flex-1 bg-transparent font-jakarta text-sm text-gyc-plum placeholder:text-gyc-plum/60 focus:outline-none" />
-                        <button type="submit" class="flex h-8 w-8 shrink-0 items-center justify-center rounded-sm bg-gyc-mint text-gyc-plum hover:bg-gyc-mint-dark motion-safe:transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gyc-plum">
+                        <button type="submit" class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gyc-mint text-gyc-plum hover:bg-gyc-mint-dark motion-safe:transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gyc-plum">
                             <span class="sr-only"><?php echo esc_html($search_label); ?></span>
                             <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" viewBox="0 0 24 24" aria-hidden="true">
                                 <circle cx="11" cy="11" r="6.5"/>

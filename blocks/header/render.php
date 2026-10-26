@@ -34,7 +34,7 @@ $c = GycUI::is_dark_chrome()
         'not_current' => 'border-transparent hover:border-gyc-teal/50',
         'mobile_current' => 'border-gyc-teal text-gyc-teal',
         'divider' => 'border-gyc-ink/10',
-        'button' => 'rounded-sm border-2 border-gyc-ink text-gyc-ink hover:bg-gyc-ink hover:text-white',
+        'button' => 'rounded-full border-2 border-gyc-ink text-gyc-ink hover:bg-gyc-ink hover:text-white',
     );
 ?>
 <nav
@@ -70,7 +70,7 @@ $c = GycUI::is_dark_chrome()
                 <?php endif; ?>
 
                 <?php if ($button_label && $button_url): ?>
-                    <a href="<?php echo esc_url($button_url); ?>" class="inline-flex items-center gap-2 px-5 py-2.5 font-jakarta text-xs font-bold uppercase tracking-[0.15em] motion-safe:transition-colors <?php echo esc_attr($c['button'] . ' ' . $c['focus']); ?> focus-visible:outline-2 focus-visible:outline-offset-4">
+                    <a href="<?php echo esc_url($button_url); ?>" class="inline-flex items-center gap-2 px-5 py-2.5 font-jakarta text-sm font-semibold motion-safe:transition-colors <?php echo esc_attr($c['button'] . ' ' . $c['focus']); ?> focus-visible:outline-2 focus-visible:outline-offset-4">
                         <?php echo esc_html($button_label); ?>
                         <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M13 6l6 6-6 6"></path></svg>
                     </a>
@@ -124,7 +124,7 @@ $c = GycUI::is_dark_chrome()
 
             <?php if ($button_label && $button_url): ?>
                 <div class="mt-4 border-t <?php echo esc_attr($c['divider']); ?> pt-4">
-                    <a href="<?php echo esc_url($button_url); ?>" @click="open = false" class="inline-flex items-center gap-2 px-5 py-2.5 motion-safe:transition-colors font-jakarta text-xs font-bold uppercase tracking-[0.15em] <?php echo esc_attr($c['button'] . ' ' . $c['focus']); ?> focus-visible:outline-2 focus-visible:outline-offset-4">
+                    <a href="<?php echo esc_url($button_url); ?>" @click="open = false" class="inline-flex items-center gap-2 px-5 py-2.5 motion-safe:transition-colors font-jakarta text-sm font-semibold <?php echo esc_attr($c['button'] . ' ' . $c['focus']); ?> focus-visible:outline-2 focus-visible:outline-offset-4">
                         <?php echo esc_html($button_label); ?>
                         <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M13 6l6 6-6 6"></path></svg>
                     </a>

@@ -15,7 +15,7 @@ $items = array_values(array_filter($items, function ($item) {
         <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
             <div class="space-y-5">
                 <?php if ($eyebrow): ?>
-                    <p class="font-jakarta text-xs font-bold tracking-[0.25em] uppercase text-gyc-mint"><?php echo esc_html($eyebrow); ?></p>
+                    <p class="font-jakarta text-xs font-bold tracking-[0.25em] uppercase text-gyc-aqua"><?php echo esc_html($eyebrow); ?></p>
                 <?php endif; ?>
 
                 <?php if ($title): ?>
@@ -29,11 +29,11 @@ $items = array_values(array_filter($items, function ($item) {
         </div>
 
         <?php if (count($items) > 0): ?>
-            <ul class="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-2 border-t border-white/10" role="list">
+            <ul class="mt-10 md:mt-12 grid grid-cols-1 md:grid-cols-2 border-t border-l border-white/15" role="list">
                 <?php foreach ($items as $item): ?>
-                    <li class="border-b border-white/10 py-8 md:py-10 md:odd:pr-10 md:even:border-l md:even:pl-10">
+                    <li class="border-r border-b border-white/15 px-6 py-8 md:p-10">
                         <?php if (!empty($item['title'])): ?>
-                            <h3 class="font-display small-caps text-2xl leading-tight text-white"><?php echo esc_html($item['title']); ?></h3>
+                            <h3 class="font-display small-caps text-xl leading-tight text-white"><?php echo esc_html($item['title']); ?></h3>
                         <?php endif; ?>
 
                         <?php if (!empty($item['text'])): ?>

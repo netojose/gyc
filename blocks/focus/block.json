@@ -1,0 +1,52 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/focus",
+	"version": "0.1.0",
+	"title": "Focus",
+	"category": "widgets",
+	"icon": "groups",
+	"description": "Introduces GYC Focus with a logo and a link to its website",
+	"example": {},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "The GYC family"
+		},
+		"title": {
+			"type": "string",
+			"default": "About GYC Focus"
+		},
+		"text": {
+			"type": "string",
+			"default": "[One or two lines about what GYC Focus is, who its events are for and how it connects to GYC Europe.]"
+		},
+		"buttonLabel": {
+			"type": "string",
+			"default": "Visit GYC Focus"
+		},
+		"buttonUrl": {
+			"type": "string",
+			"default": "#"
+		},
+		"logo": {
+			"type": "string",
+			"default": ""
+		},
+		"logoAlt": {
+			"type": "string",
+			"default": "GYC Focus"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/focus",
+	"editorScript": "file:../../build/focus.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

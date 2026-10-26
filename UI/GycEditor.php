@@ -65,7 +65,10 @@ class GycEditor
         register_block_type($td . '/blocks/vision/block.json');
         register_block_type($td . '/blocks/mission/block.json');
         register_block_type($td . '/blocks/goals/block.json');
+        register_block_type($td . '/blocks/focus/block.json');
         register_block_type($td . '/blocks/committee/block.json');
+        register_block_type($td . '/blocks/volunteer/block.json');
+        register_block_type($td . '/blocks/events-overview/block.json');
         register_block_type($td . '/blocks/contact/block.json');
         register_block_type($td . '/blocks/event-modal/block.json');
     }

@@ -3,6 +3,9 @@ $eyebrow = empty($attributes['eyebrow']) ? null : $attributes['eyebrow'];
 $title = empty($attributes['title']) ? null : $attributes['title'];
 $text = empty($attributes['text']) ? null : $attributes['text'];
 $link_label = empty($attributes['linkLabel']) ? null : $attributes['linkLabel'];
+$link_url = empty($attributes['linkUrl']) ? null : GycUI::resolve_url($attributes['linkUrl']);
+// Links to other websites, such as the YouTube channel, open in a new tab.
+$link_is_external = $link_url && preg_match('~^https?://~i', $link_url) && wp_parse_url($link_url, PHP_URL_HOST) !== wp_parse_url(home_url(), PHP_URL_HOST);
 $video_url = empty($attributes['videoUrl']) ? null : $attributes['videoUrl'];
 $poster = empty($attributes['poster']) ? null : $attributes['poster'];
 $poster_alt = empty($attributes['posterAlt']) ? '' : $attributes['posterAlt'];
@@ -53,7 +56,7 @@ $player_label = $title ? sprintf('Play video: %s', $title) : 'Play video';
                     @click.prevent="play()"
                 <?php endif; ?>
                 x-show="!playing"
-                class="group absolute inset-0 block focus-visible:outline-4 focus-visible:-outline-offset-4 focus-visible:outline-gyc-mint">
+                class="group absolute inset-0 block focus-visible:outline-4 focus-visible:-outline-offset-4 focus-visible:outline-gyc-aqua">
                 <?php if ($poster): ?>
                     <img
                         class="absolute inset-0 h-full w-full object-cover motion-safe:transition-transform duration-500 ease-out motion-safe:group-hover:scale-105"
@@ -90,10 +93,10 @@ $player_label = $title ? sprintf('Play video: %s', $title) : 'Play video';
                     <p class="font-jakarta text-base leading-relaxed text-gyc-ink/85 whitespace-pre-line"><?php echo esc_html($text); ?></p>
                 <?php endif; ?>
 
-                <?php if ($link_label && $video_url): ?>
+                <?php if ($link_label && $link_url): ?>
                     <a
-                        href="<?php echo esc_url($video_url); ?>"
-                        @click.prevent="play()"
+                        href="<?php echo esc_url($link_url); ?>"
+                        <?php if ($link_is_external): ?>target="_blank" rel="noopener noreferrer"<?php endif; ?>
                         class="inline-flex items-center gap-3 border-b-2 border-gyc-teal pb-1.5 font-jakarta text-xs font-bold uppercase tracking-[0.2em] text-gyc-teal motion-safe:transition-colors hover:text-gyc-teal-dark hover:border-gyc-teal-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-teal">
                         <?php echo esc_html($link_label); ?>
                         <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M13 6l6 6-6 6"></path></svg>

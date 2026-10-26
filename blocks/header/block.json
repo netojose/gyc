@@ -27,6 +27,7 @@
 				{ "id": 1, "label": "Home", "url": "/" },
 				{ "id": 2, "label": "About", "url": "/about-us/" },
 				{ "id": 3, "label": "Community", "url": "#community" },
+				{ "id": 5, "label": "Events", "url": "/events/" },
 				{ "id": 6, "label": "Contact", "url": "/contact-us/" }
 			],
 			"items": {

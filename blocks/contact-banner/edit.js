@@ -1,6 +1,7 @@
 import {
     TextControl,
     TextareaControl,
+    SelectControl,
     Panel,
     PanelBody
 } from '@wordpress/components';
@@ -37,7 +38,7 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-    const { eyebrow, title, text, buttonLabel, buttonUrl } = attributes;
+    const { eyebrow, title, text, variant, buttonLabel, buttonUrl } = attributes;
 
     return (
         <div { ...useBlockProps() }>
@@ -59,6 +60,15 @@ export default function Edit({ attributes, setAttributes }) {
                             rows={2}
                             value={ text || '' }
                             onChange={ ( newValue ) => setAttributes( { text: newValue } ) }
+                        />
+                        <SelectControl
+                            label="Style"
+                            value={ variant || 'aqua' }
+                            options={ [
+                                { label: 'Aqua with deep blue button (regular pages)', value: 'aqua' },
+                                { label: 'Mint with violet button (event pages)', value: 'mint' },
+                            ] }
+                            onChange={ ( newValue ) => setAttributes( { variant: newValue } ) }
                         />
                         <TextControl
                             label="Button label"

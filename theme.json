@@ -29,6 +29,11 @@
 					"slug": "gyc-mint"
 				},
 				{
+					"color": "#7ac7c7",
+					"name": "Aqua",
+					"slug": "gyc-aqua"
+				},
+				{
 					"color": "#2d1b33",
 					"name": "Plum",
 					"slug": "gyc-plum"

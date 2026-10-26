@@ -39,7 +39,7 @@ $items = array_filter($items, function ($item) {
                     ?>
                     <li class="flex flex-col rounded-2xl border border-gyc-ink/10 bg-white p-6 md:p-8">
                         <?php if (!empty($item['icon']) && isset($icons[$item['icon']])): ?>
-                            <span class="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-gyc-mint/20 text-gyc-teal" aria-hidden="true">
+                            <span class="mb-4 flex h-10 w-10 items-center justify-center rounded-full bg-gyc-aqua/20 text-gyc-teal" aria-hidden="true">
                                 <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                                     <?php echo $icons[$item['icon']]; ?>
                                 </svg>

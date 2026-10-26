@@ -58,7 +58,9 @@ class GycEvent
             'show_in_admin_bar'     => true,
             'show_in_nav_menus'     => true,
             'can_export'            => true,
-            'has_archive'           => true,
+            // Everything sits under the Events page (/events/): single events at /events/<slug>/, the archive at /events/archive/
+            'has_archive'           => 'events/archive',
+            'rewrite'               => array('slug' => 'events', 'with_front' => false),
             'exclude_from_search'   => false,
             'publicly_queryable'    => true,
             'capability_type'       => 'page',

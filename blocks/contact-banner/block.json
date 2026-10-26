@@ -6,7 +6,7 @@
 	"title": "Contact Banner",
 	"category": "widgets",
 	"icon": "email",
-	"description": "Mint strip with a heading, short text and a contact button",
+	"description": "Aqua (or mint, on event pages) strip with a heading, short text and a contact button",
 	"example": {},
 	"attributes": {
 		"eyebrow": {
@@ -20,6 +20,10 @@
 		"text": {
 			"type": "string",
 			"default": "Send us a message and we'll get back to you as soon as possible."
+		},
+		"variant": {
+			"type": "string",
+			"default": "aqua"
 		},
 		"buttonLabel": {
 			"type": "string",

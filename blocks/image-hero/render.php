@@ -24,7 +24,7 @@ $has_title = $title || $title_highlight;
     <div class="relative max-w-content mx-auto px-6 md:px-12 py-24 md:py-36">
         <div class="max-w-2xl space-y-6">
             <?php if ($eyebrow): ?>
-                <p class="font-jakarta text-xs font-bold tracking-[0.25em] uppercase text-gyc-mint"><?php echo esc_html($eyebrow); ?></p>
+                <p class="font-jakarta text-xs font-bold tracking-[0.25em] uppercase text-gyc-aqua"><?php echo esc_html($eyebrow); ?></p>
             <?php endif; ?>
 
             <?php if ($has_title): ?>
@@ -33,13 +33,13 @@ $has_title = $title || $title_highlight;
                         <span class="block text-white"><?php echo esc_html($title); ?></span>
                     <?php endif; ?>
                     <?php if ($title_highlight): ?>
-                        <span class="block text-gyc-mint"><?php echo esc_html($title_highlight); ?></span>
+                        <span class="block text-gyc-aqua"><?php echo esc_html($title_highlight); ?></span>
                     <?php endif; ?>
                 </h1>
             <?php endif; ?>
 
             <?php if ($text): ?>
-                <p class="max-w-xl font-jakarta text-base md:text-lg leading-relaxed text-white/85"><?php echo esc_html($text); ?></p>
+                <p class="max-w-xl font-jakarta text-base md:text-lg leading-relaxed text-white/85 whitespace-pre-line"><?php echo esc_html($text); ?></p>
             <?php endif; ?>
         </div>
     </div>

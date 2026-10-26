@@ -73,6 +73,13 @@
 				},
 				{
 					"id": 3,
+					"title": "GYC Affiliates",
+					"links": [
+						{ "id": 1, "label": "GYC Focus UK", "url": "#" }
+					]
+				},
+				{
+					"id": 4,
 					"title": "Connect",
 					"links": [
 						{ "id": 1, "label": "Instagram", "url": "#" },

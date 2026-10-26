@@ -17,7 +17,7 @@ $has_newsletter = $newsletter_title || $newsletter_text || $newsletter_action;
 // Light by default; dark when the page turns on "Dark header and footer" (see GycUI::is_dark_chrome)
 $c = GycUI::is_dark_chrome()
     ? array(
-        'footer' => 'bg-gyc-plum text-white border-white/10',
+        'footer' => 'bg-gyc-plum text-white',
         'logo' => 'brightness-0 invert',
         'muted' => 'text-white/75',
         'heading' => 'text-gyc-mint',
@@ -26,9 +26,10 @@ $c = GycUI::is_dark_chrome()
         'divider' => 'border-white/10',
         'title' => 'text-white',
         'bottom' => 'border-t border-white/10 pt-6',
+        'button' => 'bg-gyc-mint hover:bg-gyc-mint-dark',
     )
     : array(
-        'footer' => 'bg-gyc-cream text-gyc-ink border-gyc-ink/10',
+        'footer' => 'bg-gyc-cream text-gyc-ink',
         'logo' => 'brightness-0',
         'muted' => 'text-gyc-ink/80',
         'heading' => 'text-gyc-teal',
@@ -37,13 +38,14 @@ $c = GycUI::is_dark_chrome()
         'divider' => 'border-gyc-ink/10',
         'title' => 'text-gyc-ink',
         'bottom' => '',
+        'button' => 'bg-gyc-aqua hover:bg-gyc-aqua-dark',
     );
 $link_class = 'underline decoration-transparent underline-offset-4 motion-safe:transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 ' . $c['link'];
 ?>
-<footer id="contact" class="<?php echo esc_attr($c['footer']); ?> border-t pt-16 pb-10">
+<footer id="contact" class="<?php echo esc_attr($c['footer']); ?> pt-16 pb-10">
     <div class="max-w-content mx-auto px-6 md:px-12">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-12">
-            <div class="lg:col-span-5 space-y-5">
+        <div class="grid grid-cols-1 xl:grid-cols-12 gap-x-8 gap-y-12">
+            <div class="xl:col-span-5 space-y-5">
                 <a href="<?php echo esc_url($logo_url); ?>" class="inline-block rounded font-jakarta text-lg font-extrabold focus-visible:outline-2 focus-visible:outline-offset-4 <?php echo esc_attr($c['focus']); ?>">
                     <?php if ($logo): ?>
                         <img loading="lazy" decoding="async" src="<?php echo esc_url($logo); ?>" alt="<?php echo esc_attr($logo_alt); ?>" class="w-16 h-auto <?php echo esc_attr($c['logo']); ?>" draggable="false" />
@@ -57,7 +59,7 @@ $link_class = 'underline decoration-transparent underline-offset-4 motion-safe:t
             </div>
 
             <?php if (count($columns) > 0): ?>
-                <div class="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-10">
+                <div class="xl:col-span-7 grid grid-cols-2 sm:grid-cols-[repeat(4,auto)] sm:justify-between gap-x-8 gap-y-10">
                     <?php foreach (array_values($columns) as $index => $column): ?>
                         <?php
                         $links = empty($column['links']) ? array() : array_filter($column['links'], function ($link) {
@@ -82,7 +84,7 @@ $link_class = 'underline decoration-transparent underline-offset-4 motion-safe:t
             <?php endif; ?>
 
             <?php if ($has_newsletter): ?>
-                <div class="lg:col-span-12 space-y-3 border-t pt-10 <?php echo esc_attr($c['divider']); ?>">
+                <div class="xl:col-span-12 space-y-3 border-t pt-10 <?php echo esc_attr($c['divider']); ?>">
                     <?php if ($newsletter_title): ?>
                         <h2 class="font-jakarta text-2xl md:text-3xl font-extrabold tracking-tight <?php echo esc_attr($c['title']); ?>"><?php echo esc_html($newsletter_title); ?></h2>
                     <?php endif; ?>
@@ -90,7 +92,7 @@ $link_class = 'underline decoration-transparent underline-offset-4 motion-safe:t
                         <p id="gyc-newsletter-hint" class="font-jakarta text-sm <?php echo esc_attr($c['muted']); ?>"><?php echo esc_html($newsletter_text); ?></p>
                     <?php endif; ?>
                     <?php if ($newsletter_action): ?>
-                        <form class="flex flex-col sm:flex-row pt-2" action="<?php echo esc_url($newsletter_action); ?>" method="post">
+                        <form class="flex flex-col sm:flex-row gap-2 pt-2" action="<?php echo esc_url($newsletter_action); ?>" method="post">
                             <label for="gyc-newsletter-email" class="sr-only">Email address</label>
                             <input
                                 id="gyc-newsletter-email"
@@ -100,10 +102,10 @@ $link_class = 'underline decoration-transparent underline-offset-4 motion-safe:t
                                 autocomplete="email"
                                 placeholder="<?php echo esc_attr($newsletter_placeholder); ?>"
                                 <?php if ($newsletter_text): ?>aria-describedby="gyc-newsletter-hint"<?php endif; ?>
-                                class="min-w-0 flex-1 border border-gyc-ink/20 bg-white px-4 py-3 font-jakarta text-sm text-gyc-ink placeholder:text-gyc-ink/50 focus:border-gyc-teal focus:outline-2 focus:outline-offset-0 focus:outline-gyc-teal" />
+                                class="min-w-0 flex-1 rounded-full border border-gyc-ink/20 bg-white px-5 py-3 font-jakarta text-sm text-gyc-ink placeholder:text-gyc-ink/50 focus:border-gyc-teal focus:outline-2 focus:outline-offset-0 focus:outline-gyc-teal" />
                             <button
                                 type="submit"
-                                class="bg-gyc-mint px-6 py-3 font-jakarta text-xs font-extrabold uppercase tracking-[0.15em] text-gyc-ink motion-safe:transition-colors hover:bg-gyc-mint-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gyc-teal">
+                                class="<?php echo $c['button']; ?> rounded-full px-7 py-3 font-jakarta text-sm font-semibold text-gyc-ink motion-safe:transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gyc-teal">
                                 <?php echo esc_html($newsletter_button); ?>
                             </button>
                         </form>

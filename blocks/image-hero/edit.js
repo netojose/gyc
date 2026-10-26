@@ -62,7 +62,7 @@ export default function Edit({ attributes, setAttributes }) {
                             onChange={ ( newValue ) => setAttributes( { title: newValue } ) }
                         />
                         <TextControl
-                            label="Title – second line in mint (optional)"
+                            label="Title – second line in aqua (optional)"
                             value={ titleHighlight || '' }
                             onChange={ ( newValue ) => setAttributes( { titleHighlight: newValue } ) }
                         />

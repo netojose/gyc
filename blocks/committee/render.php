@@ -52,7 +52,7 @@ $members = array_values(array_filter($members, function ($member) {
                             <?php endif; ?>
                         </div>
 
-                        <h3 class="mt-4 font-display small-caps text-lg leading-tight"><?php echo esc_html($member['name']); ?></h3>
+                        <h3 class="mt-4 font-display small-caps text-xl leading-tight"><?php echo esc_html($member['name']); ?></h3>
                         <?php if (!empty($member['role'])): ?>
                             <p class="mt-1 font-jakarta text-xs font-semibold text-gyc-teal"><?php echo esc_html($member['role']); ?></p>
                         <?php endif; ?>

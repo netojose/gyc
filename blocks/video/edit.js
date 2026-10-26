@@ -37,7 +37,7 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-    const { eyebrow, title, text, linkLabel, videoUrl, poster, posterAlt } = attributes;
+    const { eyebrow, title, text, linkLabel, linkUrl, videoUrl, poster, posterAlt } = attributes;
 
     return (
         <div { ...useBlockProps() }>
@@ -68,8 +68,14 @@ export default function Edit({ attributes, setAttributes }) {
                             onChange={ ( newValue ) => setAttributes( { linkLabel: newValue } ) }
                         />
                         <TextControl
+                            label="Link URL"
+                            help="Where the link under the text goes, for example the YouTube channel. Links to other websites open in a new tab."
+                            value={ linkUrl || '' }
+                            onChange={ ( newValue ) => setAttributes( { linkUrl: newValue } ) }
+                        />
+                        <TextControl
                             label="Video URL"
-                            help="YouTube or Vimeo link, or a direct link to a video file."
+                            help="Played by the play button on the image. YouTube or Vimeo link, or a direct link to a video file."
                             value={ videoUrl || '' }
                             onChange={ ( newValue ) => setAttributes( { videoUrl: newValue } ) }
                         />

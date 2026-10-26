@@ -40,11 +40,11 @@ $has_title = $title || $title_highlight;
     <div class="relative max-w-content mx-auto px-6 md:px-12 py-24 md:py-32 lg:min-h-[40rem] lg:flex lg:flex-col lg:justify-center">
         <div class="max-w-xl space-y-6">
             <?php if ($eyebrow): ?>
-                <p class="font-jakarta text-sm font-semibold text-gyc-mint"><?php echo esc_html($eyebrow); ?></p>
+                <p class="font-jakarta text-xs font-bold tracking-[0.25em] uppercase text-gyc-mint"><?php echo esc_html($eyebrow); ?></p>
             <?php endif; ?>
 
             <?php if ($has_title): ?>
-                <h1 id="gyc-event-hero-title" class="font-display text-6xl md:text-8xl uppercase leading-[0.95] break-words">
+                <h1 id="gyc-event-hero-title" class="font-display small-caps text-6xl md:text-8xl leading-[0.95] break-words">
                     <?php if ($title): ?>
                         <span class="block text-gyc-ivory"><?php echo esc_html($title); ?></span>
                     <?php endif; ?>

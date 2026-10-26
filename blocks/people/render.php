@@ -21,6 +21,19 @@ $initials = function ($name) {
     }
     return $letters;
 };
+
+// Main speaker cards share the full width: two or three wide cards, four per row from four speakers on
+$main_count = count($main);
+if ($main_count <= 2) {
+    $main_grid = $main_count === 1 ? 'grid-cols-1 max-w-xl gap-y-10' : 'grid-cols-1 sm:grid-cols-2 gap-x-6 lg:gap-x-8 gap-y-10';
+    $main_photo = 'aspect-[4/3]';
+} elseif ($main_count === 3) {
+    $main_grid = 'grid-cols-1 sm:grid-cols-3 gap-x-4 gap-y-10';
+    $main_photo = 'aspect-[4/5]';
+} else {
+    $main_grid = 'grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-10';
+    $main_photo = 'aspect-[7/8]';
+}
 ?>
 <section
     id="speakers"
@@ -41,7 +54,7 @@ $initials = function ($name) {
         <?php endif; ?>
 
         <?php if (count($main) > 0): ?>
-            <ul class="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-10" role="list">
+            <ul class="mt-10 grid <?php echo esc_attr($main_grid); ?>" role="list">
                 <?php foreach ($main as $person): ?>
                     <?php $subtitle = !empty($person['role']) ? $person['role'] : (empty($person['headline']) ? '' : $person['headline']); ?>
                     <li>
@@ -51,9 +64,9 @@ $initials = function ($name) {
                             data-id="<?php echo esc_attr((string) $person['id']); ?>"
                             aria-haspopup="dialog"
                             @click="openModal($event.currentTarget.dataset.id)">
-                            <span class="relative block aspect-[7/8] overflow-hidden rounded-2xl bg-gyc-plum-mid">
+                            <span class="relative block <?php echo esc_attr($main_photo); ?> overflow-hidden rounded-2xl bg-gyc-plum-mid">
                                 <?php if (!empty($person['photo'])): ?>
-                                    <img class="absolute inset-0 h-full w-full object-cover motion-safe:transition-transform duration-300 ease-out motion-safe:group-hover:scale-105" src="<?php echo esc_url($person['photo']); ?>" alt="" loading="lazy" decoding="async" draggable="false" />
+                                    <img class="absolute inset-0 h-full w-full object-cover object-top motion-safe:transition-transform duration-300 ease-out motion-safe:group-hover:scale-105" src="<?php echo esc_url($person['photo']); ?>" alt="" loading="lazy" decoding="async" draggable="false" />
                                 <?php else: ?>
                                     <svg class="absolute inset-x-0 bottom-0 mx-auto h-3/4 text-white/10" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                         <circle cx="12" cy="8" r="4.5"/>
@@ -61,9 +74,9 @@ $initials = function ($name) {
                                     </svg>
                                 <?php endif; ?>
                             </span>
-                            <span class="mt-4 block font-display small-caps text-lg leading-tight underline decoration-transparent group-hover:decoration-current motion-safe:transition-colors"><?php echo esc_html($person['name']); ?></span>
+                            <span class="mt-4 block font-display small-caps text-2xl md:text-3xl leading-tight underline decoration-transparent group-hover:decoration-current motion-safe:transition-colors"><?php echo esc_html($person['name']); ?></span>
                             <?php if ($subtitle): ?>
-                                <span class="mt-1 block font-jakarta text-xs text-gyc-plum/75"><?php echo esc_html($subtitle); ?></span>
+                                <span class="mt-1 block font-jakarta text-sm text-gyc-plum/75"><?php echo esc_html($subtitle); ?></span>
                             <?php endif; ?>
                         </button>
                     </li>
@@ -121,13 +134,13 @@ $initials = function ($name) {
                     <?php foreach ($staff as $person): ?>
                         <li class="flex flex-col items-center">
                             <?php if (!empty($person['photo'])): ?>
-                                <img class="h-14 w-14 rounded-full object-cover" src="<?php echo esc_url($person['photo']); ?>" alt="" loading="lazy" decoding="async" draggable="false" />
+                                <img class="h-25 w-25 lg:h-31.25 lg:w-31.25 rounded-full object-cover" src="<?php echo esc_url($person['photo']); ?>" alt="" loading="lazy" decoding="async" draggable="false" />
                             <?php else: ?>
-                                <span class="flex h-14 w-14 items-center justify-center rounded-full bg-gyc-plum/10 font-jakarta text-sm font-semibold text-gyc-plum" aria-hidden="true"><?php echo esc_html($initials($person['name'])); ?></span>
+                                <span class="flex h-25 w-25 lg:h-31.25 lg:w-31.25 items-center justify-center rounded-full bg-gyc-plum/10 font-jakarta text-base font-semibold text-gyc-plum" aria-hidden="true"><?php echo esc_html($initials($person['name'])); ?></span>
                             <?php endif; ?>
                             <span class="mt-3 font-jakarta text-sm font-medium"><?php echo esc_html($person['name']); ?></span>
                             <?php if (!empty($person['role'])): ?>
-                                <span class="mt-0.5 font-jakarta text-xs text-gyc-plum/75"><?php echo esc_html($person['role']); ?></span>
+                                <span class="mt-0.5 lg:max-w-[85%] font-jakarta text-xs text-gyc-plum/75"><?php echo esc_html($person['role']); ?></span>
                             <?php endif; ?>
                         </li>
                     <?php endforeach; ?>

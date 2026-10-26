@@ -11,17 +11,18 @@ $items = empty($attributes['items']) ? array() : array_values($attributes['items
     <div class="max-w-content mx-auto px-6 md:px-12">
         <div class="space-y-5">
             <?php if ($title): ?>
-                <p class="font-jakarta text-sm font-semibold uppercase tracking-[0.15em] text-white/90"><?php echo esc_html($title); ?></p>
+                <p class="font-jakarta text-xs font-bold tracking-[0.25em] uppercase text-gyc-mint"><?php echo esc_html($title); ?></p>
             <?php endif; ?>
             <?php if ($headline): ?>
-                <h2 id="gyc-agenda-title" class="font-display text-5xl md:text-6xl uppercase leading-none text-gyc-mint whitespace-pre-line"><?php echo esc_html($headline); ?></h2>
+                <h2 id="gyc-agenda-title" class="font-display small-caps text-4xl md:text-5xl leading-none text-gyc-mint whitespace-pre-line"><?php echo esc_html($headline); ?></h2>
             <?php endif; ?>
         </div>
 
         <?php if (count($items) > 1): ?>
             <!-- Day picker; without JavaScript every day is listed one after another -->
             <div class="mt-10 border-b border-white/30" role="group" aria-label="Choose a day">
-                <div class="flex flex-wrap gap-x-10 gap-y-2">
+                <!-- At most three days per row on tablet -->
+                <div class="flex flex-wrap md:grid md:grid-cols-[repeat(3,max-content)] md:justify-items-start lg:flex gap-x-10 gap-y-2">
                     <?php foreach ($items as $index => $day): ?>
                         <button
                             type="button"
@@ -56,7 +57,7 @@ $items = empty($attributes['items']) ? array() : array_values($attributes['items
                                 <?php if (count($tags) > 0): ?>
                                     <p class="flex flex-wrap gap-2 pt-1">
                                         <?php foreach ($tags as $tag): ?>
-                                            <span class="rounded-full bg-gyc-mint/15 px-2.5 py-1 font-jakarta text-[0.65rem] font-bold uppercase tracking-widest text-gyc-mint"><?php echo esc_html($tag); ?></span>
+                                            <span class="rounded-full bg-gyc-mint/15 px-2.5 py-1 font-jakarta text-xs font-bold uppercase tracking-widest text-gyc-mint"><?php echo esc_html($tag); ?></span>
                                         <?php endforeach; ?>
                                     </p>
                                 <?php endif; ?>

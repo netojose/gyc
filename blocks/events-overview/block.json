@@ -1,0 +1,168 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/events-overview",
+	"version": "0.1.0",
+	"title": "Events Overview",
+	"category": "widgets",
+	"icon": "calendar-alt",
+	"description": "Upcoming GYC Europe and GYC Focus events with a filter, plus links to past events",
+	"example": {},
+	"attributes": {
+		"allLabel": {
+			"type": "string",
+			"default": "All events"
+		},
+		"europeLabel": {
+			"type": "string",
+			"default": "GYC Europe"
+		},
+		"focusLabel": {
+			"type": "string",
+			"default": "GYC Focus"
+		},
+		"emptyText": {
+			"type": "string",
+			"default": "There are no upcoming events here yet. Check back soon."
+		},
+		"events": {
+			"type": "array",
+			"default": [
+				{
+					"id": 1,
+					"organizer": "europe",
+					"featured": true,
+					"image": "",
+					"imageAlt": "",
+					"badgeTop": "",
+					"badgeMain": "",
+					"label": "GYC Europe · Main conference",
+					"online": false,
+					"title": "GYC Europe 2027",
+					"date": "August 18–22, 2027",
+					"location": "Katowice, Poland",
+					"text": "Five days of worship, Bible study, seminars and outreach with young Adventists from across Europe.",
+					"linkLabel": "Register",
+					"linkUrl": "/register/",
+					"secondLabel": "More information",
+					"secondUrl": "/events/demo/"
+				},
+				{
+					"id": 2,
+					"organizer": "europe",
+					"featured": false,
+					"image": "",
+					"imageAlt": "",
+					"badgeTop": "Daily",
+					"badgeMain": "7:00",
+					"label": "",
+					"online": true,
+					"title": "United Prayer",
+					"date": "Mon–Fri 07:00 CET · Sat & Sun 08:00 CET",
+					"location": "Online on Zoom",
+					"text": "",
+					"linkLabel": "Join the prayer",
+					"linkUrl": "#",
+					"secondLabel": "",
+					"secondUrl": ""
+				},
+				{
+					"id": 3,
+					"organizer": "focus",
+					"featured": false,
+					"image": "",
+					"imageAlt": "",
+					"badgeTop": "Mon",
+					"badgeMain": "00",
+					"label": "",
+					"online": false,
+					"title": "[Focus event name]",
+					"date": "[Date]",
+					"location": "[City, Country]",
+					"text": "",
+					"linkLabel": "Register on GYC Focus",
+					"linkUrl": "#",
+					"secondLabel": "",
+					"secondUrl": ""
+				},
+				{
+					"id": 4,
+					"organizer": "focus",
+					"featured": false,
+					"image": "",
+					"imageAlt": "",
+					"badgeTop": "Mon",
+					"badgeMain": "00",
+					"label": "",
+					"online": false,
+					"title": "[Focus event name]",
+					"date": "[Date]",
+					"location": "[City, Country]",
+					"text": "",
+					"linkLabel": "Register on GYC Focus",
+					"linkUrl": "#",
+					"secondLabel": "",
+					"secondUrl": ""
+				}
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": { "type": "number" },
+					"organizer": { "type": "string" },
+					"featured": { "type": "boolean" },
+					"image": { "type": "string" },
+					"imageAlt": { "type": "string" },
+					"badgeTop": { "type": "string" },
+					"badgeMain": { "type": "string" },
+					"label": { "type": "string" },
+					"online": { "type": "boolean" },
+					"title": { "type": "string" },
+					"date": { "type": "string" },
+					"location": { "type": "string" },
+					"text": { "type": "string" },
+					"linkLabel": { "type": "string" },
+					"linkUrl": { "type": "string" },
+					"secondLabel": { "type": "string" },
+					"secondUrl": { "type": "string" }
+				}
+			}
+		},
+		"pastEyebrow": {
+			"type": "string",
+			"default": "Archive"
+		},
+		"pastTitle": {
+			"type": "string",
+			"default": "Past events"
+		},
+		"past": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "title": "GYC Europe 2025", "text": "Watch the sessions", "url": "#" },
+				{ "id": 2, "title": "GYC Europe 2024", "text": "Watch the sessions", "url": "#" },
+				{ "id": 3, "title": "GYC Europe 2023", "text": "Watch the sessions", "url": "#" }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": { "type": "number" },
+					"title": { "type": "string" },
+					"text": { "type": "string" },
+					"url": { "type": "string" }
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/events-overview",
+	"editorScript": "file:../../build/events-overview.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

@@ -47,7 +47,7 @@ $has_card = $card_title || $card_text || ($button_label && $button_url);
         </div>
 
         <?php if ($has_card): ?>
-            <div class="lg:col-span-5 lg:col-start-8 rounded-3xl border border-gyc-ink/10 bg-white p-6 md:p-8">
+            <div class="w-full max-w-lg mx-auto lg:max-w-none lg:mx-0 lg:col-span-5 lg:col-start-8 rounded-3xl border border-gyc-ink/10 bg-white p-6 md:p-8">
                 <?php if ($card_title): ?>
                     <h3 class="font-display small-caps text-2xl leading-none"><?php echo esc_html($card_title); ?></h3>
                 <?php endif; ?>
@@ -59,9 +59,12 @@ $has_card = $card_title || $card_text || ($button_label && $button_url);
                 <?php if ($button_label && $button_url): ?>
                     <a
                         href="<?php echo esc_url($button_url); ?>"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         class="mt-6 flex w-full items-center justify-center gap-2 rounded-full bg-gyc-teal px-6 py-4 font-jakarta text-sm font-semibold text-white motion-safe:transition-colors hover:bg-gyc-teal-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-teal">
                         <?php echo esc_html($button_label); ?>
-                        <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                        <span class="sr-only">(opens in a new tab)</span>
+                        <svg class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
                     </a>
                 <?php endif; ?>
 

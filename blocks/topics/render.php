@@ -23,7 +23,7 @@ $items = array_filter($items, function ($item) {
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             <div class="space-y-5">
                 <?php if ($title): ?>
-                    <p class="font-jakarta text-base font-semibold text-gyc-plum/90"><?php echo esc_html($title); ?></p>
+                    <p class="font-jakarta text-xs font-bold tracking-[0.25em] uppercase text-gyc-plum/80"><?php echo esc_html($title); ?></p>
                 <?php endif; ?>
 
                 <?php if ($headline): ?>

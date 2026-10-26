@@ -4,7 +4,9 @@ $headline = empty($attributes['headline']) ? null : $attributes['headline'];
 $items = empty($attributes['items']) ? array() : $attributes['items'];
 $button_label = empty($attributes['buttonLabel']) ? 'Register now' : $attributes['buttonLabel'];
 $contact_text = empty($attributes['contactText']) ? null : $attributes['contactText'];
-$contact_email = empty($attributes['contactEmail']) ? null : sanitize_email($attributes['contactEmail']);
+$contact_link_label = empty($attributes['contactLinkLabel']) ? null : $attributes['contactLinkLabel'];
+$contact_link_url = empty($attributes['contactLinkUrl']) ? null : GycUI::resolve_url($attributes['contactLinkUrl'], false);
+$has_contact_link = $contact_link_label && $contact_link_url;
 
 $items = array_filter($items, function ($item) {
     return !empty($item['title']) || (isset($item['price']) && $item['price'] !== '');
@@ -16,11 +18,11 @@ $items = array_filter($items, function ($item) {
     <?php if ($title): ?>aria-labelledby="gyc-pricing-table-title"<?php endif; ?>>
     <div class="max-w-content mx-auto px-6 md:px-12 text-center">
         <?php if ($title): ?>
-            <h2 id="gyc-pricing-table-title" class="font-display text-5xl md:text-7xl uppercase leading-none"><?php echo esc_html($title); ?></h2>
+            <h2 id="gyc-pricing-table-title" class="font-display small-caps text-4xl md:text-5xl leading-none"><?php echo esc_html($title); ?></h2>
         <?php endif; ?>
 
         <?php if ($headline): ?>
-            <p class="mx-auto mt-6 max-w-2xl font-jakarta text-base md:text-lg leading-relaxed text-gyc-plum/90"><?php echo esc_html($headline); ?></p>
+            <p class="mx-auto mt-6 max-w-2xl font-jakarta text-sm md:text-base leading-relaxed text-gyc-plum/80"><?php echo esc_html($headline); ?></p>
         <?php endif; ?>
 
         <?php if (count($items) > 0): ?>
@@ -31,13 +33,13 @@ $items = array_filter($items, function ($item) {
                     $link = empty($item['link']) ? null : GycUI::resolve_url($item['link'], false);
                     $price = isset($item['price']) ? trim((string) $item['price']) : '';
                     ?>
-                    <li class="relative flex flex-col items-center bg-gyc-plum-mid px-6 text-white <?php echo $has_badge ? 'border-4 border-gyc-ivory py-10 md:py-12' : 'py-8 md:py-10'; ?>">
+                    <li data-gyc-tilt class="relative flex w-full max-w-72 justify-self-center md:max-w-none flex-col items-center bg-gyc-plum-mid px-6 text-white shadow-lg duration-300 motion-safe:transition-shadow hover:z-10 hover:shadow-2xl focus-within:z-10 focus-within:shadow-2xl <?php echo $has_badge ? 'border-4 border-gyc-ivory py-10 md:py-12' : 'py-8 md:py-10'; ?>">
                         <?php if ($has_badge): ?>
                             <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gyc-ivory px-4 py-1 font-jakarta text-xs font-semibold uppercase tracking-wider text-gyc-plum"><?php echo esc_html($item['badge']); ?></span>
                         <?php endif; ?>
 
                         <?php if (!empty($item['title'])): ?>
-                            <h3 class="font-display text-3xl md:text-4xl uppercase leading-none text-gyc-ivory"><?php echo esc_html($item['title']); ?></h3>
+                            <h3 class="font-display small-caps text-3xl md:text-4xl leading-none text-gyc-ivory"><?php echo esc_html($item['title']); ?></h3>
                         <?php endif; ?>
 
                         <?php if ($price !== ''): ?>
@@ -56,11 +58,11 @@ $items = array_filter($items, function ($item) {
             </ul>
         <?php endif; ?>
 
-        <?php if ($contact_text || $contact_email): ?>
+        <?php if ($contact_text || $has_contact_link): ?>
             <p class="mt-12 font-jakarta text-sm md:text-base text-gyc-plum/90">
                 <?php if ($contact_text): ?><?php echo esc_html($contact_text); ?><?php endif; ?>
-                <?php if ($contact_email): ?>
-                    <a href="<?php echo esc_url('mailto:' . $contact_email); ?>" class="font-medium underline underline-offset-4 decoration-current hover:decoration-transparent motion-safe:transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gyc-plum"><?php echo esc_html($contact_email); ?></a>
+                <?php if ($has_contact_link): ?>
+                    <a href="<?php echo esc_url($contact_link_url); ?>" class="underline underline-offset-4 decoration-current hover:decoration-transparent motion-safe:transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gyc-plum"><?php echo esc_html($contact_link_label); ?></a>
                 <?php endif; ?>
             </p>
         <?php endif; ?>

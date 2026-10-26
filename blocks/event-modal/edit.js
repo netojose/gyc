@@ -115,7 +115,7 @@ export default function Edit({ attributes, setAttributes }) {
                         />
                         <TextControl
                             label="Mint button link"
-                            help="Full URL or a site path like /event/demo-2027/. The button is hidden when the label or the link is empty."
+                            help="Full URL or a site path like /events/demo/. The button is hidden when the label or the link is empty."
                             value={ primaryUrl || '' }
                             onChange={ ( newValue ) => setAttributes( { primaryUrl: newValue } ) }
                         />

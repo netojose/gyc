@@ -39,7 +39,7 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-    const { title, headline, items, buttonLabel, contactText, contactEmail } = attributes;
+    const { title, headline, items, buttonLabel, contactText, contactLinkLabel, contactLinkUrl } = attributes;
 
     return (
         <div { ...useBlockProps() }>
@@ -64,15 +64,20 @@ export default function Edit({ attributes, setAttributes }) {
                             onChange={ ( newValue ) => setAttributes( { buttonLabel: newValue } ) }
                         />
                         <TextControl
-                            label="Contact line"
+                            label="Text before the link (optional)"
                             value={ contactText || '' }
                             onChange={ ( newValue ) => setAttributes( { contactText: newValue } ) }
                         />
                         <TextControl
-                            label="Contact email"
-                            type="email"
-                            value={ contactEmail || '' }
-                            onChange={ ( newValue ) => setAttributes( { contactEmail: newValue } ) }
+                            label="Contact link label"
+                            value={ contactLinkLabel || '' }
+                            onChange={ ( newValue ) => setAttributes( { contactLinkLabel: newValue } ) }
+                        />
+                        <TextControl
+                            label="Contact link"
+                            help="Defaults to the FAQ page (/faq/). Full URL, site path or #section."
+                            value={ contactLinkUrl || '' }
+                            onChange={ ( newValue ) => setAttributes( { contactLinkUrl: newValue } ) }
                         />
 
                         <Panel>
