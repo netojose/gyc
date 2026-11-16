@@ -12,12 +12,12 @@ $is_logo = ($attributes['imageType'] ?? '') === 'logo';
 $button_is_external = $button_url && preg_match('~^https?://~i', $button_url) && wp_parse_url($button_url, PHP_URL_HOST) !== wp_parse_url(home_url(), PHP_URL_HOST);
 ?>
 <section
-    class="bg-gyc-aqua text-gyc-ink py-16 md:py-24"
+    class="bg-gyc-ink text-white py-16 md:py-24"
     <?php if ($title): ?>aria-labelledby="gyc-focus-title"<?php endif; ?>>
     <div class="max-w-content mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 items-center gap-10 lg:gap-20">
         <div class="space-y-5">
             <?php if ($eyebrow): ?>
-                <p class="font-jakarta text-xs font-bold tracking-[0.25em] uppercase text-gyc-ink/80"><?php echo esc_html($eyebrow); ?></p>
+                <p class="font-jakarta text-xs font-bold tracking-[0.25em] uppercase text-gyc-aqua"><?php echo esc_html($eyebrow); ?></p>
             <?php endif; ?>
 
             <?php if ($title): ?>
@@ -25,7 +25,7 @@ $button_is_external = $button_url && preg_match('~^https?://~i', $button_url) &&
             <?php endif; ?>
 
             <?php if ($text): ?>
-                <p class="max-w-md font-jakarta text-sm md:text-base leading-relaxed text-gyc-ink/80"><?php echo esc_html($text); ?></p>
+                <p class="max-w-md font-jakarta text-sm md:text-base leading-relaxed text-white/80"><?php echo esc_html($text); ?></p>
             <?php endif; ?>
 
             <?php if ($button_label && $button_url): ?>
@@ -33,7 +33,7 @@ $button_is_external = $button_url && preg_match('~^https?://~i', $button_url) &&
                     <a
                         href="<?php echo esc_url($button_url); ?>"
                         <?php if ($button_is_external): ?>target="_blank" rel="noopener noreferrer"<?php endif; ?>
-                        class="group inline-flex items-center gap-3 rounded-full bg-gyc-ink px-6 py-3.5 font-jakarta text-sm font-semibold text-white motion-safe:transition-colors hover:bg-gyc-night focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-ink">
+                        class="group inline-flex items-center gap-3 rounded-full bg-gyc-aqua px-6 py-3.5 font-jakarta text-sm font-semibold text-gyc-ink motion-safe:transition-colors hover:bg-gyc-aqua-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-aqua">
                         <?php echo esc_html($button_label); ?>
                         <svg class="h-3.5 w-3.5 motion-safe:transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M8 7h9v9"></path>

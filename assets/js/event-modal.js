@@ -1,21 +1,51 @@
 /**
  * Alpine component for the Event Modal block (blocks/event-modal).
- * The modal opens on every page load, keeps keyboard focus inside while open
- * and stops the page behind it from scrolling.
+ * The modal opens once per browser session: after it is closed (or one of its
+ * links is clicked) it stays hidden until the tab or browser is closed.
+ * While open it keeps keyboard focus inside and stops the page behind it from scrolling.
  * Logic lives here rather than in x-data because WordPress texturizes
  * block markup and breaks ">" and "&&" inside attributes.
  */
+const STORAGE_KEY = 'gycEventModalSeen';
+
+// sessionStorage can throw in private mode or with blocked site data
+function wasSeen() {
+    try {
+        return sessionStorage.getItem(STORAGE_KEY) === '1';
+    } catch (e) {
+        return false;
+    }
+}
+
+function markSeen() {
+    try {
+        sessionStorage.setItem(STORAGE_KEY, '1');
+    } catch (e) {
+        // Without storage the modal simply shows again on the next load
+    }
+}
+
 export default function gycEventModal() {
     return {
-        open: true,
+        open: false,
 
         init() {
+            if (wasSeen()) {
+                return;
+            }
+
+            this.open = true;
             document.documentElement.style.overflow = 'hidden';
             this.$nextTick(() => this.$refs.dialog.focus({ preventScroll: true }));
         },
 
         close() {
+            if (!this.open) {
+                return;
+            }
+
             this.open = false;
+            markSeen();
             document.documentElement.style.overflow = '';
         },
 

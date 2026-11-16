@@ -40,9 +40,9 @@ $collage_alt = empty($attributes['collageAlt']) ? '' : $attributes['collageAlt']
         </div>
 
         <?php if ($map): ?>
-            <div class="lg:col-span-3">
+            <div class="lg:col-span-5">
                 <img
-                    class="mx-auto w-full max-w-sm h-auto"
+                    class="mx-auto w-full h-auto"
                     src="<?php echo esc_url($map); ?>"
                     alt="<?php echo esc_attr($map_alt); ?>"
                     loading="lazy"
@@ -52,9 +52,9 @@ $collage_alt = empty($attributes['collageAlt']) ? '' : $attributes['collageAlt']
         <?php endif; ?>
 
         <?php if ($collage): ?>
-            <div class="<?php echo $map ? 'lg:col-span-5' : 'lg:col-span-8'; ?>">
+            <div class="<?php echo $map ? 'lg:col-span-3 lg:-ml-6' : 'lg:col-span-8'; ?>">
                 <img
-                    class="mx-auto w-full h-auto"
+                    class="mx-auto w-full <?php echo $map ? 'max-w-sm' : ''; ?> h-auto"
                     src="<?php echo esc_url($collage); ?>"
                     alt="<?php echo esc_attr($collage_alt); ?>"
                     loading="lazy"

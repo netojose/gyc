@@ -6,9 +6,17 @@
 	"title": "People",
 	"category": "widgets",
 	"icon": "admin-users",
-	"description": "Main speakers with photo cards and a bio pop-up, plus a box of workshop speakers",
+	"description": "Main speakers with photo cards and a bio pop-up, plus a box of workshop speakers who can have a bio too",
 	"example": {},
 	"attributes": {
+		"showMain": {
+			"type": "boolean",
+			"default": true
+		},
+		"showStaff": {
+			"type": "boolean",
+			"default": true
+		},
 		"title": {
 			"type": "string",
 			"default": "Main speakers"
@@ -39,11 +47,31 @@
 					"role": {
 						"type": "string"
 					},
+					"country": {
+						"type": "string"
+					},
 					"headline": {
 						"type": "string"
 					},
 					"description": {
 						"type": "string"
+					},
+					"sessions": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"id": {
+									"type": "number"
+								},
+								"title": {
+									"type": "string"
+								},
+								"time": {
+									"type": "string"
+								}
+							}
+						}
 					}
 				}
 			}
@@ -65,6 +93,32 @@
 					},
 					"role": {
 						"type": "string"
+					},
+					"country": {
+						"type": "string"
+					},
+					"headline": {
+						"type": "string"
+					},
+					"description": {
+						"type": "string"
+					},
+					"workshops": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"properties": {
+								"id": {
+									"type": "number"
+								},
+								"title": {
+									"type": "string"
+								},
+								"time": {
+									"type": "string"
+								}
+							}
+						}
 					}
 				}
 			}

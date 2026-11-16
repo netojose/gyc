@@ -9,6 +9,10 @@
 	"description": "Event program with a tab per day and a time, title, description and speaker per session",
 	"example": {},
 	"attributes": {
+		"active": {
+			"type": "boolean",
+			"default": true
+		},
 		"title": {
 			"type": "string",
 			"default": "Program"

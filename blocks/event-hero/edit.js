@@ -38,7 +38,7 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-    const { image, eyebrow, title, titleHighlight, details, primaryLabel, primaryUrl, secondaryLabel, secondaryUrl, stats } = attributes;
+    const { image, eyebrow, title, titleHighlight, tagline, place, dates, details, primaryLabel, primaryUrl, secondaryLabel, secondaryUrl, stats } = attributes;
 
     const updateStat = ( id, changes ) => {
         const newStats = stats.map(i => i.id === id ? { ...i, ...changes } : i);
@@ -62,23 +62,43 @@ export default function Edit({ attributes, setAttributes }) {
                             onChange={ ( newValue ) => setAttributes( { eyebrow: newValue } ) }
                         />
                         <TextControl
-                            label="Title – first line"
-                            help="Leave empty to use the event title."
+                            label="Title – first word in mint"
+                            help="Leave empty to use the event title. For example: Stand"
                             value={ title || '' }
                             onChange={ ( newValue ) => setAttributes( { title: newValue } ) }
                         />
                         <TextControl
-                            label="Title – second line in mint (optional)"
-                            help="For example: Stand / Fast."
+                            label="Title – second word in ivory (optional)"
+                            help="Shown on the same line. For example: Fast"
                             value={ titleHighlight || '' }
                             onChange={ ( newValue ) => setAttributes( { titleHighlight: newValue } ) }
                         />
                         <TextControl
-                            label="Place and dates"
-                            help="For example: Katowice, Poland · August 18–22, 2027"
-                            value={ details || '' }
-                            onChange={ ( newValue ) => setAttributes( { details: newValue } ) }
+                            label="Tagline (optional)"
+                            help="Italic line under the title. For example: See you at the top"
+                            value={ tagline || '' }
+                            onChange={ ( newValue ) => setAttributes( { tagline: newValue } ) }
                         />
+                        <TextControl
+                            label="Place"
+                            help="For example: Katowice, Poland"
+                            value={ place || '' }
+                            onChange={ ( newValue ) => setAttributes( { place: newValue } ) }
+                        />
+                        <TextControl
+                            label="Dates"
+                            help="Shown in mint. For example: August 18–22, 2027"
+                            value={ dates || '' }
+                            onChange={ ( newValue ) => setAttributes( { dates: newValue } ) }
+                        />
+                        { details && ! place && ! dates && (
+                            <TextControl
+                                label="Place and dates (old single line)"
+                                help="Still shown until Place or Dates is filled in. Clear it once you have moved the text there."
+                                value={ details }
+                                onChange={ ( newValue ) => setAttributes( { details: newValue } ) }
+                            />
+                        ) }
 
                         <p>Links can be full URLs, site paths like /about, sections like #schedule or #register, or an email address. The first is the mint button, the second an outlined button.</p>
                         <TextControl

@@ -5,6 +5,7 @@ import {
     PanelBody,
     PanelRow,
     Button,
+    ToggleControl,
 } from '@wordpress/components';
 
 /**
@@ -39,7 +40,7 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-    const { title, headline, items = [] } = attributes;
+    const { active = true, title, headline, items = [] } = attributes;
 
     const agendaItems = Array.isArray(items) ? items : [];
 
@@ -119,8 +120,15 @@ export default function Edit({ attributes, setAttributes }) {
     return (
         <div { ...useBlockProps() }>
             <Panel>
-                <PanelBody initialOpen={ false } title={ __('Agenda', 'gyc/agenda') }>
+                <PanelBody initialOpen={ false } title={ active ? __('Agenda', 'gyc/agenda') : __('Agenda (hidden)', 'gyc/agenda') }>
                     <div className="gyc-agenda-fields-wrapper">
+                        <ToggleControl
+                            label={ __('Show the program', 'gyc/agenda') }
+                            help={ active ? __('Shown: the program appears on the page.', 'gyc/agenda') : __('Hidden: visitors do not see the program. Its content is kept.', 'gyc/agenda') }
+                            checked={ !!active }
+                            onChange={ (newValue) => setAttributes({ active: newValue }) }
+                        />
+
                         <TextControl
                             label={ __('Title', 'gyc/agenda') }
                             value={ title || '' }

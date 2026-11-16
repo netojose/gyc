@@ -122,7 +122,7 @@ $format = function ($line) {
 
             <div class="flex flex-col items-center gap-3 pt-2">
                 <?php if ($primary_label && $primary_url): ?>
-                    <a href="<?php echo esc_url($primary_url); ?>" class="inline-flex w-full max-w-xs items-center justify-center rounded-full bg-gyc-mint px-7 py-3.5 font-jakarta text-sm font-semibold text-gyc-plum motion-safe:transition-colors hover:bg-gyc-mint-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-mint">
+                    <a href="<?php echo esc_url($primary_url); ?>" @click="close()" class="inline-flex w-full max-w-xs items-center justify-center rounded-full bg-gyc-mint px-7 py-3.5 font-jakarta text-sm font-semibold text-gyc-plum motion-safe:transition-colors hover:bg-gyc-mint-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-mint">
                         <?php echo esc_html($primary_label); ?>
                     </a>
                 <?php endif; ?>

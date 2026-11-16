@@ -63,10 +63,12 @@ class GycEditor
         register_block_type($td . '/blocks/info-cards/block.json');
         register_block_type($td . '/blocks/image-hero/block.json');
         register_block_type($td . '/blocks/vision/block.json');
+        register_block_type($td . '/blocks/vision-statement/block.json');
         register_block_type($td . '/blocks/mission/block.json');
         register_block_type($td . '/blocks/goals/block.json');
         register_block_type($td . '/blocks/focus/block.json');
         register_block_type($td . '/blocks/committee/block.json');
+        register_block_type($td . '/blocks/spirit/block.json');
         register_block_type($td . '/blocks/volunteer/block.json');
         register_block_type($td . '/blocks/events-overview/block.json');
         register_block_type($td . '/blocks/contact/block.json');

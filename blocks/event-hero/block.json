@@ -6,7 +6,7 @@
 	"title": "Event Hero",
 	"category": "widgets",
 	"icon": "cover-image",
-	"description": "Event intro with a two-colour title, place and dates, buttons and an optional background illustration",
+	"description": "Event intro with a two-colour title, tagline, place and dates, buttons and an optional background illustration",
 	"example": {},
 	"usesContext": [
 		"postId",
@@ -26,6 +26,18 @@
 			"default": ""
 		},
 		"titleHighlight": {
+			"type": "string",
+			"default": ""
+		},
+		"tagline": {
+			"type": "string",
+			"default": ""
+		},
+		"place": {
+			"type": "string",
+			"default": ""
+		},
+		"dates": {
 			"type": "string",
 			"default": ""
 		},

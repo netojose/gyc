@@ -1,0 +1,105 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/spirit",
+	"version": "0.1.0",
+	"title": "Spirit of GYC",
+	"category": "widgets",
+	"icon": "editor-ol",
+	"description": "Intro and a numbered two-column list of what GYC upholds",
+	"example": {},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "What we uphold"
+		},
+		"title": {
+			"type": "string",
+			"default": "Spirit of GYC"
+		},
+		"text": {
+			"type": "string",
+			"default": "In seeking to uphold the distinctive message of the Seventh-day Adventist Church, GYC will promote among its participants:"
+		},
+		"items": {
+			"type": "array",
+			"default": [
+				{
+					"id": 1,
+					"title": "A respect for Scripture",
+					"text": "as the foundation and test of all teachings and practices"
+				},
+				{
+					"id": 2,
+					"title": "An appreciation for the Spirit of Prophecy",
+					"text": "as an authoritative source of instruction, comfort, and warning"
+				},
+				{
+					"id": 3,
+					"title": "A quest for Biblical holiness",
+					"text": "through a daily prayer and devotional experience with Jesus and a commitment to following His Word"
+				},
+				{
+					"id": 4,
+					"title": "A vibrant worship experience",
+					"text": "one that is characterized by principle, reverence, and decorum"
+				},
+				{
+					"id": 5,
+					"title": "A passion for lost souls",
+					"text": "animated by personal experience in the saving love of Jesus and a desire for His imminent return"
+				},
+				{
+					"id": 6,
+					"title": "A cultivation of godly relationships",
+					"text": "preserving purity and encouraging accountability"
+				},
+				{
+					"id": 7,
+					"title": "An exemplary and abundant lifestyle",
+					"text": "in recreation, entertainment, dress, and healthful living"
+				},
+				{
+					"id": 8,
+					"title": "An enthusiasm for service",
+					"text": "through care for the needy, service to the community, promotion of human rights, and stewardship of the environment"
+				},
+				{
+					"id": 9,
+					"title": "A commitment to the Seventh-day Adventist Church",
+					"text": "as God's remnant church by supporting and upholding its principles, organization, and leadership"
+				},
+				{
+					"id": 10,
+					"title": "An attitude of humility and cordiality",
+					"text": "as we seek to clarify, articulate, and defend the biblical teachings of the Seventh-day Adventist Church"
+				}
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "number"
+					},
+					"title": {
+						"type": "string"
+					},
+					"text": {
+						"type": "string"
+					}
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/spirit",
+	"editorScript": "file:../../build/spirit.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

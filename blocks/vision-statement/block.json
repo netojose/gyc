@@ -1,0 +1,44 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/vision-statement",
+	"version": "0.1.0",
+	"title": "Vision statement",
+	"category": "widgets",
+	"icon": "visibility",
+	"description": "Dark section with the vision statement next to a framed photo",
+	"example": {},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "Why we exist"
+		},
+		"title": {
+			"type": "string",
+			"default": "Our vision"
+		},
+		"text": {
+			"type": "string",
+			"default": "Uphold the distinctive message of the Seventh-day Adventist Church; to aspire to excellence in all aspects of their lives – academic, professional, and spiritual; to embrace the call to radical discipleship, including a life of missionary service; and to be supportive and respectful of denominational leadership while remaining a youth-led movement."
+		},
+		"image": {
+			"type": "string",
+			"default": ""
+		},
+		"imageAlt": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/vision-statement",
+	"editorScript": "file:../../build/vision-statement.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}
