@@ -39,8 +39,11 @@ $collage_alt = empty($attributes['collageAlt']) ? '' : $attributes['collageAlt']
             <?php endif; ?>
         </div>
 
-        <?php if ($map): ?>
-            <div class="lg:col-span-5">
+        <!-- Until an image is set, a grey box with its name holds the slot, so the layout can be checked -->
+        <!-- On desktop the collage overlaps the map by 24px and fills the rest of the row; the placeholder is 50px shorter than the map, the image keeps its own height -->
+        <div class="lg:col-span-8 flex flex-col gap-12 lg:flex-row lg:gap-0">
+        <div class="lg:w-[61%] lg:shrink-0">
+            <?php if ($map): ?>
                 <img
                     class="mx-auto w-full h-auto"
                     src="<?php echo esc_url($map); ?>"
@@ -48,19 +51,24 @@ $collage_alt = empty($attributes['collageAlt']) ? '' : $attributes['collageAlt']
                     loading="lazy"
                     decoding="async"
                     draggable="false" />
-            </div>
-        <?php endif; ?>
+            <?php else: ?>
+                <div class="flex aspect-[4/3] w-full items-center justify-center rounded-2xl bg-gyc-ink/10 font-jakarta text-sm text-gyc-ink/50" aria-hidden="true"><?php esc_html_e('Map', 'gyc'); ?></div>
+            <?php endif; ?>
+        </div>
 
-        <?php if ($collage): ?>
-            <div class="<?php echo $map ? 'lg:col-span-3 lg:-ml-6' : 'lg:col-span-8'; ?>">
+        <div class="lg:relative lg:flex lg:flex-1 lg:items-center">
+            <?php if ($collage): ?>
                 <img
-                    class="mx-auto w-full <?php echo $map ? 'max-w-sm' : ''; ?> h-auto"
+                    class="mx-auto w-full max-w-64 sm:max-w-xs h-auto lg:relative lg:z-10 lg:-ml-6 lg:w-[calc(100%+1.5rem)] lg:max-w-none"
                     src="<?php echo esc_url($collage); ?>"
                     alt="<?php echo esc_attr($collage_alt); ?>"
                     loading="lazy"
                     decoding="async"
                     draggable="false" />
-            </div>
-        <?php endif; ?>
+            <?php else: ?>
+                <div class="mx-auto flex aspect-square w-full max-w-64 sm:max-w-xs lg:absolute lg:inset-y-[25px] lg:-left-6 lg:z-10 lg:w-[calc(100%+1.5rem)] lg:max-w-none lg:aspect-auto items-center justify-center rounded-2xl bg-gyc-ink/10 font-jakarta text-sm text-gyc-ink/50" aria-hidden="true"><?php esc_html_e('Photo collage', 'gyc'); ?></div>
+            <?php endif; ?>
+        </div>
+        </div>
     </div>
 </section>

@@ -39,7 +39,7 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-    const { eyebrow, title, text, areas, formTitle, skills, consent, recipient, buttonLabel, successMessage } = attributes;
+    const { eyebrow, title, text, areas, formTitle, formShortcode, skills, consent, recipient, buttonLabel, successMessage } = attributes;
 
     const updateArea = ( id, changes ) => {
         const newAreas = areas.map(a => a.id === id ? { ...a, ...changes } : a);
@@ -117,6 +117,12 @@ export default function Edit({ attributes, setAttributes }) {
                             label="Form title"
                             value={ formTitle || '' }
                             onChange={ ( newValue ) => setAttributes( { formTitle: newValue } ) }
+                        />
+                        <TextControl
+                            label="Form shortcode (optional)"
+                            help="For example [gyc_registration_form]. When the plugin behind it is active, its form replaces the built-in form below, and the fields under this one are not used. Otherwise the built-in form is shown."
+                            value={ formShortcode || '' }
+                            onChange={ ( newValue ) => setAttributes( { formShortcode: newValue } ) }
                         />
                         <TextareaControl
                             label="Skills"

@@ -95,6 +95,55 @@ class GycUI
     }
 
     /**
+     * Timestamp of a "Registration opens on" date and time ("2027-03-01T10:00"), read in
+     * Central European Time (CET, or CEST in summer). Null when empty, invalid or already passed,
+     * so the button is simply shown as active.
+     */
+    public static function opens_at($value)
+    {
+        $value = substr(trim((string) $value), 0, 16);
+
+        if ($value === '') {
+            return null;
+        }
+
+        $date = DateTimeImmutable::createFromFormat('!Y-m-d\TH:i', $value, new DateTimeZone('Europe/Berlin'));
+
+        return ($date && $date->getTimestamp() > time()) ? $date->getTimestamp() : null;
+    }
+
+    /**
+     * "Opens 1 March 2027, 10:00 CET" for a timestamp from opens_at().
+     */
+    public static function opens_note($timestamp)
+    {
+        /* translators: %s: date and time registration opens, e.g. "1 March 2027, 10:00 CET" */
+        return sprintf(__('Opens %s', 'gyc'), wp_date('j F Y, H:i T', $timestamp, new DateTimeZone('Europe/Berlin')));
+    }
+
+    /**
+     * A button that stays disabled until registration opens. Prints the disabled version
+     * with the opening time, plus the real link hidden; assets/js/registration-opens.js
+     * swaps them when the time comes, so cached pages and open tabs switch too.
+     *
+     * $link_html is the full, already escaped <a> element of the active button. Tailwind doesn't
+     * scan this folder, so $classes and $note_classes must be written out in the block's render.php.
+     * Pass null as $note_classes to print the "Opens …" note elsewhere: give that element
+     * data-gyc-closed="<timestamp>" so it is removed at the same moment.
+     */
+    public static function closed_button($timestamp, $link_html, $label, $classes, $note_classes, $wrapper_classes = '')
+    {
+        $note = self::opens_note($timestamp);
+        $link_html = preg_replace('/^<a\s/', '<a hidden data-gyc-opens="' . esc_attr((string) $timestamp) . '" ', trim($link_html), 1);
+
+        return $link_html
+            . '<span data-gyc-closed="' . esc_attr((string) $timestamp) . '" class="' . esc_attr(trim('inline-flex flex-col items-start gap-1.5 ' . $wrapper_classes)) . '">'
+            . '<span aria-disabled="true" class="' . esc_attr($classes) . '">' . esc_html($label) . '</span>'
+            . ($note_classes === null ? '' : '<span class="' . esc_attr($note_classes) . '">' . esc_html($note) . '</span>')
+            . '</span>';
+    }
+
+    /**
      * Whether a link entered in a block points to the page being viewed.
      */
     public static function is_current_url($url)

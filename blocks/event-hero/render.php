@@ -14,6 +14,19 @@ $primary_url = empty($attributes['primaryUrl']) ? null : GycUI::resolve_url($att
 $secondary_label = empty($attributes['secondaryLabel']) ? null : $attributes['secondaryLabel'];
 $secondary_url = empty($attributes['secondaryUrl']) ? null : GycUI::resolve_url($attributes['secondaryUrl'], false);
 $stats = empty($attributes['stats']) ? array() : $attributes['stats'];
+// The first button stays disabled until this date and time (CET); null when not set or already passed.
+// Without its own time it uses the Countdown block's, so the button and the countdown switch together
+$primary_opens_value = empty($attributes['primaryOpensAt']) ? '' : $attributes['primaryOpensAt'];
+if ($primary_opens_value === '' && $post_id) {
+    foreach (parse_blocks((string) get_post_field('post_content', $post_id)) as $sibling) {
+        $countdown_on = !isset($sibling['attrs']['active']) || $sibling['attrs']['active'];
+        if ($sibling['blockName'] === 'gyc/countdown' && $countdown_on && !empty($sibling['attrs']['opensAt'])) {
+            $primary_opens_value = $sibling['attrs']['opensAt'];
+            break;
+        }
+    }
+}
+$primary_opens_at = $primary_opens_value === '' ? null : GycUI::opens_at($primary_opens_value);
 
 $stats = array_filter($stats, function ($stat) {
     return !empty($stat['value']) && !empty($stat['label']);
@@ -77,11 +90,25 @@ $has_title = $title || $title_highlight;
             <?php endif; ?>
 
             <?php if (($primary_label && $primary_url) || ($secondary_label && $secondary_url)): ?>
-                <div class="mt-8 flex flex-wrap items-center gap-4">
+                <div class="mt-8 flex flex-wrap items-start gap-4">
                     <?php if ($primary_label && $primary_url): ?>
+                        <?php ob_start(); ?>
                         <a href="<?php echo esc_url($primary_url); ?>" class="inline-flex items-center rounded-full bg-gyc-mint px-6 py-3 lg:px-7 font-jakarta text-sm lg:text-[0.9375rem] font-medium text-gyc-plum motion-safe:transition-colors hover:bg-gyc-mint-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-mint">
                             <?php echo esc_html($primary_label); ?>
                         </a>
+                        <?php $primary_link = ob_get_clean(); ?>
+                        <?php if ($primary_opens_at): ?>
+                            <!-- Greyed out until registration opens; the opening time goes under the whole row so it doesn't push the second button away -->
+                            <?php echo GycUI::closed_button(
+                                $primary_opens_at,
+                                $primary_link,
+                                $primary_label,
+                                'inline-flex cursor-not-allowed items-center rounded-full bg-white/15 px-6 py-3 lg:px-7 font-jakarta text-sm lg:text-[0.9375rem] font-medium text-white/60',
+                                null
+                            ); ?>
+                        <?php else: ?>
+                            <?php echo $primary_link; ?>
+                        <?php endif; ?>
                     <?php endif; ?>
                     <?php if ($secondary_label && $secondary_url): ?>
                         <a href="<?php echo esc_url($secondary_url); ?>" class="inline-flex items-center rounded-full border border-white/60 px-6 py-3 lg:px-7 font-jakarta text-sm lg:text-[0.9375rem] font-medium text-white motion-safe:transition-colors hover:border-white hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-mint">
@@ -89,6 +116,9 @@ $has_title = $title || $title_highlight;
                         </a>
                     <?php endif; ?>
                 </div>
+                <?php if ($primary_label && $primary_url && $primary_opens_at): ?>
+                    <p data-gyc-closed="<?php echo esc_attr((string) $primary_opens_at); ?>" class="mt-3 pl-1 font-jakarta text-xs lg:text-sm text-gyc-mint"><?php echo esc_html(GycUI::opens_note($primary_opens_at)); ?></p>
+                <?php endif; ?>
             <?php endif; ?>
         </div>
 

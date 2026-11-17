@@ -192,10 +192,10 @@ export default function Edit({ attributes, setAttributes }) {
                                                 } }
                                             />
 
-                                            <p>Talks this speaker gives, shown in the pop-up.</p>
+                                            <p>Talks this speaker gives, shown in the pop-up (optional). Leave the title or the day and time empty to show only the other one.</p>
                                             <SessionsFields
                                                 items={ person.sessions }
-                                                titleLabel="Talk title"
+                                                titleLabel="Talk title (optional)"
                                                 titleHelp="Shown exactly as typed, e.g. Speaking on: [message title] or just [message title]"
                                                 addLabel="Add talk"
                                                 onChange={ ( items ) => updateSessions( 'main', person, 'sessions', items ) }
@@ -240,7 +240,7 @@ export default function Edit({ attributes, setAttributes }) {
 
                         <Panel>
                             <PanelBody initialOpen={false} title="Workshop speakers">
-                                <p>Without a photo, the speaker's initials are shown. A speaker with a description or at least one workshop can be clicked to open their bio.</p>
+                                <p>Without a photo, the speaker's initials are shown. Every speaker can be clicked to open their bio; description and workshops are optional.</p>
                                 {staff.map(person => (
                                     <PanelRow key={person.id}>
                                         <div className="gyc-people-fields-wrapper">
@@ -298,10 +298,10 @@ export default function Edit({ attributes, setAttributes }) {
                                                 } }
                                             />
 
-                                            <p>Workshops this speaker leads, shown in the pop-up.</p>
+                                            <p>Workshops this speaker leads, shown in the pop-up (optional). Leave the title or the day and time empty to show only the other one.</p>
                                             <SessionsFields
                                                 items={ person.workshops }
-                                                titleLabel="Workshop title"
+                                                titleLabel="Workshop title (optional)"
                                                 titleHelp="Shown exactly as typed, e.g. Workshop: [workshop title] or just [workshop title]"
                                                 addLabel="Add workshop"
                                                 onChange={ ( items ) => updateSessions( 'staff', person, 'workshops', items ) }

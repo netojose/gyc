@@ -53,6 +53,10 @@
 			"type": "string",
 			"default": "#register"
 		},
+		"primaryOpensAt": {
+			"type": "string",
+			"default": ""
+		},
 		"secondaryLabel": {
 			"type": "string",
 			"default": ""

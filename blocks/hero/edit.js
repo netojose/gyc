@@ -86,7 +86,7 @@ export default function Edit({ attributes, setAttributes }) {
                                 />
                                 <TextControl
                                     label="Button link"
-                                    help="Full URL, site path like /register/, a section like #community, or an email address."
+                                    help="Full URL, site path like /events/, a section like #community, or an email address."
                                     value={ buttonUrl || '' }
                                     onChange={ ( newValue ) => setAttributes( { buttonUrl: newValue } ) }
                                 />

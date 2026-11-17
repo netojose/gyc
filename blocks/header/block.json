@@ -51,7 +51,7 @@
 		},
 		"buttonUrl": {
 			"type": "string",
-			"default": "/register/"
+			"default": "#"
 		}
 	},
 	"supports": {

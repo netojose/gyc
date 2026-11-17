@@ -9,6 +9,10 @@
 	"description": "Event intro with eyebrow, headline and paragraphs next to a photo, with optional cards below",
 	"example": {},
 	"attributes": {
+		"active": {
+			"type": "boolean",
+			"default": true
+		},
 		"title": {
 			"type": "string",
 			"default": "Our mission"

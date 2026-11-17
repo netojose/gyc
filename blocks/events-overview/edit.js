@@ -31,6 +31,7 @@ import { useBlockProps } from '@wordpress/block-editor';
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
+import OpensAtField from '../../editor/opens-at-field';
 
 const EMPTY_EVENT = {
     organizer: 'europe',
@@ -47,6 +48,7 @@ const EMPTY_EVENT = {
     text: '',
     linkLabel: '',
     linkUrl: '',
+    linkOpensAt: '',
     secondLabel: '',
     secondUrl: '',
 };
@@ -188,9 +190,14 @@ export default function Edit({ attributes, setAttributes }) {
                                             />
                                             <TextControl
                                                 label={ event.featured ? 'Main button link' : 'Link' }
-                                                help="Full URL or site path like /register/. Links to other websites open in a new tab."
+                                                help="Full URL, for example the registration page, or a site path like /events/demo/. Links to other websites open in a new tab."
                                                 value={ event.linkUrl || '' }
                                                 onChange={ ( newValue ) => updateEvent( event.id, { linkUrl: newValue } ) }
+                                            />
+                                            <OpensAtField
+                                                label={ event.featured ? 'Main button active from (CET, optional)' : 'Link active from (CET, optional)' }
+                                                value={ event.linkOpensAt }
+                                                onChange={ ( newValue ) => updateEvent( event.id, { linkOpensAt: newValue } ) }
                                             />
                                             { event.featured && (
                                                 <>

@@ -66,6 +66,7 @@ class GycEvent
             'capability_type'       => 'page',
             'template'              => array(
                 array('gyc/event-hero'),
+                array('gyc/countdown'),
             ),
         );
 

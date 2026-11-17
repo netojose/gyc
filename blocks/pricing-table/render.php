@@ -1,4 +1,9 @@
 <?php
+// Turned off in the block settings: nothing is shown, but the content is kept
+if (isset($attributes['active']) && !$attributes['active']) {
+    return;
+}
+
 $title = empty($attributes['title']) ? null : $attributes['title'];
 $headline = empty($attributes['headline']) ? null : $attributes['headline'];
 $items = empty($attributes['items']) ? array() : $attributes['items'];

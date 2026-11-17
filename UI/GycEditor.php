@@ -55,12 +55,8 @@ class GycEditor
         register_block_type($td . '/blocks/page-hero/block.json');
         register_block_type($td . '/blocks/why-give/block.json');
         register_block_type($td . '/blocks/gift-options/block.json');
-        register_block_type($td . '/blocks/call-to-action/block.json');
         register_block_type($td . '/blocks/faq/block.json');
         register_block_type($td . '/blocks/contact-banner/block.json');
-        register_block_type($td . '/blocks/registration-options/block.json');
-        register_block_type($td . '/blocks/whats-included/block.json');
-        register_block_type($td . '/blocks/info-cards/block.json');
         register_block_type($td . '/blocks/image-hero/block.json');
         register_block_type($td . '/blocks/vision/block.json');
         register_block_type($td . '/blocks/vision-statement/block.json');
@@ -73,6 +69,7 @@ class GycEditor
         register_block_type($td . '/blocks/events-overview/block.json');
         register_block_type($td . '/blocks/contact/block.json');
         register_block_type($td . '/blocks/event-modal/block.json');
+        register_block_type($td . '/blocks/countdown/block.json');
     }
 
     public function allowed_block_types($allowed_blocks, $editor_context)
@@ -83,6 +80,7 @@ class GycEditor
         ) {
             return [
                 'gyc/event-hero',
+                'gyc/countdown',
                 'gyc/topics',
                 'gyc/agenda',
                 'gyc/people',

@@ -42,6 +42,10 @@
 			"type": "string",
 			"default": "Volunteer registration"
 		},
+		"formShortcode": {
+			"type": "string",
+			"default": ""
+		},
 		"skills": {
 			"type": "string",
 			"default": "Music\nMedia & design\nVideo & photo\nSocial media\nTeaching\nPrayer ministry\nLogistics\nTranslation\nHospitality\nTech & web"

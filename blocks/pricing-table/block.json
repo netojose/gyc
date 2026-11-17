@@ -9,6 +9,10 @@
 	"description": "Mint registration section with price boxes, one optionally highlighted with a badge",
 	"example": {},
 	"attributes": {
+		"active": {
+			"type": "boolean",
+			"default": true
+		},
 		"title": {
 			"type": "string",
 			"default": "Ready to stand fast?"

@@ -4,7 +4,8 @@ import {
     Panel,
     PanelBody,
     PanelRow,
-    Button
+    Button,
+    ToggleControl
 } from '@wordpress/components';
 import { Text } from '@wordpress/ui';
 
@@ -40,13 +41,19 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-    const { title, headline, text, image, imageAlt, items } = attributes;
+    const { active = true, title, headline, text, image, imageAlt, items } = attributes;
 
     return (
         <div { ...useBlockProps() }>
             <Panel>
-                <PanelBody initialOpen={false} title="Topics">
+                <PanelBody initialOpen={false} title={ active ? 'Topics' : 'Topics (hidden)' }>
                     <div className="gyc-topics-fields-wrapper">
+                        <ToggleControl
+                            label="Show this section"
+                            help={ active ? 'Shown: this section appears on the page.' : 'Hidden: visitors do not see this section. Its content is kept.' }
+                            checked={ !!active }
+                            onChange={ ( newValue ) => setAttributes( { active: newValue } ) }
+                        />
                         <TextControl
                             label="Eyebrow"
                             help="Small text above the headline, e.g. Our mission."

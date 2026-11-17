@@ -78,6 +78,8 @@ $new_tab_note = '<span class="sr-only">(opens in a new tab)</span>';
                         $second_url = empty($event['secondUrl']) ? null : GycUI::resolve_url($event['secondUrl'], false);
                         $has_link = $link_url && !empty($event['linkLabel']);
                         $has_second = $second_url && !empty($event['secondLabel']);
+                        // The main button stays disabled until this date and time (CET); null when not set or already passed
+                        $opens_at = ($has_link && !empty($event['linkOpensAt'])) ? GycUI::opens_at($event['linkOpensAt']) : null;
                         ?>
                         <?php if ($featured): ?>
                             <li
@@ -117,11 +119,25 @@ $new_tab_note = '<span class="sr-only">(opens in a new tab)</span>';
                                     <?php endif; ?>
 
                                     <?php if ($has_link || $has_second): ?>
-                                        <div class="flex flex-wrap gap-3 pt-1">
+                                        <div class="flex flex-wrap items-start gap-3 pt-1">
                                             <?php if ($has_link): ?>
+                                                <?php ob_start(); ?>
                                                 <a <?php echo $link_attrs($link_url); ?> class="inline-flex items-center gap-2 rounded-full bg-gyc-teal px-6 py-3 font-jakarta text-sm font-semibold text-white motion-safe:transition-colors hover:bg-gyc-teal-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-aqua">
                                                     <?php echo esc_html($event['linkLabel']); ?><?php if ($is_external($link_url)) echo $new_tab_note; ?>
                                                 </a>
+                                                <?php $main_link = ob_get_clean(); ?>
+                                                <?php if ($opens_at): ?>
+                                                    <!-- Greyed out until registration opens, with the opening time underneath -->
+                                                    <?php echo GycUI::closed_button(
+                                                        $opens_at,
+                                                        $main_link,
+                                                        $event['linkLabel'],
+                                                        'inline-flex cursor-not-allowed items-center gap-2 rounded-full bg-white/15 px-6 py-3 font-jakarta text-sm font-semibold text-white/60',
+                                                        'pl-1 font-jakarta text-xs text-gyc-aqua'
+                                                    ); ?>
+                                                <?php else: ?>
+                                                    <?php echo $main_link; ?>
+                                                <?php endif; ?>
                                             <?php endif; ?>
                                             <?php if ($has_second): ?>
                                                 <a <?php echo $link_attrs($second_url); ?> class="inline-flex items-center gap-2 rounded-full border border-white/80 px-6 py-3 font-jakarta text-sm font-semibold text-white motion-safe:transition-colors hover:bg-white hover:text-gyc-ink focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-aqua">
@@ -175,11 +191,26 @@ $new_tab_note = '<span class="sr-only">(opens in a new tab)</span>';
                                     <?php endif; ?>
 
                                     <?php if ($has_link): ?>
+                                        <?php ob_start(); ?>
                                         <a <?php echo $link_attrs($link_url); ?> class="group mt-auto inline-flex items-center gap-2 self-start pt-4 font-jakarta text-sm font-semibold text-gyc-teal underline decoration-transparent underline-offset-4 motion-safe:transition-colors hover:decoration-current hover:text-gyc-teal-dark focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gyc-teal">
                                             <?php echo esc_html($event['linkLabel']); ?>
                                             <svg class="h-3.5 w-3.5 motion-safe:transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><?php echo $is_external($link_url) ? $arrow_out : $arrow_right; ?></svg>
                                             <?php if ($is_external($link_url)) echo $new_tab_note; ?>
                                         </a>
+                                        <?php $main_link = ob_get_clean(); ?>
+                                        <?php if ($opens_at): ?>
+                                            <!-- Greyed out until registration opens, with the opening time underneath -->
+                                            <?php echo GycUI::closed_button(
+                                                $opens_at,
+                                                $main_link,
+                                                $event['linkLabel'],
+                                                'cursor-not-allowed font-jakarta text-sm font-semibold text-gyc-ink/40',
+                                                'font-jakarta text-xs text-gyc-ink/70',
+                                                'mt-auto self-start pt-4'
+                                            ); ?>
+                                        <?php else: ?>
+                                            <?php echo $main_link; ?>
+                                        <?php endif; ?>
                                     <?php endif; ?>
                                 </div>
                             </li>

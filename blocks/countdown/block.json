@@ -1,0 +1,64 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/countdown",
+	"version": "0.1.0",
+	"title": "Countdown",
+	"category": "widgets",
+	"icon": "clock",
+	"description": "Countdown to the moment registration opens, with the date, a short text and buttons. Hides itself once that moment has passed",
+	"example": {},
+	"usesContext": [
+		"postId",
+		"postType"
+	],
+	"attributes": {
+		"active": {
+			"type": "boolean",
+			"default": true
+		},
+		"opensAt": {
+			"type": "string",
+			"default": ""
+		},
+		"eyebrow": {
+			"type": "string",
+			"default": "Registration opens in"
+		},
+		"text": {
+			"type": "string",
+			"default": ""
+		},
+		"primaryLabel": {
+			"type": "string",
+			"default": "Add to calendar"
+		},
+		"primaryUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"secondaryLabel": {
+			"type": "string",
+			"default": ""
+		},
+		"secondaryUrl": {
+			"type": "string",
+			"default": ""
+		},
+		"note": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false,
+		"multiple": false
+	},
+	"textdomain": "gyc/countdown",
+	"editorScript": "file:../../build/countdown.js",
+	"editorStyle": "file:./style.css",
+	"render": "file:./render.php"
+}

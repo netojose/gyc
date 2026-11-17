@@ -83,12 +83,12 @@ $add_person = function ($person, $type) use (&$people, &$used_ids, $initials, $g
     return count($people) - 1;
 };
 
-// Main speakers always open a pop-up; workshop speakers only when they have a description or workshop to show
+// Every speaker opens a pop-up; description, talks and workshops are all optional in it
 foreach ($main as $i => $person) {
     $main[$i]['index'] = $add_person($person, __('Main speaker', 'gyc'));
 }
 foreach ($staff as $i => $person) {
-    $staff[$i]['index'] = (empty($person['description']) && count($get_labels($person)) === 0) ? null : $add_person($person, __('Workshop speaker', 'gyc'));
+    $staff[$i]['index'] = $add_person($person, __('Workshop speaker', 'gyc'));
 }
 
 // Main speaker cards share the full width: two or three wide cards, four per row from four speakers on.
@@ -120,7 +120,7 @@ $plus_icon = '<svg class="h-[45%] w-[45%]" viewBox="0 0 20 20" fill="none" strok
 // Location pin in front of the country, so it reads as a place and not as part of the role
 $pin_icon = '<svg class="h-3.5 w-3.5 shrink-0" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 18s6-5.2 6-10a6 6 0 0 0-12 0c0 4.8 6 10 6 10z"/><circle cx="10" cy="8" r="2.2"/></svg>';
 
-// "Tap to open" hint shown above both speaker groups
+// "Tap to open" hint shown next to the section title
 $hint_pill = 'ml-auto inline-flex items-center gap-2 rounded-full border border-gyc-mint/60 py-1 pl-1 pr-3.5 font-jakarta text-xs';
 $hint_circle = '<span class="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gyc-mint text-gyc-plum" aria-hidden="true">' . $plus_icon . '</span>';
 ?>
@@ -203,19 +203,8 @@ $hint_circle = '<span class="flex h-6 w-6 shrink-0 items-center justify-center r
 
         <?php if (count($staff) > 0): ?>
             <div class="<?php echo ($title || $text || count($main) > 0) ? 'mt-12 ' : ''; ?>rounded-2xl border border-gyc-plum/10 bg-white/40 p-6 md:p-8">
-                <?php $staff_has_bio = count(array_filter($staff, fn($p) => $p['index'] !== null)) > 0; ?>
-                <?php if ($staff_title || $staff_has_bio): ?>
-                    <div class="flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
-                        <?php if ($staff_title): ?>
-                            <h3 class="font-display small-caps text-xl leading-tight"><?php echo esc_html($staff_title); ?></h3>
-                        <?php endif; ?>
-                        <?php if ($staff_has_bio): ?>
-                            <p class="<?php echo esc_attr($hint_pill); ?> bg-gyc-plum/5 text-gyc-plum/75">
-                                <?php echo $hint_circle; ?>
-                                <?php esc_html_e('Tap a name to read their bio', 'gyc'); ?>
-                            </p>
-                        <?php endif; ?>
-                    </div>
+                <?php if ($staff_title): ?>
+                    <h3 class="font-display small-caps text-xl leading-tight"><?php echo esc_html($staff_title); ?></h3>
                 <?php endif; ?>
 
                 <ul class="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-4 text-center" role="list">

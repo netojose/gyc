@@ -43,7 +43,7 @@
 					"location": "Katowice, Poland",
 					"text": "Five days of worship, Bible study, seminars and outreach with young Adventists from across Europe.",
 					"linkLabel": "Register",
-					"linkUrl": "/register/",
+					"linkUrl": "#",
 					"secondLabel": "More information",
 					"secondUrl": "/events/demo/"
 				},
@@ -123,6 +123,7 @@
 					"text": { "type": "string" },
 					"linkLabel": { "type": "string" },
 					"linkUrl": { "type": "string" },
+					"linkOpensAt": { "type": "string" },
 					"secondLabel": { "type": "string" },
 					"secondUrl": { "type": "string" }
 				}

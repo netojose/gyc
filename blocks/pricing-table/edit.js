@@ -4,7 +4,8 @@ import {
     Panel,
     PanelBody,
     PanelRow,
-    Button
+    Button,
+    ToggleControl
 } from '@wordpress/components';
 
 /**
@@ -39,13 +40,19 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-    const { title, headline, items, buttonLabel, contactText, contactLinkLabel, contactLinkUrl } = attributes;
+    const { active = true, title, headline, items, buttonLabel, contactText, contactLinkLabel, contactLinkUrl } = attributes;
 
     return (
         <div { ...useBlockProps() }>
             <Panel>
-                <PanelBody initialOpen={false} title="Pricing table">
+                <PanelBody initialOpen={false} title={ active ? 'Pricing table' : 'Pricing table (hidden)' }>
                     <div className="gyc-pricing-table-fields-wrapper">
+                        <ToggleControl
+                            label="Show this section"
+                            help={ active ? 'Shown: this section appears on the page.' : 'Hidden: visitors do not see this section. Its content is kept.' }
+                            checked={ !!active }
+                            onChange={ ( newValue ) => setAttributes( { active: newValue } ) }
+                        />
                         <TextControl
                             label="Title"
                             value={ title || '' }
@@ -82,7 +89,7 @@ export default function Edit({ attributes, setAttributes }) {
 
                         <Panel>
                             <PanelBody initialOpen={false} title="Price boxes">
-                                <p>A box with a badge (e.g. Popular) is highlighted. Links can be full URLs or site paths like /register/.</p>
+                                <p>A box with a badge (e.g. Popular) is highlighted. Links can be full URLs, such as the registration page, or site paths like /faq/.</p>
                                 {items.map(item => (
                                     <PanelRow key={item.id}>
                                         <div className="gyc-pricing-table-fields-wrapper">

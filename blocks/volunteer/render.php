@@ -9,6 +9,12 @@ $recipient = GycVolunteer::recipient($attributes);
 $button_label = empty($attributes['buttonLabel']) ? 'Send application' : $attributes['buttonLabel'];
 $success_message = empty($attributes['successMessage']) ? 'Thank you for signing up!' : $attributes['successMessage'];
 
+// A form from a plugin shortcode replaces the built-in form, but only when the field holds exactly one
+// self-contained shortcode that is registered. Any other text is ignored, so nothing typed around the
+// shortcode reaches the page and visitors never see the raw [shortcode] text
+$form_shortcode = empty($attributes['formShortcode']) ? '' : trim($attributes['formShortcode']);
+$use_shortcode = preg_match('/^\[([\w-]+)(\s[^\[\]<>]*)?\]$/', $form_shortcode, $shortcode_match) && shortcode_exists($shortcode_match[1]);
+
 $skills = empty($attributes['skills']) ? array() : array_values(array_unique(array_filter(array_map('trim', explode("\n", $attributes['skills'])))));
 
 $areas = array_filter($areas, function ($area) {
@@ -70,6 +76,12 @@ $required_mark = '<span class="text-gyc-ink/60" aria-hidden="true"> *</span>';
             <?php if ($form_title): ?>
                 <h2 id="gyc-volunteer-form-title" class="font-display small-caps text-2xl md:text-3xl leading-none"><?php echo esc_html($form_title); ?></h2>
             <?php endif; ?>
+
+            <?php if ($use_shortcode): ?>
+                <div class="mt-6 font-jakarta text-sm text-gyc-ink">
+                    <?php echo do_shortcode($form_shortcode); ?>
+                </div>
+            <?php else: ?>
 
             <?php if ($status): ?>
                 <p
@@ -159,6 +171,7 @@ $required_mark = '<span class="text-gyc-ink/60" aria-hidden="true"> *</span>';
                     </button>
                 </div>
             </form>
+            <?php endif; ?>
         </div>
     </div>
 </section>

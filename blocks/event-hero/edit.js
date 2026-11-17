@@ -28,6 +28,7 @@ import { useBlockProps } from '@wordpress/block-editor';
  * @see https://www.npmjs.com/package/@wordpress/scripts#using-css
  */
 import './editor.scss';
+import OpensAtField from '../../editor/opens-at-field';
 
 /**
  * The edit function describes the structure of your block in the context of the
@@ -38,7 +39,7 @@ import './editor.scss';
  * @return {Element} Element to render.
  */
 export default function Edit({ attributes, setAttributes }) {
-    const { image, eyebrow, title, titleHighlight, tagline, place, dates, details, primaryLabel, primaryUrl, secondaryLabel, secondaryUrl, stats } = attributes;
+    const { image, eyebrow, title, titleHighlight, tagline, place, dates, details, primaryLabel, primaryUrl, primaryOpensAt, secondaryLabel, secondaryUrl, stats } = attributes;
 
     const updateStat = ( id, changes ) => {
         const newStats = stats.map(i => i.id === id ? { ...i, ...changes } : i);
@@ -110,6 +111,11 @@ export default function Edit({ attributes, setAttributes }) {
                             label="First link"
                             value={ primaryUrl || '' }
                             onChange={ ( newValue ) => setAttributes( { primaryUrl: newValue } ) }
+                        />
+                        <OpensAtField
+                            label="First link active from (CET, optional)"
+                            value={ primaryOpensAt }
+                            onChange={ ( newValue ) => setAttributes( { primaryOpensAt: newValue } ) }
                         />
                         <TextControl
                             label="Second link label"
