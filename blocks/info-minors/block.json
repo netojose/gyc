@@ -1,0 +1,54 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/info-minors",
+	"version": "0.1.0",
+	"title": "Info Under 18",
+	"category": "widgets",
+	"icon": "groups",
+	"description": "Participant info: rules for each age group and how chaperones register minors",
+	"example": {},
+	"attributes": {
+		"active": { "type": "boolean", "default": true },
+		"anchorId": { "type": "string", "default": "under-18" },
+		"eyebrow": { "type": "string", "default": "Minors and chaperones" },
+		"title": { "type": "string", "default": "Under 18? Bring a chaperone" },
+		"text": {
+			"type": "string",
+			"default": "GYC Europe is for young people of all ages. If you are under 18, you need a responsible adult with you, and they register first."
+		},
+		"groups": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "ages": "0-6", "unit": "Years", "title": "Free", "text": "Free with a parent or guardian. No registration needed." },
+				{ "id": 2, "ages": "7-13", "unit": "Years", "title": "With a parent", "text": "Must come with a parent or legal guardian." },
+				{ "id": 3, "ages": "14-17", "unit": "Years", "title": "With a chaperone", "text": "Must come with a registered chaperone aged 21 or older." }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": { "type": "number" },
+					"ages": { "type": "string" },
+					"unit": { "type": "string" },
+					"title": { "type": "string" },
+					"text": { "type": "string" }
+				}
+			}
+		},
+		"note": {
+			"type": "string",
+			"default": "How it works: the chaperone registers first, then uses \"Add participant\" to add each minor before paying. Chaperone and minor ticket types must match."
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/info-minors",
+	"editorScript": "file:../../build/info-minors.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

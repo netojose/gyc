@@ -1,0 +1,58 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/info-hero",
+	"version": "0.1.0",
+	"title": "Info Hero",
+	"category": "widgets",
+	"icon": "info-outline",
+	"description": "Participant info intro on purple with a row of icon buttons that jump to the sections below",
+	"example": {},
+	"attributes": {
+		"eyebrow": {
+			"type": "string",
+			"default": "GYC Europe 2027 · Katowice, Poland · 18–22 August"
+		},
+		"title": {
+			"type": "string",
+			"default": "Participant info"
+		},
+		"text": {
+			"type": "string",
+			"default": "Everything you need before you pack your backpack, from registration to getting to Katowice from anywhere in Europe."
+		},
+		"links": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "icon": "ticket", "label": "Registration", "url": "#registration" },
+				{ "id": 2, "icon": "people", "label": "Under 18", "url": "#under-18" },
+				{ "id": 3, "icon": "meal", "label": "Meals", "url": "#meals" },
+				{ "id": 4, "icon": "bed", "label": "Housing", "url": "#housing" },
+				{ "id": 5, "icon": "pin", "label": "Venue", "url": "#venue" },
+				{ "id": 6, "icon": "plane", "label": "Travel", "url": "#travel" },
+				{ "id": 7, "icon": "calendar", "label": "Schedule", "url": "#schedule" },
+				{ "id": 8, "icon": "heart", "label": "Outreach", "url": "#outreach" }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": { "type": "number" },
+					"icon": { "type": "string" },
+					"label": { "type": "string" },
+					"url": { "type": "string" }
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/info-hero",
+	"editorScript": "file:../../build/info-hero.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

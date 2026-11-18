@@ -72,7 +72,7 @@ if ($primary_label && !$primary_url) {
     $calendar_file = sanitize_title($event_title ?: 'event') . '-registration.ics';
 }
 
-$button_classes = 'inline-flex items-center rounded-full px-6 py-3 lg:px-7 font-jakarta text-sm lg:text-[0.9375rem] font-medium motion-safe:transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-mint';
+$button_classes = 'inline-flex items-center rounded-full px-6 py-3 lg:px-7 font-jakarta text-sm lg:text-[0.9375rem] font-semibold motion-safe:transition-colors focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-mint';
 ?>
 <section
     id="countdown"

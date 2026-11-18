@@ -1,0 +1,31 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/info-register-banner",
+	"version": "0.1.0",
+	"title": "Info Register Banner",
+	"category": "widgets",
+	"icon": "tickets",
+	"description": "Mint strip with a label, headline, short text and a register button that can wait for the registration opening time",
+	"example": {},
+	"attributes": {
+		"active": { "type": "boolean", "default": true },
+		"eyebrow": { "type": "string", "default": "Registration opens 30 November" },
+		"title": { "type": "string", "default": "Early bird tickets go fast" },
+		"text": { "type": "string", "default": "Lock in the best price and save your spot in Katowice." },
+		"buttonLabel": { "type": "string", "default": "Register now" },
+		"buttonUrl": { "type": "string", "default": "#" },
+		"buttonOpensAt": { "type": "string", "default": "2026-11-30T10:00" }
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/info-register-banner",
+	"editorScript": "file:../../build/info-register-banner.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

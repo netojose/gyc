@@ -4,6 +4,8 @@
 @source "../**/parts/**/*.php";
 @source "../**/patterns/**/*.php";
 @source "../**/templates/**/*.php";
+/* Shared markup of the Participant Info blocks */
+@source "../../UI/GycInfo.php";
 
 @font-face {
   font-family: PlusJakartaSans;
@@ -39,6 +41,8 @@
     --color-gyc-plum-light: #4f3359;
     --color-gyc-ivory: #feffe9;
     --color-gyc-mist: #efefec;
+    /* Light purple for cards and sections on the Participant Info page */
+    --color-gyc-lilac: #f2edf5;
     --color-gyc-night: #0a141c;
 }
 
@@ -49,4 +53,26 @@
 
 [x-cloak] {
     display: none !important;
+}
+
+/* Register banner: on wider screens the "Opens …" note hangs below the button without
+   adding to its height, so the button itself is centred in the row (GycUI::closed_button markup) */
+@media (width >= 48rem) {
+    .gyc-register-banner-action [data-gyc-closed] {
+        position: relative;
+    }
+
+    .gyc-register-banner-action [data-gyc-closed] > span + span {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        white-space: nowrap;
+    }
+}
+
+/* The Participant Info hero buttons glide to their sections */
+@media (prefers-reduced-motion: no-preference) {
+    html:has(.gyc-info-hero) {
+        scroll-behavior: smooth;
+    }
 }

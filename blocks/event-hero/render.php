@@ -93,7 +93,7 @@ $has_title = $title || $title_highlight;
                 <div class="mt-8 flex flex-wrap items-start gap-4">
                     <?php if ($primary_label && $primary_url): ?>
                         <?php ob_start(); ?>
-                        <a href="<?php echo esc_url($primary_url); ?>" class="inline-flex items-center rounded-full bg-gyc-mint px-6 py-3 lg:px-7 font-jakarta text-sm lg:text-[0.9375rem] font-medium text-gyc-plum motion-safe:transition-colors hover:bg-gyc-mint-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-mint">
+                        <a href="<?php echo esc_url($primary_url); ?>" class="inline-flex items-center rounded-full bg-gyc-mint px-6 py-3 lg:px-7 font-jakarta text-sm lg:text-[0.9375rem] font-semibold text-gyc-plum motion-safe:transition-colors hover:bg-gyc-mint-dark focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-mint">
                             <?php echo esc_html($primary_label); ?>
                         </a>
                         <?php $primary_link = ob_get_clean(); ?>
@@ -103,7 +103,7 @@ $has_title = $title || $title_highlight;
                                 $primary_opens_at,
                                 $primary_link,
                                 $primary_label,
-                                'inline-flex cursor-not-allowed items-center rounded-full bg-white/15 px-6 py-3 lg:px-7 font-jakarta text-sm lg:text-[0.9375rem] font-medium text-white/60',
+                                'inline-flex cursor-not-allowed items-center rounded-full bg-white/15 px-6 py-3 lg:px-7 font-jakarta text-sm lg:text-[0.9375rem] font-semibold text-white/60',
                                 null
                             ); ?>
                         <?php else: ?>
@@ -111,7 +111,7 @@ $has_title = $title || $title_highlight;
                         <?php endif; ?>
                     <?php endif; ?>
                     <?php if ($secondary_label && $secondary_url): ?>
-                        <a href="<?php echo esc_url($secondary_url); ?>" class="inline-flex items-center rounded-full border border-white/60 px-6 py-3 lg:px-7 font-jakarta text-sm lg:text-[0.9375rem] font-medium text-white motion-safe:transition-colors hover:border-white hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-mint">
+                        <a href="<?php echo esc_url($secondary_url); ?>" class="inline-flex items-center rounded-full border border-white/60 px-6 py-3 lg:px-7 font-jakarta text-sm lg:text-[0.9375rem] font-semibold text-white motion-safe:transition-colors hover:border-white hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-mint">
                             <?php echo esc_html($secondary_label); ?>
                         </a>
                     <?php endif; ?>

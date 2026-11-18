@@ -30,7 +30,7 @@ $collage_alt = empty($attributes['collageAlt']) ? '' : $attributes['collageAlt']
             <?php if ($button_label && $button_url): ?>
                 <a
                     href="<?php echo esc_url($button_url); ?>"
-                    class="inline-flex items-center gap-3 rounded-full border-2 border-gyc-teal px-6 py-3 font-jakarta text-xs font-bold uppercase tracking-[0.2em] text-gyc-teal motion-safe:transition-colors hover:bg-gyc-teal hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-teal">
+                    class="inline-flex items-center gap-3 rounded-full border-2 border-gyc-teal px-6 py-3 font-jakarta text-xs font-semibold uppercase tracking-[0.2em] text-gyc-teal motion-safe:transition-colors hover:bg-gyc-teal hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-gyc-teal">
                     <?php echo esc_html($button_label); ?>
                     <svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M13 6l6 6-6 6"></path>

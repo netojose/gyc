@@ -1,0 +1,72 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/info-registration",
+	"version": "0.1.0",
+	"title": "Info Registration",
+	"category": "widgets",
+	"icon": "tickets-alt",
+	"description": "Participant info: ticket prices, extra passes and notes, and a register button",
+	"example": {},
+	"attributes": {
+		"active": { "type": "boolean", "default": true },
+		"anchorId": { "type": "string", "default": "registration" },
+		"eyebrow": { "type": "string", "default": "Event registration" },
+		"title": { "type": "string", "default": "Registration" },
+		"text": {
+			"type": "string",
+			"default": "One ticket covers the full conference, Wednesday to Sunday. Prices go up step by step, so the earlier you register, the less you pay."
+		},
+		"tiers": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "badge": "Best price", "label": "Early bird", "price": "[€ –]", "date": "From 30 November 2026", "note": "Full conference · all sessions · same price for all ages" },
+				{ "id": 2, "badge": "", "label": "Standard", "price": "[€ –]", "date": "From [date]", "note": "Full conference · all sessions · same price for all ages" },
+				{ "id": 3, "badge": "", "label": "Late", "price": "[€ –]", "date": "From [date]", "note": "Full conference · all sessions · same price for all ages" }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": { "type": "number" },
+					"badge": { "type": "string" },
+					"label": { "type": "string" },
+					"price": { "type": "string" },
+					"date": { "type": "string" },
+					"note": { "type": "string" }
+				}
+			}
+		},
+		"extras": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "style": "lilac", "label": "Sabbath-only pass", "value": "Free", "text": "From Friday sunset to Sabbath evening. Meals are not included, but Sabbath meal tickets can be added. [Confirm for 2027]" },
+				{ "id": 2, "style": "lilac", "label": "Stand Fast T-shirt", "value": "[€ –]", "text": "Add it when you register. It costs more at the conference." },
+				{ "id": 3, "style": "white", "label": "Cancellation policy", "value": "", "text": "Registration fees are non-refundable. If you can no longer come, let us know so we can free your place. [Confirm policy]" }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": { "type": "number" },
+					"style": { "type": "string" },
+					"label": { "type": "string" },
+					"value": { "type": "string" },
+					"text": { "type": "string" }
+				}
+			}
+		},
+		"buttonLabel": { "type": "string", "default": "Register now" },
+		"buttonUrl": { "type": "string", "default": "#" },
+		"buttonOpensAt": { "type": "string", "default": "2026-11-30T10:00" }
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/info-registration",
+	"editorScript": "file:../../build/info-registration.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

@@ -1,0 +1,54 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/info-schedule",
+	"version": "0.1.0",
+	"title": "Info Schedule",
+	"category": "widgets",
+	"icon": "calendar-alt",
+	"description": "Participant info: one small card per conference day with what happens, one optionally highlighted",
+	"example": {},
+	"attributes": {
+		"active": { "type": "boolean", "default": true },
+		"anchorId": { "type": "string", "default": "schedule" },
+		"eyebrow": { "type": "string", "default": "Schedule" },
+		"title": { "type": "string", "default": "Five days, one mountain" },
+		"text": {
+			"type": "string",
+			"default": "The full programme and speakers will be published soon. Here is the shape of each day."
+		},
+		"days": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "weekday": "Wed", "date": "18 Aug", "items": "Arrival & registration\nOpening keynote", "highlight": false },
+				{ "id": 2, "weekday": "Thu", "date": "19 Aug", "items": "Devotional · seminars\nPlenary · evening worship", "highlight": false },
+				{ "id": 3, "weekday": "Fri", "date": "20 Aug", "items": "Seminars · outreach prep\nSabbath opening", "highlight": false },
+				{ "id": 4, "weekday": "Sat", "date": "21 Aug", "items": "Sabbath School · Divine Service\nMusic programme · prayer", "highlight": true },
+				{ "id": 5, "weekday": "Sun", "date": "22 Aug", "items": "Final charge\nDeparture", "highlight": false }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": { "type": "number" },
+					"weekday": { "type": "string" },
+					"date": { "type": "string" },
+					"items": { "type": "string" },
+					"highlight": { "type": "boolean" }
+				}
+			}
+		},
+		"linkLabel": { "type": "string", "default": "Full schedule and speakers: coming soon" },
+		"linkUrl": { "type": "string", "default": "" }
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/info-schedule",
+	"editorScript": "file:../../build/info-schedule.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

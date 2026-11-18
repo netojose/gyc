@@ -1,0 +1,121 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/info-outreach",
+	"version": "0.1.0",
+	"title": "Info Outreach",
+	"category": "widgets",
+	"icon": "megaphone",
+	"description": "Participant info: outreach events (e.g. the outreach week before the conference and outreach Sabbath), project cards and a note",
+	"example": {},
+	"attributes": {
+		"active": { "type": "boolean", "default": true },
+		"anchorId": { "type": "string", "default": "outreach" },
+		"eyebrow": { "type": "string", "default": "Outreach" },
+		"title": { "type": "string", "default": "Faith in action: outreach in Katowice" },
+		"text": {
+			"type": "string",
+			"default": "Serve the city with us twice: come early for the outreach week before the conference, or join outreach Sabbath with everyone during the conference. [Confirm]"
+		},
+		"events": {
+			"type": "array",
+			"default": [
+				{
+					"id": 1,
+					"style": "plum",
+					"label": "Before the conference",
+					"title": "Outreach week",
+					"dates": "[11–17 August 2027]",
+					"place": "Katowice and nearby towns [confirm]",
+					"text": "Come a week early and serve with a team of young people and local churches. Mornings of training and worship, afternoons and evenings out in the community.",
+					"items": "Door-to-door visits, health expo and children's programme [confirm]\nAccommodation and meals arranged for the group [confirm]\nSeparate registration: places are limited\nCost: [€ –]",
+					"image": "",
+					"imageAlt": "",
+					"buttonLabel": "Join the outreach week",
+					"buttonUrl": "#",
+					"buttonOpensAt": "2026-11-30T10:00"
+				},
+				{
+					"id": 2,
+					"style": "white",
+					"label": "During the conference",
+					"title": "Outreach Sabbath",
+					"dates": "Sabbath, 21 August 2027",
+					"place": "Across Katowice",
+					"text": "On Sabbath afternoon we leave the venue and serve the city together. Everyone can join, whatever your experience.",
+					"items": "Included in your conference ticket\nChoose your project when you register: places are limited\nTeams leave after lunch [time]",
+					"image": "",
+					"imageAlt": "",
+					"buttonLabel": "See the projects",
+					"buttonUrl": "#outreach-projects",
+					"buttonOpensAt": ""
+				}
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": { "type": "number" },
+					"style": { "type": "string" },
+					"label": { "type": "string" },
+					"title": { "type": "string" },
+					"dates": { "type": "string" },
+					"place": { "type": "string" },
+					"text": { "type": "string" },
+					"items": { "type": "string" },
+					"image": { "type": "string" },
+					"imageAlt": { "type": "string" },
+					"buttonLabel": { "type": "string" },
+					"buttonUrl": { "type": "string" },
+					"buttonOpensAt": { "type": "string" }
+				}
+			}
+		},
+		"projectsTitle": { "type": "string", "default": "Outreach Sabbath projects" },
+		"projectsText": {
+			"type": "string",
+			"default": "Choose your project when you register on the registration portal; places in each team are limited. [Confirm]"
+		},
+		"projectsButtonLabel": { "type": "string", "default": "Register for a project" },
+		"projectsButtonUrl": { "type": "string", "default": "#" },
+		"projectsButtonOpensAt": { "type": "string", "default": "" },
+		"projects": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "icon": "statue", "title": "Statue from Daniel", "text": "Show people a portrait of the statue from Daniel 2, ask what it means to them, and invite the curious to a seminar. No experience needed.", "tag": "Bring: Comfortable shoes" },
+				{ "id": 2, "icon": "helping-hands", "title": "How can we help Survey", "text": "Ask people what help they need, from gardening and cooking to natural remedies or Bible study, and offer real support.", "tag": "Bring: Charged phone" },
+				{ "id": 3, "icon": "dove", "title": "Religious Liberty Survey", "text": "Talk with people about freedom of belief using a short survey.", "tag": "Bring: Charged phone" },
+				{ "id": 4, "icon": "music", "title": "Singing", "text": "Sing in squares and streets and invite people to the evening programme.", "tag": "Bring: Water" },
+				{ "id": 5, "icon": "chat", "title": "Tracts Distribution & Pathfinder Club Flyer Distribution", "text": "Hand out tracts and invite families to the local Pathfinder Club.", "tag": "Bring: Comfortable shoes, water" },
+				{ "id": 6, "icon": "book", "title": "Books Distribution", "text": "Share books and invitations across the city in teams.", "tag": "Bring: Comfortable shoes, water" },
+				{ "id": 7, "icon": "walk", "title": "Prayer Walk", "text": "Walk the city in small groups and pray for the people of Katowice.", "tag": "Bring: Comfortable shoes" },
+				{ "id": 8, "icon": "house", "title": "Prayer Room", "text": "Pray for the teams in the city and for the people they meet.", "tag": "Bring: Your Bible" }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": { "type": "number" },
+					"icon": { "type": "string" },
+					"iconImage": { "type": "string" },
+					"title": { "type": "string" },
+					"text": { "type": "string" },
+					"tag": { "type": "string" }
+				}
+			}
+		},
+		"note": {
+			"type": "string",
+			"default": "Under 18? Join an outreach team together with your chaperone. [Confirm]"
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/info-outreach",
+	"editorScript": "file:../../build/info-outreach.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

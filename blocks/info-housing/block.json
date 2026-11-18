@@ -1,0 +1,70 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/info-housing",
+	"version": "0.1.0",
+	"title": "Info Housing",
+	"category": "widgets",
+	"icon": "building",
+	"description": "Participant info: hotel cards with photo, distance and room price, and short booking tips",
+	"example": {},
+	"attributes": {
+		"active": { "type": "boolean", "default": true },
+		"anchorId": { "type": "string", "default": "housing" },
+		"eyebrow": { "type": "string", "default": "Housing" },
+		"title": { "type": "string", "default": "Where you will sleep" },
+		"text": {
+			"type": "string",
+			"default": "We have negotiated group rates at hotels close to the venue. Rooms fit up to 4 people: find your roommates, and one person books and pays for the room."
+		},
+		"hotels": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "image": "", "imageAlt": "", "name": "[Hotel name]", "subtitle": "[Distance] min walk to the venue", "price": "[€ –]", "unit": "/ room / night · up to 4 people", "note": "Check-in [15:00] · Check-out [11:00]", "url": "" },
+				{ "id": 2, "image": "", "imageAlt": "", "name": "[Hotel name]", "subtitle": "[Distance] min walk to the venue", "price": "[€ –]", "unit": "/ room / night · up to 4 people", "note": "Check-in [15:00] · Check-out [11:00]", "url": "" },
+				{ "id": 3, "image": "", "imageAlt": "", "name": "Budget / hostel option", "subtitle": "For students on a smaller budget", "price": "[€ –]", "unit": "/ room / night · up to 4 people", "note": "Check-in [15:00] · Check-out [11:00]", "url": "" }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": { "type": "number" },
+					"image": { "type": "string" },
+					"imageAlt": { "type": "string" },
+					"name": { "type": "string" },
+					"subtitle": { "type": "string" },
+					"price": { "type": "string" },
+					"unit": { "type": "string" },
+					"note": { "type": "string" },
+					"url": { "type": "string" }
+				}
+			}
+		},
+		"tips": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "title": "Book early", "text": "Group rates are first come, first served. Booking window: [dates]." },
+				{ "id": 2, "title": "Deposit", "text": "One night is guaranteed with a card; free cancellation up to 24 h before arrival." },
+				{ "id": 3, "title": "Roommates", "text": "Coming alone? Post in the GYC Europe community chat to find roommates." }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": { "type": "number" },
+					"title": { "type": "string" },
+					"text": { "type": "string" }
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/info-housing",
+	"editorScript": "file:../../build/info-housing.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

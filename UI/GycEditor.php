@@ -70,6 +70,15 @@ class GycEditor
         register_block_type($td . '/blocks/contact/block.json');
         register_block_type($td . '/blocks/event-modal/block.json');
         register_block_type($td . '/blocks/countdown/block.json');
+        register_block_type($td . '/blocks/info-hero/block.json');
+        register_block_type($td . '/blocks/info-registration/block.json');
+        register_block_type($td . '/blocks/info-minors/block.json');
+        register_block_type($td . '/blocks/info-cards/block.json');
+        register_block_type($td . '/blocks/info-housing/block.json');
+        register_block_type($td . '/blocks/info-venue/block.json');
+        register_block_type($td . '/blocks/info-schedule/block.json');
+        register_block_type($td . '/blocks/info-outreach/block.json');
+        register_block_type($td . '/blocks/info-register-banner/block.json');
     }
 
     public function allowed_block_types($allowed_blocks, $editor_context)

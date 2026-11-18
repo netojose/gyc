@@ -1,0 +1,72 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/info-cards",
+	"version": "0.1.0",
+	"title": "Info Cards",
+	"category": "widgets",
+	"icon": "grid-view",
+	"description": "Participant info section with icon cards (bullet points or text) and an optional row of wider cards. Used for Meals, Travel and Outreach",
+	"example": {},
+	"attributes": {
+		"active": { "type": "boolean", "default": true },
+		"anchorId": { "type": "string", "default": "meals" },
+		"background": { "type": "string", "default": "lilac" },
+		"iconColor": { "type": "string", "default": "mint" },
+		"eyebrow": { "type": "string", "default": "Meals" },
+		"title": { "type": "string", "default": "Good food, fully plant-based" },
+		"text": {
+			"type": "string",
+			"default": "All meals at GYC Europe are vegetarian, with vegan options. Meal tickets are limited, so book them together with your registration."
+		},
+		"cards": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "style": "white", "icon": "meal", "title": "Meal plan", "items": "Breakfast and lunch, Thursday to Sunday [confirm]\nBook with your registration: limited places\nPrice per day: [€ —]", "text": "", "linkLabel": "", "linkUrl": "" },
+				{ "id": 2, "style": "white", "icon": "leaf", "title": "Allergies and diets", "items": "Tell us about allergies when you register\nGluten-free options are limited: bring snacks if you are unsure\nFree drinking water at the venue: bring your bottle", "text": "", "linkLabel": "", "linkUrl": "" },
+				{ "id": 3, "style": "plum", "icon": "pin", "title": "Eating out in Katowice", "items": "", "text": "A short list of vegetarian and vegan places near the venue for dinner with your friends. [Add link]", "linkLabel": "", "linkUrl": "" }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": { "type": "number" },
+					"style": { "type": "string" },
+					"icon": { "type": "string" },
+					"title": { "type": "string" },
+					"items": { "type": "string" },
+					"text": { "type": "string" },
+					"linkLabel": { "type": "string" },
+					"linkUrl": { "type": "string" }
+				}
+			}
+		},
+		"wideCards": {
+			"type": "array",
+			"default": [],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": { "type": "number" },
+					"style": { "type": "string" },
+					"icon": { "type": "string" },
+					"title": { "type": "string" },
+					"items": { "type": "string" },
+					"text": { "type": "string" },
+					"linkLabel": { "type": "string" },
+					"linkUrl": { "type": "string" }
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/info-cards",
+	"editorScript": "file:../../build/info-cards.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}

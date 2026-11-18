@@ -10,6 +10,7 @@
 | Volunteer | http://localhost/gyc-main/volunteer/ | `page-volunteer.html` | `gyc/image-hero`, `gyc/volunteer` (ways to volunteer, application form) |
 | Donate | http://localhost/gyc-main/donate/ | `page-donate.html` | `gyc/hero`, `gyc/why-give` (gift amounts, donation button), `gyc/gift-options` (other ways to give) |
 | FAQ | http://localhost/gyc-main/faq/ | `page-faq.html` | `gyc/page-hero` (with search), `gyc/faq`, `gyc/contact-banner` (mint style, as the FAQ is an event page) |
+| Participant info | http://localhost/gyc-main/participants-info/ | `page-participants-info.html` | `gyc/info-hero` (with section buttons), `gyc/info-registration`, `gyc/info-minors`, `gyc/info-cards` (Meals), `gyc/info-housing`, `gyc/info-venue` (with Google map), `gyc/info-cards` (Travel), `gyc/info-schedule`, `gyc/info-outreach`, `gyc/info-register-banner` |
 | Events overview | http://localhost/gyc-main/events/ (filtered: `?organizer=europe` or `?organizer=focus`) | `page-events.html` | `gyc/image-hero`, `gyc/events-overview` |
 | Single event | http://localhost/gyc-main/events/demo/ (or `?post_type=event&p=18`, which redirects there) | `single-event.html` | Stored in each event: `gyc/event-hero` (once), `gyc/countdown`, `gyc/topics`, `gyc/agenda`, `gyc/people`, `gyc/pricing-table` |
 | Events archive | http://localhost/gyc-main/events/archive/ | Not built yet (`archive-event.html`); shows "Coming soon" from `index.html` | – |
@@ -37,7 +38,7 @@ During development, run `start:blocks`, `start:theme` and `start:js` side by sid
 ## 3. Setting it up in WordPress
 
 1. **Activate the theme** in Appearance → Themes.
-2. **Create each inner page** in Pages → Add new with the slug from the table above (`about-us`, `contact-us`, `volunteer`, `donate`, `faq`, `events`) and publish it. Its content can stay empty: the template supplies the layout. Edit the sections in Appearance → Editor → Templates → Page: <name>. **Keep the slug**: if it changes, the template no longer applies (or rename the template file to match). The home page needs no page: `front-page.html` is always used, whatever Settings → Reading says.
+2. **Create each inner page** in Pages → Add new with the slug from the table above (`about-us`, `contact-us`, `volunteer`, `donate`, `faq`, `events`, `participants-info`) and publish it. Its content can stay empty: the template supplies the layout. Edit the sections in Appearance → Editor → Templates → Page: <name>. **Keep the slug**: if it changes, the template no longer applies (or rename the template file to match). The home page needs no page: `front-page.html` is always used, whatever Settings → Reading says.
 3. **Header and footer:** Appearance → Editor → Patterns → Template parts → Header or Footer.
 4. **After deploying, go to Settings → Permalinks and click Save** (no changes needed), so `/events/archive/` and `/events/<slug>/` work.
 5. Work through the **Before launch** checklist in section 7.
@@ -101,6 +102,25 @@ Appearance → Editor → Templates → Front Page. Click a section and fill in 
 - Each FAQ category is its own sidebar panel; questions and categories can be added, removed and renamed. Answers keep line breaks and accept HTML links (`<a href="...">`).
 - **Search** is the Page Hero's **Show search** setting. It filters the FAQ block on the same page, so only turn it on there. Without JavaScript it is hidden and all questions show.
 - The Contact Banner's "Contact us" links to `/contact-us/`. `gyc/page-hero` can be reused on other inner pages.
+
+### Participant info
+
+- Not in the header menu yet; add a menu item to `/participants-info/` if it should be. The design uses the **dark header and footer**, so switch that on in the page's sidebar.
+- **Section buttons:** the hero's eight buttons (**Section buttons** in Info Hero) jump to the sections below and glide there unless the visitor has reduced motion switched on. Each links to `#` plus a section's **Section ID** (`registration`, `under-18`, `meals`, `housing`, `venue`, `travel`, `schedule`, `outreach`). If you change a Section ID, change its button too. Buttons can be added, removed, reordered and given another icon. From 1024px they sit in one row; smaller screens show four per row.
+- **Hiding sections:** each section has **Show this section**; its panel title then ends in "(hidden)". Remove or relink its hero button as well.
+- **Info Cards** is used twice (Meals, Travel) and can be added again for other topics. Each has a background, three-per-row cards and optional wide cards (two per row) in white, purple or mint. Bullet points are typed one per line.
+- **Registration:** the price with a badge (e.g. "Best price") is purple. Prices are shown as typed, so include the € sign. **Button active from (CET)** (30 November 2026, 10:00 by default) keeps "Register now" greyed out with "Opens 30 November 2026, 10:00 CET" under it until then, and switches it on by itself, as on events (see **Registration opening time**). It isn't linked to any event, so set it here too.
+- **Housing:** until a hotel photo is set, a grey box with a bed icon is shown. With a **Booking link**, the hotel name links to it.
+- **Venue map:** in Google Maps, find the venue, then click **Share → Embed a map → Copy HTML**, and paste it into Info Venue → Venue and map → **Google Maps embed** (the whole `<iframe>` code, or only its `src`). Only Google Maps addresses are embedded; anything else is ignored and the sidebar shows a warning. Without it, no map is shown. **Open in Google Maps** and **Get directions** open in a new tab and search for the venue name and address unless they have their own links.
+- **Outreach** (Info Outreach) has three optional parts. Every empty field or part is left out, so it can grow as the plans are confirmed:
+  - **Outreach events:** large cards, two per row (a single one fills the width). By default there are the purple *Outreach week* (before the conference) and the white *Outreach Sabbath* (during the conference). Each has a colour, small label, title, dates, place, text, bullet points (one per line), an optional photo and a button. The button can wait for an opening time, like the register buttons. Add more events for other outreach activities.
+  - **Projects:** a title, a short text and cards (four per row, as many rows as needed) with an icon, title, text and an optional tag such as "Bring: Your Bible", lined up along the bottom of each row. The cards have no buttons: participants choose their project on the external registration portal, which the **Register for a project** button centred at the end of the section, after the note, links to (Projects panel: label, link and an optional opening time; it opens in a new tab, and an empty label or link hides it).
+  - **Adding, changing and removing activities:** Appearance → Editor → Templates → Page: Participant info → click the Outreach section → **Project cards** in the sidebar (outreach events work the same under **Outreach events**). **Add project** adds a card at the end; **Move up / Move down** reorders; **Remove project** deletes it. Save the template afterwards.
+  - **Icons:** pick one from **Icon** (None hides it). If none fits, upload your own to the Media Library and paste its File URL into **Own icon image URL**, which replaces the chosen icon. Use a square PNG with a transparent background in dark purple (#2d1b33), at least 96 × 96 px, so it matches the other icons on the mint square (WordPress doesn't accept SVG uploads by default).
+  - The eight Sabbath projects have draft descriptions and "Bring:" tags to check. Buttons can jump here with `#outreach-projects` (the Section ID plus `-projects`); "See the projects" does this by default.
+  - **Note:** a mint box at the bottom.
+  - The copy for the outreach week and the Sabbath intro is a placeholder; the projects come from the design.
+- **Register banner** (Info Register Banner): the mint strip at the end with label, title, text and a register button. Like Registration, the button is greyed out until **Button active from (CET)** (30 November 2026, 10:00) and isn't linked to other sections, so set its time and link separately.
 
 ### Events overview
 
@@ -201,6 +221,7 @@ Placeholders (`#` or sample content) still to replace:
 - [ ] **Demo event:** the Countdown's Instagram link (second button).
 - [ ] **FAQ:** every answer says "Answer coming soon."
 - [ ] **About Us:** the committee ("Full name", "Country" with the eight roles) and all photos (Vision ×3, Vision Statement, Mission cards, Committee; Image Hero optional).
+- [ ] **Participant info:** every `[…]` placeholder (prices, dates, hotels, venue, travel times), the Google Maps embed, hotel photos, the register button links (`#` in Registration, the Register banner, "Join the outreach week" and "Register for a project"), each outreach project's description, and the Outreach copy.
 - [ ] **Home:** both Community images (map and collage) and the video's **Link URL**.
 - [ ] **Donate:** hero photo.
 - [ ] **Default images** pointing to other websites (e.g. the logo on gyceurope.org): replace with Media Library URLs.

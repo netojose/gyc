@@ -1,0 +1,59 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "gyc/info-venue",
+	"version": "0.1.0",
+	"title": "Info Venue",
+	"category": "widgets",
+	"icon": "location-alt",
+	"description": "Participant info on purple: the venue with an embedded Google map and Maps links, next to cards with ways to serve",
+	"example": {},
+	"attributes": {
+		"active": { "type": "boolean", "default": true },
+		"anchorId": { "type": "string", "default": "venue" },
+		"eyebrow": { "type": "string", "default": "Conference" },
+		"title": { "type": "string", "default": "Where it happens and how to serve" },
+		"text": { "type": "string", "default": "" },
+		"venueLabel": { "type": "string", "default": "Venue" },
+		"venueName": { "type": "string", "default": "[Venue name]" },
+		"address": { "type": "string", "default": "[Street address], Katowice, Poland" },
+		"mapEmbed": { "type": "string", "default": "" },
+		"mapsLabel": { "type": "string", "default": "Open in Google Maps" },
+		"mapsUrl": { "type": "string", "default": "" },
+		"directionsLabel": { "type": "string", "default": "Get directions" },
+		"directionsUrl": { "type": "string", "default": "" },
+		"mapNote": {
+			"type": "string",
+			"default": "Tap the map to move and zoom around Katowice. Directions open in your Google Maps app."
+		},
+		"cards": {
+			"type": "array",
+			"default": [
+				{ "id": 1, "icon": "music", "title": "Music", "text": "Sing or play in the choir, orchestra, song service or special music. Musicians from all over Europe are welcome.", "linkLabel": "Apply to serve in music", "linkUrl": "/volunteer/" },
+				{ "id": 2, "icon": "heart", "title": "Volunteer", "text": "Greeters, ushers, room hosts, hospitality, merchandise and more. Serve, make friends, and see GYC from behind the scenes.", "linkLabel": "Become a volunteer", "linkUrl": "/volunteer/" }
+			],
+			"items": {
+				"type": "object",
+				"properties": {
+					"id": { "type": "number" },
+					"icon": { "type": "string" },
+					"title": { "type": "string" },
+					"text": { "type": "string" },
+					"linkLabel": { "type": "string" },
+					"linkUrl": { "type": "string" }
+				}
+			}
+		}
+	},
+	"supports": {
+		"html": false,
+		"anchor": false,
+		"customClassName": false,
+		"customCSS": false
+	},
+	"textdomain": "gyc/info-venue",
+	"editorScript": "file:../../build/info-venue.js",
+	"editorStyle": "file:./style.css",
+	"viewScript": "file:./view.js",
+	"render": "file:./render.php"
+}
