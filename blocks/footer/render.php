@@ -126,15 +126,3 @@ $link_class = 'underline decoration-transparent underline-offset-4 motion-safe:t
         <?php endif; ?>
     </div>
 </footer>
-<button
-    type="button"
-    x-data="gycBackToTop"
-    x-cloak
-    x-show="visible"
-    x-transition.opacity.duration.200ms
-    @click="scrollUp"
-    :style="borderStyle"
-    class="fixed bottom-5 right-5 md:bottom-8 md:right-8 z-40 flex h-12 w-12 items-center justify-center rounded-full border-white bg-gyc-plum text-white shadow-lg shadow-gyc-plum/25 hover:bg-gyc-plum-mid motion-safe:transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gyc-teal">
-    <span class="sr-only">Back to top</span>
-    <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5M5.5 11.5L12 5l6.5 6.5"/></svg>
-</button>

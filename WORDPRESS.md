@@ -61,6 +61,7 @@ Appearance → Editor → Templates → Front Page. Click a section and fill in 
 - **Header button:** hidden because its label is empty in `parts/header.html`; type a label to show it (its link defaults to `#`). Social links live in the footer's Connect column and on the Contact page.
 - **Dark header and footer:** per page or event, in the editor's **Page** tab → **Header and footer → Dark header and footer**. Pages start light (switch it on for the FAQ page, which is dark in the design); events start dark.
 - **Newsletter:** off by default. Filling in its title, text or **Form action** adds a row below the link columns; the form itself appears only once **Form action** is set. For Mailchimp, use the embedded form's `action` URL and the field name `EMAIL`.
+- **Back-to-top button:** not part of the theme. The live site already gets one from outside the theme (a plugin or the host), and a second one in the footer showed two, so don't add it back to `gyc/footer`.
 
 ### About Us
 
